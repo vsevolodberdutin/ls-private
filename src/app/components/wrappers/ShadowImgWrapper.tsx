@@ -1,4 +1,4 @@
-import { CardHeader, CardSubHeader } from '@/uiElements/Typograghy'
+import { CardHeader, CardSubHeader } from '@/app/uiElements/Typograghy'
 import React from 'react'
 
 export interface ShadowImgProps {

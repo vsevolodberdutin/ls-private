@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <div className="">
       <a
-        className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+        className=""
         href="https://livesocionics.ru/"
         target="_blank"
         rel="noopener noreferrer"
@@ -14,8 +14,8 @@ const Logo = () => {
           src="/ls_logo.svg"
           alt="logo"
           className=""
-          width={220}
-          height={100}
+          width={180}
+          height={60}
           priority
         />
       </a>
