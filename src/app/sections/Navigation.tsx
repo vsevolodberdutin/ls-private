@@ -5,11 +5,11 @@ import {
   TelegramBtn,
   ViberBtn,
   WhatsappBtn,
-} from '@/app/uiElements/ContactButton'
+} from '@/app/uiElements/buttons/ContactButton'
 
 const Navigation = () => {
   return (
-    <div className="bg-red-400 mb-24 py-2 px-8 w-[100vw] flex items-center justify-between opacity-60 ">
+    <div className="bg-red-400 mb-24 py-2 px-8 w-[100vw] flex items-center justify-between opacity-60 absolute">
       <Logo />
       <div className="flex space-x-2">
         <WhatsappBtn />

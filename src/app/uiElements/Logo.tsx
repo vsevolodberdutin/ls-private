@@ -14,8 +14,8 @@ const Logo = () => {
           src="/ls_logo.svg"
           alt="logo"
           className=""
-          width={180}
-          height={60}
+          width={170}
+          height={50}
           priority
         />
       </a>
