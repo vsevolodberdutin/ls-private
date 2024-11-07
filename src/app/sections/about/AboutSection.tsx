@@ -1,15 +1,9 @@
 import React from 'react'
-import {
-  BlockHeader,
-  CardHeader,
-  Header,
-} from '@/app/uiElements/typography/Typograghy'
 import * as about from '@/data/about.json'
-import { BlockItem, CardItem } from '@/app/components/CardItem'
 import Image from 'next/image'
 
-const AboutPage = () => (
-  <div className="page flex min-h-screen flex-col items-center">
+const AboutSection = () => (
+  <section className="flex min-h-screen flex-col items-center">
     <aside className=" border-l-4 border-orange-700 bg-orange-200 p-4 rounded-xl relative">
       <div className=" rounded-full bg-white p-2 w-fit absolute -top-[25px] -left-[30px]">
         <svg
@@ -49,9 +43,6 @@ const AboutPage = () => (
     </aside>
 
     <div className="w-screen h-fit flex flex-col items-center">
-      {/* <BlockItem id={''} title={about.subtitle1} subtitle={''}></BlockItem>
-      <BlockItem id={''} title={about.subtitle2} subtitle={''}></BlockItem>
-      <BlockItem id={''} title={about.subtitle3} subtitle={''}></BlockItem> */}
       <div className="flex flex-col w-[50vw]">
         <div className="overflow-x-auto">
           <table className="table-auto min-w-full">
@@ -107,7 +98,7 @@ const AboutPage = () => (
         ))}
       </div>
     </div>
-  </div>
+  </section>
 )
 
-export default AboutPage
+export default AboutSection

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const size = 32
+const size = 24
 
 export const WhatsappBtn = () => {
   return (

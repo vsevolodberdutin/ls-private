@@ -23,7 +23,7 @@ main {
   background: linear-gradient(to bottom, transparent, var(--background-end-rgb))
     var(--background-start-rgb);
 }
-.page {
+section {
   background: linear-gradient(
       to bottom,
       transparent,
