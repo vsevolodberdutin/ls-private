@@ -6,5 +6,5 @@ export interface MenuWrapperProps {
 }
 
 export const MenuWrapper: React.FC<MenuWrapperProps> = ({ children }) => (
-  <div className="grid h-fit w-fit grid-cols-1 md:grid-cols-2 gap-2">{children}</div>
+  <div className="h-fit w-fit grid grid-cols-1 md:grid-cols-2 gap-2">{children}</div>
 )

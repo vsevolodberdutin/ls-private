@@ -12,7 +12,8 @@
     "next": "14.0.4",
     "prettier": "^3.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tw-elements": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

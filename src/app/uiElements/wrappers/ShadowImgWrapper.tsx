@@ -5,7 +5,7 @@ export interface ShadowImgProps {
   children: any
 }
 
-const generalStyle = 'relative place-items-center z-10 hidden lg:flex pt-28'
+const generalStyle = 'relative place-items-start mt-[130px] z-10 hidden lg:grid'
 const whiteShadowStyle =
   "before:absolute before:h-[1300px] before:w-[700px] before:-translate-x-1/4 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-['']"
 const blueShadowStyle =

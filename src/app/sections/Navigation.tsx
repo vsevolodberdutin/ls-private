@@ -8,9 +8,9 @@ import {
 
 const Navigation = () => {
   return (
-    <header className="bg-red-400 mb-24 py-2 px-3 lg:px-8 w-[100vw] flex items-center justify-between opacity-60 absolute z-10">
+    <header className="bg-red-400 py-2 px-3 lg:px-8 w-svw flex items-center justify-between opacity-60 absolute z-10">
       <Logo />
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 r-10">
         <WhatsappBtn />
         <ViberBtn />
         <TelegramBtn />

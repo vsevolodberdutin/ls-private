@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: #ffd9aa;
   --background-end-rgb: #f78e74;
+  -webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,12 +21,24 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow: hidden;
 }
 main {
   background: linear-gradient(to bottom, transparent, var(--background-end-rgb))
     var(--background-start-rgb);
 }
-section {
+section-even {
+  background-color: var(--background-end-rgb);
+}
+.scroll-container {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+section{
   background: linear-gradient(
       to bottom,
       transparent,

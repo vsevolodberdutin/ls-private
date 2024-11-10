@@ -11,7 +11,7 @@ export const WhatsappBtn = () => {
       aria-label="What’s App"
       className="rounded-full p-2 hover:shadow-slate-500 hover:bg-green-300  border-[1px] focus:outline-none focus:ring border-slate transition-all duration-300"
     >
-      <img
+      <Image
         className=""
         src="/whatsapp.svg"
         alt="whatsapp"
