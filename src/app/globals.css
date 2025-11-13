@@ -27,8 +27,20 @@ main {
   background: linear-gradient(to bottom, transparent, var(--background-end-rgb))
     var(--background-start-rgb);
 }
-section-even {
+.section-flat {
   background-color: var(--background-end-rgb);
+}
+.section-odd {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--background-start-rgb)
+    )
+    var(--background-end-rgb);
+}
+.section-even {
+  background: linear-gradient(to bottom, transparent, var(--background-end-rgb))
+    var(--background-start-rgb);
 }
 .scroll-container {
   overflow-y: auto;
@@ -37,12 +49,4 @@ section-even {
 
 .scroll-container::-webkit-scrollbar {
   display: none;
-}
-section{
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      var(--background-start-rgb)
-    )
-    var(--background-end-rgb);
 }

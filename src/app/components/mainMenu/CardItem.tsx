@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  CardHeader,
-  CardSubHeader,
-} from '@/app/uiElements/typography/Typography'
+import { CardHeader, CardSubHeader } from '@/app/uiElements/Typography'
 
 export interface MenuItemProps {
   id: string

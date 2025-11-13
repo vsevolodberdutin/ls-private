@@ -6,11 +6,11 @@ import {
   EducationBlock,
   IntroductionBlock,
   PublicationBlock,
-} from '@/app/components/aboutBlocks/AboutBlocks'
+} from '@/app/components/AboutBlocks'
 
 const AboutSection = () => {
   return (
-    <section className="flex min-h-screen w-svw flex-col items-center">
+    <section className="flex min-h-screen w-svw flex-col items-center section-odd">
       <div className="w-screen h-fit flex flex-col items-center">
         <IntroductionBlock />
         <EducationBlock />

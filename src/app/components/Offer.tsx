@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Header, SubHeader } from '@/app/uiElements/typography/Typography'
+import { Header, SubHeader } from '@/app/uiElements/Typography'
 import * as homepageTypography from '@/data/homepage-typography.json'
 
 export const Offer: React.FC = () => (
