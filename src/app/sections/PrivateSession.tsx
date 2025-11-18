@@ -5,7 +5,13 @@ import { CONTACTS, PRICING } from '@/constants/contacts'
 
 const PrivateSession: React.FC = () => {
   return (
-    <section className="section-even py-12">
+    <section id="private" className="section-even py-12">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">Личная сессия</h2>
+        <p className="text-sm text-gray-600 max-w-3xl mx-auto px-4">
+          Разберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности
+        </p>
+      </div>
       <SectionWrapper>
         {/* Pricing Card */}
         <div className="flex-1 bg-white/60 backdrop-blur-xl p-6 mx-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">

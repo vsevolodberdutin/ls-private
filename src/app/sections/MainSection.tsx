@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Offer } from '@/app/components/Offer'
 import { MainPicture, MobileMainPicture } from '@/app/components/MainPicture'

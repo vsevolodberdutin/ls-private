@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { CardItem } from '@/app/components/mainMenu/CardItem'
 import { MenuWrapper } from '@/app/uiElements/wrappers/MenuWrapper'
