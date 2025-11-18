@@ -5,6 +5,7 @@ import FamilySection from './sections/FamilySection'
 import SchoolSection from './sections/SchoolSection'
 import TeachingSection from './sections/TeachingSection'
 import PrivateSession from './sections/PrivateSession'
+import Footer from './sections/Footer'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <TeachingSection />
       <FamilySection />
       <SchoolSection />
+      <Footer />
     </div>
   )
 }
