@@ -1,12 +1,12 @@
 import React from 'react'
 import { CardItem } from '@/app/components/mainMenu/CardItem'
 import { MenuWrapper } from '@/app/uiElements/wrappers/MenuWrapper'
-import * as products from '@/data/products.json'
+import { PRODUCTS } from '@/constants/products'
 
 const MainMenu = () => {
   return (
     <MenuWrapper>
-      {products.map((item) => (
+      {PRODUCTS.map((item) => (
         <CardItem
           key={item.id}
           id={item.id}

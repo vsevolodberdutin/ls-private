@@ -1,8 +1,9 @@
 import React from 'react'
 import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
-import { Sparkles, Heart, Users, Waves, Briefcase } from 'lucide-react'
+import { Sparkles, Heart, Waves, Briefcase } from 'lucide-react'
+import { CONTACTS, PRICING } from '@/constants/contacts'
 
-const PrivateSession = () => {
+const PrivateSession: React.FC = () => {
   return (
     <section className="section-even py-12">
       <SectionWrapper>
@@ -13,16 +14,15 @@ const PrivateSession = () => {
           </h3>
           <ul className="space-y-3 text-sm text-gray-800 leading-relaxed">
             <li>
-              <strong>Online</strong>  —{' '}
-              <strong>10 000 ₽</strong>
+              <strong>{PRICING.online.label}</strong> — <strong>{PRICING.online.formatted}</strong>
             </li>
             <li>
-              <strong>Личная встреча</strong> (Москва/Нижний Новгород) —{' '}
-              <strong>15 000 ₽</strong>
+              <strong>{PRICING.inPerson.label}</strong> ({PRICING.inPerson.locations}) —{' '}
+              <strong>{PRICING.inPerson.formatted}</strong>
             </li>
             <li>
-             <strong>Личная встреча</strong> (другие города) —{' '}
-              <strong>от 50 000 ₽</strong>
+              <strong>{PRICING.otherCities.label}</strong> ({PRICING.otherCities.locations}) —{' '}
+              <strong>{PRICING.otherCities.formatted}</strong>
             </li>
           </ul>
           <p className="text-xs text-gray-500 mt-4">
@@ -63,24 +63,30 @@ const PrivateSession = () => {
       </SectionWrapper>
 
       {/* Contact Buttons */}
-      <div className="mt-8 flex flex-wrap gap-4 items-center">
+      <div className="mt-8 flex flex-wrap gap-4 items-center justify-center">
         <a
-          href="viber://chat?number=%2B79103811250"
-          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm"
+          href={CONTACTS.viber.url}
+          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
+          aria-label={`Связаться через ${CONTACTS.viber.label}`}
+          rel="noopener noreferrer"
         >
-          Viber
+          {CONTACTS.viber.label}
         </a>
         <a
-          href="whatsapp://send?phone=79103811250&text="
-          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm"
+          href={CONTACTS.whatsapp.url}
+          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
+          aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
+          rel="noopener noreferrer"
         >
-          WhatsApp
+          {CONTACTS.whatsapp.label}
         </a>
         <a
-          href="tg://resolve?domain=eleanor_live"
-          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm"
+          href={CONTACTS.telegram.url}
+          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
+          aria-label={`Связаться через ${CONTACTS.telegram.label}`}
+          rel="noopener noreferrer"
         >
-          Telegram
+          {CONTACTS.telegram.label}
         </a>
       </div>
     </section>
