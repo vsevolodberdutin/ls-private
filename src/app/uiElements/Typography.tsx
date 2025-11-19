@@ -53,7 +53,7 @@ export const PageHeader: React.FC<TypographyProps> = ({ text }) => {
 export const InfoTypography: React.FC<TypographyProps> = ({ text }) => {
   return (
     <p
-      className={`lg:text-base text-xs opacity-70 text-white whitespace-pre-line font-bold`}
+      className={`lg:text-base text-xs opacity-80 text-white whitespace-pre-line font-bold`}
     >
       {text}
     </p>
