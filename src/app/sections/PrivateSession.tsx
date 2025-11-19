@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
 import {
@@ -12,10 +12,57 @@ import {
   Clock,
   FileText,
   MessageCircleQuestion,
+  X,
+  Images,
+  Eye,
 } from 'lucide-react'
 import { CONTACTS, PRICING } from '@/constants/contacts'
 
 const PrivateSession: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  const galleryImages = [
+    '/gallery/private_glance_1.png',
+    '/gallery/private_glance_2.png',
+    '/gallery/private_glance_3.png',
+    '/gallery/private_glance_4.png',
+  ]
+
+  const openImage = (imageSrc: string) => {
+    setSelectedImage(imageSrc)
+  }
+
+  const closeImage = () => {
+    setSelectedImage(null)
+  }
+
+  const handleBackdropClick = () => {
+    closeImage()
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      closeImage()
+    }
+  }
+
+  React.useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeImage()
+      }
+    }
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleEscKey)
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey)
+      document.body.style.overflow = 'unset'
+    }
+  }, [selectedImage])
   return (
     <section id="private" className="section-even py-10">
       <SectionWrapper>
@@ -204,9 +251,59 @@ const PrivateSession: React.FC = () => {
                 </li>
               </ul>
             </div>
+
+            {/* Gallery Card */}
+            <div className="p-12 ">
+              <div className="flex justify-center gap-3 flex-wrap">
+                {galleryImages.map((imageSrc, index) => (
+                  <button
+                    key={index}
+                    onClick={() => openImage(imageSrc)}
+                    className="relative w-20 h-20 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-orange-200 hover:border-orange-400 hover:scale-110 hover:shadow-lg transition-all duration-200 flex-shrink-0 group"
+                    aria-label={`Просмотреть изображение ${index + 1}`}
+                  >
+                    <Image
+                      src={imageSrc}
+                      alt={`Пример отчета ${index + 1}`}
+                      fill
+                      className="object-cover transition-all duration-300"
+                      sizes="100px"
+                    />
+                    {/* Smooth background overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                      {/* Eye icon */}
+                      <Eye className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100" />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </SectionWrapper>
       </div>
+
+      {/* Image Popup Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-lg animate-in fade-in duration-300 cursor-pointer"
+          onClick={handleBackdropClick}
+          onKeyDown={handleKeyDown}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Просмотр изображения"
+        >
+          <div className="relative w-[80vw] h-[80vw] max-w-[600px] max-h-[600px] rounded-full overflow-hidden border-4 border-white/40 shadow-2xl">
+            <Image
+              src={selectedImage}
+              alt="Просмотр отчета"
+              fill
+              className="object-cover"
+              sizes="600px"
+              priority
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
