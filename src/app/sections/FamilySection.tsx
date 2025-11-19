@@ -7,7 +7,7 @@ import { FAMILY_SERVICES } from '@/constants/services'
 import { SectionTitle } from '../components/shared/SectionTitle'
 import { SectionDescription } from '../components/shared/SectionDescription'
 import { InfoCard } from '../components/shared/InfoCard'
-import { ContactButtons } from '../components/shared/ContactButtons'
+import { FAQCard } from '../components/shared/FAQCard'
 import { SessionTypesCard } from './FamilySection/SessionTypesCard'
 import { AreasCard } from './FamilySection/AreasCard'
 import { GalleryCard } from '../components/shared/GalleryCard'
@@ -50,6 +50,9 @@ const FamilySection: React.FC = () => {
 
             {/* Session Types */}
             <SessionTypesCard />
+
+            {/* FAQ Card */}
+            <FAQCard message="Здравствуйте, Элеонора! Интересует семейная консультация. Расскажите подробнее о..." />
           </div>
 
           {/* Right Column - Areas and Contact */}
@@ -59,9 +62,6 @@ const FamilySection: React.FC = () => {
 
             {/* Gallery Card */}
             <GalleryCard images={FAMILY_GALLERY} onImageClick={setSelectedImage} />
-
-            {/* Contact Buttons */}
-            <ContactButtons message="Здравствуйте, меня интересует семейная консультация. Расскажите подробнее..." />
           </div>
         </SectionWrapper>
       </div>

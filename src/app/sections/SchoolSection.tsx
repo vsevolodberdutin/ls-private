@@ -7,7 +7,7 @@ import { SCHOOL_SERVICES } from '@/constants/services'
 import { SectionTitle } from '../components/shared/SectionTitle'
 import { SectionDescription } from '../components/shared/SectionDescription'
 import { InfoCard } from '../components/shared/InfoCard'
-import { ContactButtons } from '../components/shared/ContactButtons'
+import { FAQCard } from '../components/shared/FAQCard'
 import { OnlineCourseCard } from './SchoolSection/OnlineCourseCard'
 import { PsychotypeCard } from './SchoolSection/PsychotypeCard'
 import { GalleryCard } from '../components/shared/GalleryCard'
@@ -53,6 +53,9 @@ const SchoolSection: React.FC = () => {
 
             {/* Course Modules */}
             <OnlineCourseCard />
+
+            {/* FAQ Card */}
+            <FAQCard message="Здравствуйте, Элеонора! Интересует обучение в школе соционики. Расскажите подробнее о..." />
           </div>
 
           {/* Right Column - Psychotype Assessment */}
@@ -79,9 +82,6 @@ const SchoolSection: React.FC = () => {
 
             {/* Gallery Card */}
             <GalleryCard images={SCHOOL_GALLERY} onImageClick={setSelectedImage} />
-
-            {/* Contact Buttons */}
-            <ContactButtons message="Здравствуйте, меня интересует Школа осознанных родителей. Расскажите подробнее..." />
           </div>
         </SectionWrapper>
       </div>

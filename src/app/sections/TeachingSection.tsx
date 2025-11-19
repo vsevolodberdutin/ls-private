@@ -7,7 +7,7 @@ import { TEACHING_SERVICES } from '@/constants/services'
 import { SectionTitle } from '../components/shared/SectionTitle'
 import { SectionDescription } from '../components/shared/SectionDescription'
 import { InfoCard } from '../components/shared/InfoCard'
-import { ContactButtons } from '../components/shared/ContactButtons'
+import { FAQCard } from '../components/shared/FAQCard'
 import { GroupTrainingCard } from './TeachingSection/GroupTrainingCard'
 import { StrategicCoachingCard } from './TeachingSection/StrategicCoachingCard'
 import { GalleryCard } from '../components/shared/GalleryCard'
@@ -53,6 +53,9 @@ const TeachingSection: React.FC = () => {
 
             {/* Training Details */}
             <GroupTrainingCard />
+
+            {/* FAQ Card */}
+            <FAQCard message="Здравствуйте, Элеонора! Интересует групповое обучение/коучинг. Расскажите подробнее о..." />
           </div>
 
           {/* Right Column - Strategic Coaching */}
@@ -76,9 +79,6 @@ const TeachingSection: React.FC = () => {
 
             {/* Gallery Card */}
             <GalleryCard images={TEACHING_GALLERY} onImageClick={setSelectedImage} />
-
-            {/* Contact Buttons */}
-            <ContactButtons message="Здравствуйте, меня интересует обучение соционике. Расскажите подробнее..." />
           </div>
         </SectionWrapper>
       </div>
