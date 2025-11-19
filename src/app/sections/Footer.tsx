@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
               <div className="flex flex-col gap-3">
                 <a
                   href={CONTACTS.whatsapp.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-amber-900/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
                   aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
                   rel="noopener noreferrer"
                 >
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
 
                 <a
                   href={CONTACTS.viber.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-amber-900/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
                   aria-label={`Связаться через ${CONTACTS.viber.label}`}
                   rel="noopener noreferrer"
                 >
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
 
                 <a
                   href={CONTACTS.telegram.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-amber-900/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
                   aria-label={`Связаться через ${CONTACTS.telegram.label}`}
                   rel="noopener noreferrer"
                 >

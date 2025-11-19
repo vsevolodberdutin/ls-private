@@ -1,108 +1,96 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
-import { BookOpen, Video, FileText, Award } from 'lucide-react'
+import { BookOpen, FileText } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
-import { CONTACTS } from '@/constants/contacts'
+import { SectionTitle } from '../components/shared/SectionTitle'
+import { SectionDescription } from '../components/shared/SectionDescription'
+import { InfoCard } from '../components/shared/InfoCard'
+import { ContactButtons } from '../components/shared/ContactButtons'
+import { OnlineCourseCard } from './SchoolSection/OnlineCourseCard'
+import { PsychotypeCard } from './SchoolSection/PsychotypeCard'
+import { GalleryCard } from '../components/shared/GalleryCard'
+import { ImagePopup } from '../components/shared/ImagePopup'
+import { SCHOOL_GALLERY } from '@/constants/gallery'
 
+/**
+ * School Section - Conscious Parents School
+ * Follows PrivateSession structure with title/description cards and two-column layout
+ */
 const SchoolSection: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
   return (
-    <section id="school" className="section-odd py-12">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Школа осознанных родителей</h2>
-        <p className="text-sm text-gray-600 max-w-3xl mx-auto px-4">
-          Изучение методик направленных на лучшее понимание своего ребенка и раскрытие его талантов
-        </p>
-      </div>
+    <section id="school" className="section-odd py-10">
       <SectionWrapper>
-        {/* Online Course Card */}
-        <div className="flex-1 bg-white/60 backdrop-blur-xl p-6 mx-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-          <div className="flex items-center gap-2 mb-3">
-            <BookOpen className="w-5 h-5 text-orange-500" />
-            <h2 className="text-lg font-semibold text-gray-800">
-              {SCHOOL_SERVICES.onlineCourse.title}
-            </h2>
-          </div>
-          <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            <strong>{SCHOOL_SERVICES.onlineCourse.format}</strong>
-          </p>
-
-          <h3 className="text-md font-semibold text-gray-800 mb-3">Модули:</h3>
-          <ul className="space-y-3 text-sm text-gray-800 leading-relaxed mb-4">
-            {SCHOOL_SERVICES.onlineCourse.modules.map((module, index) => (
-              <li key={index} className="flex gap-2 items-start">
-                <Video className="w-4 h-4 text-orange-500 mt-0.5" />
-                <div>
-                  <strong>{module.name}</strong> ({module.lessons} уроков) — <strong>{module.priceFormatted}</strong>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200">
-            <p className="text-sm text-gray-800">
-              <strong>Полный пакет:</strong> {SCHOOL_SERVICES.onlineCourse.fullPackage.totalLessons} уроков — {' '}
-              <strong className="text-orange-700">{SCHOOL_SERVICES.onlineCourse.fullPackage.priceFormatted}</strong>
-            </p>
-          </div>
-        </div>
-
-        {/* Psychotype Assessment Card */}
-        <div className="flex-1 bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md">
-          <div className="flex items-center gap-2 mb-3">
-            <FileText className="w-5 h-5 text-orange-500" />
-            <h2 className="text-lg font-semibold text-gray-800">
-              {SCHOOL_SERVICES.psychotypeAssessment.title}
-            </h2>
-          </div>
-          <p className="text-sm text-gray-700 leading-relaxed mb-4">
-            <strong>{SCHOOL_SERVICES.psychotypeAssessment.format}</strong>
-          </p>
-
-          <h3 className="text-md font-semibold text-gray-800 mb-3">
-            Вы получите:
-          </h3>
-          <ul className="space-y-2 text-sm text-gray-700 leading-relaxed mb-4">
-            {SCHOOL_SERVICES.psychotypeAssessment.deliverables.map((item, index) => (
-              <li key={index} className="flex gap-2">
-                <Award className="w-4 h-4 text-orange-500" />
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <p className="text-lg font-semibold text-gray-800 mt-4">
-            {SCHOOL_SERVICES.psychotypeAssessment.priceFormatted}
-          </p>
-        </div>
+        {/* Title Card */}
+        <SectionTitle title="Школа осознанных родителей" />
+        {/* Description Card */}
+        <SectionDescription description="- Изучение методик направленных на лучшее понимание своего ребенка и раскрытие его талантов" />
       </SectionWrapper>
 
-      {/* Contact Buttons */}
-      <div className="mt-8 flex flex-wrap gap-4 items-center justify-center">
-        <a
-          href={CONTACTS.viber.url}
-          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
-          aria-label={`Связаться через ${CONTACTS.viber.label}`}
-          rel="noopener noreferrer"
-        >
-          {CONTACTS.viber.label}
-        </a>
-        <a
-          href={CONTACTS.whatsapp.url}
-          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
-          aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
-          rel="noopener noreferrer"
-        >
-          {CONTACTS.whatsapp.label}
-        </a>
-        <a
-          href={CONTACTS.telegram.url}
-          className="px-5 py-3 rounded-xl border border-orange-300 text-orange-700 hover:bg-orange-50 transition text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
-          aria-label={`Связаться через ${CONTACTS.telegram.label}`}
-          rel="noopener noreferrer"
-        >
-          {CONTACTS.telegram.label}
-        </a>
+      <div className="-mt-4">
+        <SectionWrapper>
+          {/* Left Column - Online Course */}
+          <div className="flex-1 flex flex-col gap-3 mx-6">
+            {/* Course Header */}
+            <InfoCard icon={BookOpen}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    {SCHOOL_SERVICES.onlineCourse.title}
+                  </h2>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    <strong>{SCHOOL_SERVICES.onlineCourse.format}</strong>
+                  </p>
+                </div>
+              </div>
+            </InfoCard>
+
+            {/* Course Modules */}
+            <OnlineCourseCard />
+          </div>
+
+          {/* Right Column - Psychotype Assessment */}
+          <div className="flex-1 flex flex-col gap-3">
+            {/* Assessment Header */}
+            <InfoCard icon={FileText}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-6 h-6 text-orange-500" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    {SCHOOL_SERVICES.psychotypeAssessment.title}
+                  </h2>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    <strong>{SCHOOL_SERVICES.psychotypeAssessment.format}</strong>
+                  </p>
+                </div>
+              </div>
+            </InfoCard>
+
+            {/* Assessment Details */}
+            <PsychotypeCard />
+
+            {/* Gallery Card */}
+            <GalleryCard images={SCHOOL_GALLERY} onImageClick={setSelectedImage} />
+
+            {/* Contact Buttons */}
+            <ContactButtons message="Здравствуйте, меня интересует Школа осознанных родителей. Расскажите подробнее..." />
+          </div>
+        </SectionWrapper>
       </div>
+
+      {/* Image Popup Modal */}
+      <ImagePopup
+        imageSrc={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </section>
   )
 }

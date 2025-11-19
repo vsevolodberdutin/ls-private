@@ -6,8 +6,9 @@ import { Heart, Waves, Briefcase, Clock, FileText } from 'lucide-react'
 import { PRICING } from '@/constants/contacts'
 import { PricingCard, type PricingOption } from './PrivateSession/PricingCard'
 import { FAQCard } from './PrivateSession/FAQCard'
-import { GalleryCard } from './PrivateSession/GalleryCard'
-import { ImagePopup } from './PrivateSession/ImagePopup'
+import { GalleryCard } from '@/app/components/shared/GalleryCard'
+import { ImagePopup } from '@/app/components/shared/ImagePopup'
+import { PRIVATE_SESSION_GALLERY } from '@/constants/gallery'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -126,7 +127,7 @@ const PrivateSession: React.FC = () => {
             </div>
 
             {/* Gallery Card */}
-            <GalleryCard onImageClick={setSelectedImage} />
+            <GalleryCard images={PRIVATE_SESSION_GALLERY} onImageClick={setSelectedImage} />
           </div>
         </SectionWrapper>
       </div>

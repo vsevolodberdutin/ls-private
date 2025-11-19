@@ -2,6 +2,7 @@ import React from 'react'
 import {
   EducationBlock,
   IntroductionBlock,
+  PublicationBlock,
 } from '@/app/components/AboutBlocks'
 
 const AboutSection = () => {
@@ -10,6 +11,7 @@ const AboutSection = () => {
       <div className="w-screen h-fit flex flex-col items-center">
         <IntroductionBlock />
         <EducationBlock />
+        <PublicationBlock />
       </div>
     </section>
   )
