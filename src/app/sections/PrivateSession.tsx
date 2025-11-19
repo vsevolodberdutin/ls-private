@@ -1,34 +1,97 @@
+'use client'
+
 import React from 'react'
 import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
-import { Sparkles, Heart, Waves, Briefcase } from 'lucide-react'
+import {
+  Sparkles,
+  Heart,
+  Waves,
+  Briefcase,
+  Send,
+  Clock,
+  FileText,
+} from 'lucide-react'
 import { CONTACTS, PRICING } from '@/constants/contacts'
 
 const PrivateSession: React.FC = () => {
   return (
-    <section id="private" className="section-even py-12">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Личная сессия</h2>
-        <p className="text-sm text-gray-600 max-w-3xl mx-auto px-4">
-          Разберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности
-        </p>
-      </div>
+    <section id="private" className="section-even py-10">
       <SectionWrapper>
+        {/* Title Card */}
+        <div className="flex-1 bg-white/90 backdrop-blur-xl p-6 mx-6 h-[110px] rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition flex items-center justify-center">
+          <h2 className="text-2xl font-bold text-gray-800">
+            Личная сессия
+          </h2>
+        </div>
+        {/* Description Card */}
+        <div className="flex-1 bg-white/90 backdrop-blur-xl p-6 h-[110px] rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition flex items-center">
+          <p className="text-m text-gray-500 max-w-3xl mx-auto ">
+            - На ней мы pазберем сильные и слабые стороны вашего психотипа,
+            профориентирование, понимание мотивации и развитие потенциала
+            личности
+          </p>
+        </div>
+      </SectionWrapper>
+      <div className="-mt-4">
+        <SectionWrapper>
         {/* Pricing Card */}
         <div className="flex-1 bg-white/60 backdrop-blur-xl p-6 mx-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">
-            Варианты сессий
-          </h3>
           <ul className="space-y-3 text-sm text-gray-800 leading-relaxed">
             <li>
-              <strong>{PRICING.online.label}</strong> — <strong>{PRICING.online.formatted}</strong>
+              <button
+                onClick={() =>
+                  (window.location.href = `${CONTACTS.telegram.url}&text=${encodeURIComponent('Здравствуйте, я хочу записаться на личную сессию Online')}`)
+                }
+                className="w-full text-left px-4 py-3 rounded-lg border border-orange-200 hover:border-orange-400 bg-orange-50 transition-all duration-200 group relative"
+              >
+                <span className="group-hover:opacity-0 transition-opacity duration-200">
+                  <strong>{PRICING.online.label}</strong>
+                  <br />
+                  <strong>{PRICING.online.formatted}</strong>
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-semibold text-orange-700">
+                  <Send className="w-4 h-4" />
+                  Записаться
+                </span>
+              </button>
             </li>
             <li>
-              <strong>{PRICING.inPerson.label}</strong> ({PRICING.inPerson.locations}) —{' '}
-              <strong>{PRICING.inPerson.formatted}</strong>
+              <button
+                onClick={() =>
+                  (window.location.href = `${CONTACTS.telegram.url}&text=${encodeURIComponent('Здравствуйте, я хочу записаться на личную сессию-встречу в городе ...')}`)
+                }
+                className="w-full text-left px-4 py-3 rounded-lg border border-orange-200 hover:border-orange-400 bg-orange-50 transition-all duration-200 group relative"
+              >
+                <span className="group-hover:opacity-0 transition-opacity duration-200">
+                  <strong>{PRICING.inPerson.label}</strong> (
+                  {PRICING.inPerson.locations})
+                  <br />
+                  <strong>{PRICING.inPerson.formatted}</strong>
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-semibold text-orange-700">
+                  <Send className="w-4 h-4" />
+                  Записаться
+                </span>
+              </button>
             </li>
             <li>
-              <strong>{PRICING.otherCities.label}</strong> ({PRICING.otherCities.locations}) —{' '}
-              <strong>{PRICING.otherCities.formatted}</strong>
+              <button
+                onClick={() =>
+                  (window.location.href = `${CONTACTS.telegram.url}&text=${encodeURIComponent('Здравствуйте, я хочу записаться на личную сессию-встречу в городе ...')}`)
+                }
+                className="w-full text-left px-4 py-3 rounded-lg border border-orange-200 hover:border-orange-400 bg-orange-50 transition-all duration-200 group relative"
+              >
+                <span className="group-hover:opacity-0 transition-opacity duration-200">
+                  <strong>{PRICING.otherCities.label}</strong> (
+                  {PRICING.otherCities.locations})
+                  <br />
+                  <strong>{PRICING.otherCities.formatted}</strong>
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-semibold text-orange-700">
+                  <Send className="w-4 h-4" />
+                  Записаться
+                </span>
+              </button>
             </li>
           </ul>
           <p className="text-xs text-gray-500 mt-4">
@@ -37,36 +100,54 @@ const PrivateSession: React.FC = () => {
           </p>
         </div>
 
-        {/* Info Card */}
-        <div className="flex-1 bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md ">
-          <div className="flex items-center gap-2 mb-3">
-            <Sparkles className="w-5 h-5 text-orange-500" />
-            <h2 className="text-lg font-semibold text-gray-800">
-              Личная консультация
-            </h2>
+        {/* Info Cards Column */}
+        <div className="flex-1 flex flex-col gap-1">
+          {/* Duration Card */}
+          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+            <div className="flex gap-3 items-center">
+              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                <Clock className="w-6 h-6 text-orange-500" />
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <strong>Продолжительность 2 часа</strong>
+              </p>
+            </div>
           </div>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            <strong>Продолжительность 2 часа</strong> <br />
-            После консультации вы получаете отчет и лист профориентации (по
-            запросу).
-          </p>
 
-          <ul className="mt-4 space-y-2 text-sm text-gray-700 leading-relaxed">
-            <li className="flex gap-2">
-              <Briefcase className="w-4 h-4 text-orange-500" /> Как развить
-              потенциал и построить карьеру
-            </li>
-            <li className="flex gap-2">
-              <Heart className="w-4 h-4 text-orange-500" /> Какие отношения
-              подходят для гармоничной жизни
-            </li>
-            <li className="flex gap-2">
-              <Waves className="w-4 h-4 text-orange-500" /> Как восстанавливать
-              энергию и ресурс
-            </li>
-          </ul>
+          {/* Report Card */}
+          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+            <div className="flex gap-3 items-center">
+              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                <FileText className="w-6 h-6 text-orange-500" />
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <strong>
+                  После консультации вы получаете отчет / лист профориентации с
+                  рекомендациями:
+                </strong>
+              </p>
+            </div>
+
+            <hr className="my-4 border-orange-300" />
+
+            <ul className="space-y-2 ml-3 text-sm text-gray-700 leading-relaxed">
+              <li className="flex gap-3 items-center">
+                <Briefcase className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
+                Как развить потенциал и построить карьеру
+              </li>
+              <li className="flex gap-3 items-center">
+                <Heart className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
+                Какие отношения подходят для гармоничной жизни
+              </li>
+              <li className="flex gap-3 items-center">
+                <Waves className="w-4 h-4 text-orange-500 flex-shrink-0" /> Как
+                восстанавливать энергию и ресурс
+              </li>
+            </ul>
+          </div>
         </div>
       </SectionWrapper>
+      </div>
 
       {/* Contact Buttons */}
       <div className="mt-8 flex flex-wrap gap-4 items-center justify-center">
