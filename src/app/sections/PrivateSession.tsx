@@ -81,7 +81,7 @@ const PrivateSession: React.FC = () => {
           </div>
 
           {/* Info Cards Column */}
-          <div className="flex-1 flex flex-col gap-1">
+          <div className="flex-1 flex flex-col gap-3">
             {/* Duration Card */}
             <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
               <div className="flex gap-3 items-center">
@@ -127,7 +127,10 @@ const PrivateSession: React.FC = () => {
             </div>
 
             {/* Gallery Card */}
-            <GalleryCard images={PRIVATE_SESSION_GALLERY} onImageClick={setSelectedImage} />
+            <GalleryCard
+              images={PRIVATE_SESSION_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </div>
         </SectionWrapper>
       </div>

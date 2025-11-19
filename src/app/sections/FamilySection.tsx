@@ -2,11 +2,8 @@
 
 import React, { useState } from 'react'
 import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
-import { Heart } from 'lucide-react'
-import { FAMILY_SERVICES } from '@/constants/services'
 import { SectionTitle } from '../components/shared/SectionTitle'
 import { SectionDescription } from '../components/shared/SectionDescription'
-import { InfoCard } from '../components/shared/InfoCard'
 import { FAQCard } from '../components/shared/FAQCard'
 import { SessionTypesCard } from './FamilySection/SessionTypesCard'
 import { AreasCard } from './FamilySection/AreasCard'
@@ -34,20 +31,6 @@ const FamilySection: React.FC = () => {
         <SectionWrapper>
           {/* Left Column - Session Types */}
           <div className="flex-1 flex flex-col gap-3 mx-6">
-            {/* Session Header */}
-            <InfoCard icon={Heart}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {FAMILY_SERVICES.personalSession.title}
-                  </h2>
-                </div>
-              </div>
-            </InfoCard>
-
             {/* Session Types */}
             <SessionTypesCard />
 

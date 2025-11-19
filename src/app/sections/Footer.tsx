@@ -1,17 +1,43 @@
 import React from 'react'
 import Image from 'next/image'
+import { Book, FileText, BookOpen } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
 import { ABOUT } from '@/constants/about'
 
+/**
+ * Type definition for publication types
+ */
+type PublicationType = 'монография' | 'статья' | 'учебное пособие' | null
+
+/**
+ * Extract publication type from the name field
+ * @param name - Publication name with type in parentheses
+ * @returns Publication type or null if not found
+ */
+const extractPublicationType = (name: string): PublicationType => {
+  const match = name.match(/\((монография|статья|учебное пособие)\)/)
+  return match ? (match[1] as PublicationType) : null
+}
+
 const Footer: React.FC = () => {
+  const iconSize = 'w-5 h-5'
+  const iconColor = 'text-amber-100'
+
+  const iconMap = {
+    монография: <Book className={`${iconSize} ${iconColor}`} />,
+    статья: <FileText className={`${iconSize} ${iconColor}`} />,
+    'учебное пособие': <BookOpen className={`${iconSize} ${iconColor}`} />,
+  }
   return (
     <footer className="relative text-amber-50 pt-16 pb-8">
       {/* Gradient transition from main content to footer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#ffd9aa] via-[#f78e74] to-[#D77D72]" />
 
-      <div className="relative w-svw px-10 py-4 pb-10">
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_#ffd9aa_0%,_#5b76cc_18%,_#D77D72_100%)]" />
+
+
+      <div className="relative w-svw px-10 py-4 pb-10 ">
         {/* Main Footer Content Grid */}
-        <div className="h-fit grid grid-cols-1 lg:grid-cols-[450px_850px] justify-center items-start gap-12 mb-12">
+        <div className="h-fit grid grid-cols-1 lg:grid-cols-[450px_850px] justify-center items-start gap-12 mb-5 ">
           {/* Contact Section */}
           <div>
             <h3 className="text-xl font-bold text-amber-100 mb-6 border-b border-amber-700/50 pb-3">
@@ -23,7 +49,7 @@ const Footer: React.FC = () => {
               <p className="text-sm text-amber-200/70 mb-2">Телефон:</p>
               <a
                 href={`tel:${CONTACTS.phone}`}
-                className="text-lg font-semibold text-amber-100 hover:text-amber-50 transition-colors"
+                className="text-lg font-semibold text-amber-100 hover:text-amber-400 transition-colors"
               >
                 {CONTACTS.phoneFormatted}
               </a>
@@ -34,7 +60,7 @@ const Footer: React.FC = () => {
               <p className="text-sm text-amber-200/70 mb-2">Email:</p>
               <a
                 href="mailto:livesocionics@gmail.com"
-                className="text-lg font-semibold text-amber-100 hover:text-amber-50 transition-colors break-all"
+                className="text-lg font-semibold text-amber-100 hover:text-amber-400 transition-colors break-all"
               >
                 livesocionics@gmail.com
               </a>
@@ -47,7 +73,7 @@ const Footer: React.FC = () => {
                 href="https://www.youtube.com/user/LiveSocionicsStudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-amber-100 hover:text-amber-50 transition-colors inline-flex items-center gap-2"
+                className="text-sm font-semibold text-amber-100 hover:text-amber-400 transition-colors inline-flex items-center gap-2"
               >
                 <svg
                   className="w-5 h-5"
@@ -67,7 +93,7 @@ const Footer: React.FC = () => {
                 href="http://vk.com/club43658401"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-amber-100 hover:text-amber-50 transition-colors inline-flex items-center gap-2"
+                className="text-sm font-semibold text-amber-100 hover:text-amber-400 transition-colors inline-flex items-center gap-2"
               >
                 <svg
                   className="w-5 h-5"
@@ -86,7 +112,7 @@ const Footer: React.FC = () => {
               <div className="flex flex-col gap-3">
                 <a
                   href={CONTACTS.whatsapp.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-emerald-400/30 rounded-lg border border-amber-300/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
                   aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
                   rel="noopener noreferrer"
                 >
@@ -104,7 +130,7 @@ const Footer: React.FC = () => {
 
                 <a
                   href={CONTACTS.viber.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-violet-200/30 rounded-lg border border-amber-300/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
                   aria-label={`Связаться через ${CONTACTS.viber.label}`}
                   rel="noopener noreferrer"
                 >
@@ -122,7 +148,7 @@ const Footer: React.FC = () => {
 
                 <a
                   href={CONTACTS.telegram.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-amber-900/50 rounded-lg border border-amber-700/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-sky-300/40 rounded-lg border border-amber-300/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
                   aria-label={`Связаться через ${CONTACTS.telegram.label}`}
                   rel="noopener noreferrer"
                 >
@@ -147,19 +173,31 @@ const Footer: React.FC = () => {
               Научные публикации
             </h3>
             <div className="space-y-4">
-              {ABOUT.articles.map((article, index) => (
-                <div
-                  key={index}
-                  className="group hover:bg-amber-900/20 p-3 rounded-lg transition-all duration-200"
-                >
-                  <h4 className="text-sm font-semibold text-amber-100 mb-1 group-hover:text-amber-50 transition-colors">
-                    {article.name}
-                  </h4>
-                  <p className="text-xs text-amber-200/70 italic">
-                    {article.data}
-                  </p>
-                </div>
-              ))}
+              {ABOUT.articles.map((article, index) => {
+                const publicationType = extractPublicationType(article.name)
+                return (
+                  <div
+                    key={index}
+                    className="group hover:bg-amber-900/20 p-3 rounded-lg transition-all duration-200"
+                  >
+                    <div className="flex items-start gap-3">
+                      {publicationType && iconMap[publicationType] && (
+                        <div className="flex items-center justify-center rounded-lg bg-amber-200/10 border border-amber-300/10 p-2 min-w-[40px] flex-shrink-0 mt-0.5">
+                          {iconMap[publicationType]}
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <h4 className="text-sm font-semibold text-amber-100 mb-1 group-hover:text-amber-50 transition-colors">
+                          {article.name}
+                        </h4>
+                        <p className="text-xs text-amber-200/70 italic">
+                          {article.data}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -203,11 +241,11 @@ const Footer: React.FC = () => {
         {/* Copyright Section */}
         <div className="border-t border-amber-700/50 pt-8 w-full">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-[1300px] mx-auto">
-            <p className="text-sm text-amber-200/60">
+            <p className="text-sm text-amber-100/60">
               © {new Date().getFullYear()} Элеонора Бердутина. Школа «Живая
               соционика». Все права защищены.
             </p>
-            <p className="text-xs text-amber-200/50">
+            <p className="text-xs text-amber-100/50">
               Designed with ❤️ for understanding human nature
             </p>
           </div>
