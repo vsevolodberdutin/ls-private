@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import { MessageCircleQuestion } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
+import { CircleIconWrapper } from '@/app/uiElements/wrappers/IconWrapper'
 
 /**
  * FAQ contact card with messenger buttons
@@ -36,12 +37,12 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
   ]
 
   return (
-    <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+    <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm transition">
       <div className="flex items-center justify-between">
         <div className="flex gap-3 items-center">
-          <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-            <MessageCircleQuestion className="w-6 h-6 text-orange-500" />
-          </div>
+          <CircleIconWrapper>
+            <MessageCircleQuestion />
+          </CircleIconWrapper>
           <p className="text-xs text-gray-100 font-medium">
             Есть вопросы? Пишите!
           </p>
@@ -54,7 +55,7 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
               href={messenger.url}
               target="_top"
               aria-label={messenger.name}
-              className={`rounded-full p-3 hover:shadow-slate-500 ${messenger.hoverColor} border-[1px] focus:outline-none focus:ring border-orange-200 transition-all duration-300`}
+              className={`rounded-full p-3 hover:shadow-md ${messenger.hoverColor} border-[1px] focus:outline-none focus:ring border-orange-200 transition-all duration-300`}
             >
               <Image
                 src={messenger.icon}
