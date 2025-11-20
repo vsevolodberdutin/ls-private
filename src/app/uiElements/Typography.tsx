@@ -33,6 +33,13 @@ export const CardHeader: React.FC<TypographyProps> = ({ text }) => {
 export const CardItemHeader: React.FC<TypographyProps> = ({ text }) => {
   return <h3 className={`lg:text-2xl text-xl font-semibold`}>{text}</h3>
 }
+export const InfoItemHeader: React.FC<TypographyProps> = ({ text }) => {
+  return <h3 className={`text-sm text-gray-700 font-semibold`}>{text}</h3>
+}
+export const InfoItemSubHeader: React.FC<TypographyProps> = ({ text }) => {
+  return <h3 className={`text-sm text-gray-700`}>{text}</h3>
+}
+
 export const CardItemSubHeader: React.FC<TypographyProps> = ({ text }) => {
   return (
     <div className={`w-full flex gap-2`}>

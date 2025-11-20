@@ -1,11 +1,10 @@
 import React from 'react'
 
-export interface ColumnWrapperProps {
+export interface MainColumnProps {
   id?: string
   children: any
 }
 
-export const ColumnWrapper: React.FC<ColumnWrapperProps> = ({ children }) => (
+export const MainColumn: React.FC<MainColumnProps> = ({ children }) => (
   <div className="flex flex-col gap-6">{children}</div>
 )
-

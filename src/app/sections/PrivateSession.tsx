@@ -11,15 +11,23 @@ import { PRIVATE_SESSION_GALLERY } from '@/constants/gallery'
 import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import {
-  CardHeader,
   CardItemHeader,
   CardItemSubHeader,
   Footnote,
+  InfoItemHeader,
+  InfoItemSubHeader,
 } from '../uiElements/Typography'
 import { CardItem } from '../uiElements/cardItems/CardItem'
-import { ColumnWrapper } from '../uiElements/wrappers/ColumnWrapper'
+
 import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
 import { ContactCard } from '../components/shared/ContactCard'
+import { MainColumn } from '../uiElements/wrappers/MainColumn'
+import { ContentRow } from '../uiElements/wrappers/ContentRow'
+import {
+  CircleIconWrapper,
+  EmptyIconWrapper,
+} from '../uiElements/wrappers/IconWrapper'
+import Separator from '../uiElements/Separator'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -58,7 +66,7 @@ const PrivateSession: React.FC = () => {
     <section id="private" className="section-even">
       <GridWrapper>
         {/* Left Column - Pricing and FAQ */}
-        <ColumnWrapper>
+        <MainColumn>
           {/* Title Card */}
           <HeaderCardItem>
             <CardItemHeader text={'Личная сессия'} />
@@ -82,10 +90,10 @@ const PrivateSession: React.FC = () => {
 
           {/* Contact Card */}
           <ContactCard />
-        </ColumnWrapper>
+        </MainColumn>
 
         {/* Right Column - Additional Info */}
-        <ColumnWrapper>
+        <MainColumn>
           {/* Description Card */}
           <HeaderCardItem>
             <CardItemSubHeader
@@ -96,58 +104,68 @@ const PrivateSession: React.FC = () => {
           </HeaderCardItem>
 
           {/* Info Cards Column */}
-          <div className="flex-1 flex flex-col gap-3">
+          <ContentColumn>
             {/* Duration Card */}
-            <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-              <div className="flex gap-3 items-center">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-orange-500" />
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  <strong>Продолжительность 2 часа</strong>
-                </p>
-              </div>
-            </div>
+            <CardItem>
+              <ContentRow>
+                <CircleIconWrapper>
+                  <Clock />
+                </CircleIconWrapper>
+
+                <InfoItemHeader text={' Продолжительность 2 часа'} />
+              </ContentRow>
+            </CardItem>
 
             {/* Report Card */}
-            <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-              <div className="flex gap-3 items-center">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-orange-500" />
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  <strong>
-                    После консультации вы получаете отчет / лист профориентации
-                    с рекомендациями:
-                  </strong>
-                </p>
-              </div>
+            <CardItem>
+              <ContentRow>
+                <CircleIconWrapper>
+                  <FileText />
+                </CircleIconWrapper>
+                <InfoItemHeader
+                  text={
+                    ' После консультации вы получаете отчет / лист профориентации с рекомендациями:'
+                  }
+                />
+              </ContentRow>
 
-              <hr className="my-4 border-orange-300" />
+              <Separator />
 
-              <ul className="space-y-2 ml-3 text-sm text-gray-700 leading-relaxed">
-                <li className="flex gap-3 items-center">
-                  <Briefcase className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
-                  Как развить потенциал и построить карьеру
-                </li>
-                <li className="flex gap-3 items-center">
-                  <Heart className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
-                  Какие отношения подходят для гармоничной жизни
-                </li>
-                <li className="flex gap-3 items-center">
-                  <Waves className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
-                  Как восстанавливать энергию и ресурс
-                </li>
-              </ul>
-            </div>
+              <ContentColumn>
+                <ContentRow>
+                  <EmptyIconWrapper>
+                    <Briefcase className="w-4 h-4" />
+                  </EmptyIconWrapper>
+                  <InfoItemSubHeader
+                    text={'Как развить потенциал и построить карьеру'}
+                  />
+                </ContentRow>
+                <ContentRow>
+                  <EmptyIconWrapper>
+                    <Heart className="w-4 h-4" />
+                  </EmptyIconWrapper>
+                  <InfoItemSubHeader
+                    text={'Какие отношения подходят для гармоничной жизни'}
+                  />
+                </ContentRow>
+                <ContentRow>
+                  <EmptyIconWrapper>
+                    <Waves className="w-4 h-4" />
+                  </EmptyIconWrapper>
+                  <InfoItemSubHeader
+                    text={'Как восстанавливать энергию и ресурс'}
+                  />
+                </ContentRow>
+              </ContentColumn>
+            </CardItem>
 
             {/* Gallery Card */}
             <GalleryCard
               images={PRIVATE_SESSION_GALLERY}
               onImageClick={setSelectedImage}
             />
-          </div>
-        </ColumnWrapper>
+          </ContentColumn>
+        </MainColumn>
       </GridWrapper>
 
       {/* Image Popup Modal */}

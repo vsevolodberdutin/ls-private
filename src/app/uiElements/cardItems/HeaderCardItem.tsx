@@ -5,7 +5,7 @@ export interface HeaderCardItemProps {
 }
 
 export const HeaderCardItem: React.FC<HeaderCardItemProps> = ({ children }) => (
-  <div className="min-h-[110px] p-8 flex items-center justify-center bg-white/90 border border-orange-200 rounded-2xl shadow-md">
+  <div className="min-h-[100px] p-8 flex items-center justify-center bg-white/90 border border-orange-200 rounded-2xl shadow-md">
     {children}
   </div>
 )
