@@ -5,12 +5,9 @@ import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { Users, TrendingUp } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
-import {
-  CardItemHeader,
-  CardItemSubHeader,
-} from '../uiElements/Typography'
+import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
 import { InfoCard } from '../components/shared/InfoCard'
-import { FAQCard } from '../components/shared/FAQCard'
+import { ContactCard } from '../components/shared/ContactCard'
 import { GroupTrainingCard } from './TeachingSection/GroupTrainingCard'
 import { StrategicCoachingCard } from './TeachingSection/StrategicCoachingCard'
 import { GalleryCard } from '../components/shared/GalleryCard'
@@ -66,7 +63,7 @@ const TeachingSection: React.FC = () => {
             <GroupTrainingCard />
 
             {/* FAQ Card */}
-            <FAQCard message="Здравствуйте, Элеонора! Интересует групповое обучение/коучинг. Расскажите подробнее о..." />
+            <ContactCard message="Здравствуйте, Элеонора! Интересует групповое обучение/коучинг. Расскажите подробнее о..." />
           </div>
 
           {/* Right Column - Strategic Coaching */}
@@ -89,7 +86,10 @@ const TeachingSection: React.FC = () => {
             <StrategicCoachingCard />
 
             {/* Gallery Card */}
-            <GalleryCard images={TEACHING_GALLERY} onImageClick={setSelectedImage} />
+            <GalleryCard
+              images={TEACHING_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </div>
         </GridWrapper>
       </div>

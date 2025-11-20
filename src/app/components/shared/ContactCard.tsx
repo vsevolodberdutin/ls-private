@@ -9,9 +9,10 @@ import { CONTACTS } from '@/constants/contacts'
  * FAQ contact card with messenger buttons
  * Reusable component with customizable message
  */
-export const FAQCard: React.FC<{ message?: string }> = ({ message }) => {
+export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
   const baseMessage =
-    message || 'Здравствуйте, Элеонора! Появился вопрос по тому как проходит личная сессия. Расскажите о ...'
+    message ||
+    'Здравствуйте, Элеонора! Появился вопрос по тому как проходит личная сессия. Расскажите о ...'
 
   const messengers = [
     {

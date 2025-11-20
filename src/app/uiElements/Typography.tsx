@@ -3,7 +3,7 @@ import * as Typography from '@/app/uiElements/Typography'
 
 export interface TypographyProps {
   id?: string
-  text: string
+  text: string | string[]
 }
 
 export const Header: React.FC<TypographyProps> = ({ text }) => {
@@ -38,6 +38,22 @@ export const CardItemSubHeader: React.FC<TypographyProps> = ({ text }) => {
     <div className={`w-full flex gap-2`}>
       <h3 className={`text-m text-gray-500`}>-</h3>
       <h3 className={`text-m text-gray-500`}>{text}</h3>
+    </div>
+  )
+}
+export const Footnote: React.FC<TypographyProps> = ({ text }) => {
+  return (
+    <div className={`w-full flex gap-2`}>
+      <h3 className={`text-xs text-gray-500`}>*</h3>
+      <div className={`flex flex-col gap-1`}>
+        {Array.isArray(text)
+          ? text.map((line, i) => (
+              <h3 className={`text-xs text-gray-500`} key={i}>
+                {line}
+              </h3>
+            ))
+          : text}
+      </div>
     </div>
   )
 }

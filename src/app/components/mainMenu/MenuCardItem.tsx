@@ -9,7 +9,11 @@ export interface MenuItemProps {
   subtitle: string
 }
 
-export const CardItem: React.FC<MenuItemProps> = ({ id, title, subtitle }) => {
+export const MenuCardItem: React.FC<MenuItemProps> = ({
+  id,
+  title,
+  subtitle,
+}) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
     const element = document.getElementById(id)

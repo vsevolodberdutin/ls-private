@@ -3,11 +3,8 @@
 import React, { useState } from 'react'
 import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
-import {
-  CardItemHeader,
-  CardItemSubHeader,
-} from '../uiElements/Typography'
-import { FAQCard } from '../components/shared/FAQCard'
+import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
+import { ContactCard } from '../components/shared/ContactCard'
 import { SessionTypesCard } from './FamilySection/SessionTypesCard'
 import { AreasCard } from './FamilySection/AreasCard'
 import { GalleryCard } from '../components/shared/GalleryCard'
@@ -46,7 +43,7 @@ const FamilySection: React.FC = () => {
             <SessionTypesCard />
 
             {/* FAQ Card */}
-            <FAQCard message="Здравствуйте, Элеонора! Интересует семейная консультация. Расскажите подробнее о..." />
+            <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация. Расскажите подробнее о..." />
           </div>
 
           {/* Right Column - Areas and Contact */}
@@ -55,7 +52,10 @@ const FamilySection: React.FC = () => {
             <AreasCard />
 
             {/* Gallery Card */}
-            <GalleryCard images={FAMILY_GALLERY} onImageClick={setSelectedImage} />
+            <GalleryCard
+              images={FAMILY_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </div>
         </GridWrapper>
       </div>

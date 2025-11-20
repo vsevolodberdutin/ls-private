@@ -21,10 +21,10 @@ export const PricingCard: React.FC<{ option: PricingOption }> = ({ option }) => 
   }
 
   return (
-    <li>
+    <div>
       <button
         onClick={handleClick}
-        className="w-full text-left px-4 py-3 rounded-lg border border-orange-200 hover:border-orange-400 bg-orange-50 transition-all duration-200 group relative"
+        className="w-full text-left px-4 py-3 rounded-lg border border-orange-200 hover:border-orange-400 bg-orange-50 transition-all duration-200 group relative text-gray-600 text-sm"
         aria-label={`Записаться на ${option.label}`}
       >
         <span className="group-hover:opacity-0 transition-opacity duration-200">
@@ -38,6 +38,6 @@ export const PricingCard: React.FC<{ option: PricingOption }> = ({ option }) => 
           Записаться
         </span>
       </button>
-    </li>
+    </div>
   )
 }

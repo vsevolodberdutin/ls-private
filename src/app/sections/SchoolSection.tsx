@@ -5,12 +5,9 @@ import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { BookOpen, FileText } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
-import {
-  CardItemHeader,
-  CardItemSubHeader,
-} from '../uiElements/Typography'
+import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
 import { InfoCard } from '../components/shared/InfoCard'
-import { FAQCard } from '../components/shared/FAQCard'
+import { ContactCard } from '../components/shared/ContactCard'
 import { OnlineCourseCard } from './SchoolSection/OnlineCourseCard'
 import { PsychotypeCard } from './SchoolSection/PsychotypeCard'
 import { GalleryCard } from '../components/shared/GalleryCard'
@@ -66,7 +63,7 @@ const SchoolSection: React.FC = () => {
             <OnlineCourseCard />
 
             {/* FAQ Card */}
-            <FAQCard message="Здравствуйте, Элеонора! Интересует обучение в школе соционики. Расскажите подробнее о..." />
+            <ContactCard message="Здравствуйте, Элеонора! Интересует обучение в школе соционики. Расскажите подробнее о..." />
           </div>
 
           {/* Right Column - Psychotype Assessment */}
@@ -82,7 +79,9 @@ const SchoolSection: React.FC = () => {
                     {SCHOOL_SERVICES.psychotypeAssessment.title}
                   </h2>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    <strong>{SCHOOL_SERVICES.psychotypeAssessment.format}</strong>
+                    <strong>
+                      {SCHOOL_SERVICES.psychotypeAssessment.format}
+                    </strong>
                   </p>
                 </div>
               </div>
@@ -92,7 +91,10 @@ const SchoolSection: React.FC = () => {
             <PsychotypeCard />
 
             {/* Gallery Card */}
-            <GalleryCard images={SCHOOL_GALLERY} onImageClick={setSelectedImage} />
+            <GalleryCard
+              images={SCHOOL_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </div>
         </GridWrapper>
       </div>

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Heart, Waves, Briefcase, Clock, FileText } from 'lucide-react'
 import { PRICING } from '@/constants/contacts'
 import { PricingCard, type PricingOption } from './PrivateSession/PricingCard'
-import { FAQCard } from '@/app/components/shared/FAQCard'
+
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
 import { PRIVATE_SESSION_GALLERY } from '@/constants/gallery'
@@ -14,7 +14,12 @@ import {
   CardHeader,
   CardItemHeader,
   CardItemSubHeader,
+  Footnote,
 } from '../uiElements/Typography'
+import { CardItem } from '../uiElements/cardItems/CardItem'
+import { ColumnWrapper } from '../uiElements/wrappers/ColumnWrapper'
+import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
+import { ContactCard } from '../components/shared/ContactCard'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -52,90 +57,97 @@ const PrivateSession: React.FC = () => {
   return (
     <section id="private" className="section-even">
       <GridWrapper>
-        {/* Title Card */}
-        <HeaderCardItem>
-          <CardItemHeader text={'Личная сессия'} />
-        </HeaderCardItem>
-        {/* Description Card */}
-        <HeaderCardItem>
-          <CardItemSubHeader
-            text={
-              'На ней мы pазберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности'
-            }
-          />
-        </HeaderCardItem>
-
         {/* Left Column - Pricing and FAQ */}
-        <div className="flex-1 flex flex-col gap-3 mx-6">
+        <ColumnWrapper>
+          {/* Title Card */}
+          <HeaderCardItem>
+            <CardItemHeader text={'Личная сессия'} />
+          </HeaderCardItem>
+
           {/* Pricing Card */}
-          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-            <ul className="space-y-3 text-sm text-gray-800 leading-relaxed">
+          <CardItem>
+            <ContentColumn>
               {PRICING_OPTIONS.map((option, index) => (
                 <PricingCard key={index} option={option} />
               ))}
-            </ul>
-            <p className="text-xs text-gray-500 mt-4">
-              * Для зарубежных клиентов — повышающий коэффициент. Оплата: PayPal
-              / WU
-            </p>
-          </div>
 
-          {/* FAQ Card */}
-          <FAQCard />
-        </div>
+              <Footnote
+                text={[
+                  'Для зарубежных клиентов — повышающий коэффициент',
+                  'Оплата: PayPal / WU',
+                ]}
+              />
+            </ContentColumn>
+          </CardItem>
 
-        {/* Info Cards Column */}
-        <div className="flex-1 flex flex-col gap-3">
-          {/* Duration Card */}
-          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-            <div className="flex gap-3 items-center">
-              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                <Clock className="w-6 h-6 text-orange-500" />
+          {/* Contact Card */}
+          <ContactCard />
+        </ColumnWrapper>
+
+        {/* Right Column - Additional Info */}
+        <ColumnWrapper>
+          {/* Description Card */}
+          <HeaderCardItem>
+            <CardItemSubHeader
+              text={
+                'На ней мы pазберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности'
+              }
+            />
+          </HeaderCardItem>
+
+          {/* Info Cards Column */}
+          <div className="flex-1 flex flex-col gap-3">
+            {/* Duration Card */}
+            <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+              <div className="flex gap-3 items-center">
+                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-6 h-6 text-orange-500" />
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  <strong>Продолжительность 2 часа</strong>
+                </p>
               </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <strong>Продолжительность 2 часа</strong>
-              </p>
             </div>
-          </div>
 
-          {/* Report Card */}
-          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
-            <div className="flex gap-3 items-center">
-              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                <FileText className="w-6 h-6 text-orange-500" />
+            {/* Report Card */}
+            <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+              <div className="flex gap-3 items-center">
+                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-6 h-6 text-orange-500" />
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  <strong>
+                    После консультации вы получаете отчет / лист профориентации
+                    с рекомендациями:
+                  </strong>
+                </p>
               </div>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <strong>
-                  После консультации вы получаете отчет / лист профориентации с
-                  рекомендациями:
-                </strong>
-              </p>
+
+              <hr className="my-4 border-orange-300" />
+
+              <ul className="space-y-2 ml-3 text-sm text-gray-700 leading-relaxed">
+                <li className="flex gap-3 items-center">
+                  <Briefcase className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
+                  Как развить потенциал и построить карьеру
+                </li>
+                <li className="flex gap-3 items-center">
+                  <Heart className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
+                  Какие отношения подходят для гармоничной жизни
+                </li>
+                <li className="flex gap-3 items-center">
+                  <Waves className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
+                  Как восстанавливать энергию и ресурс
+                </li>
+              </ul>
             </div>
 
-            <hr className="my-4 border-orange-300" />
-
-            <ul className="space-y-2 ml-3 text-sm text-gray-700 leading-relaxed">
-              <li className="flex gap-3 items-center">
-                <Briefcase className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
-                Как развить потенциал и построить карьеру
-              </li>
-              <li className="flex gap-3 items-center">
-                <Heart className="w-4 h-4 text-orange-500 flex-shrink-0" />{' '}
-                Какие отношения подходят для гармоничной жизни
-              </li>
-              <li className="flex gap-3 items-center">
-                <Waves className="w-4 h-4 text-orange-500 flex-shrink-0" /> Как
-                восстанавливать энергию и ресурс
-              </li>
-            </ul>
+            {/* Gallery Card */}
+            <GalleryCard
+              images={PRIVATE_SESSION_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </div>
-
-          {/* Gallery Card */}
-          <GalleryCard
-            images={PRIVATE_SESSION_GALLERY}
-            onImageClick={setSelectedImage}
-          />
-        </div>
+        </ColumnWrapper>
       </GridWrapper>
 
       {/* Image Popup Modal */}
