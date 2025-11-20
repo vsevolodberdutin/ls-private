@@ -3,7 +3,10 @@
 import React, { useState } from 'react'
 import { Heart, Waves, Briefcase, Clock, FileText } from 'lucide-react'
 import { PRICING } from '@/constants/contacts'
-import { PricingCard, type PricingOption } from './PrivateSession/PricingCard'
+import {
+  PricingCard,
+  type PricingOption,
+} from '../components/shared/PricingCard'
 
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
@@ -59,7 +62,7 @@ const PRICING_OPTIONS: PricingOption[] = [
 // Main Component
 // ============================================================================
 
-const PrivateSession: React.FC = () => {
+const PrivateSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
@@ -177,4 +180,4 @@ const PrivateSession: React.FC = () => {
   )
 }
 
-export default PrivateSession
+export default PrivateSection
