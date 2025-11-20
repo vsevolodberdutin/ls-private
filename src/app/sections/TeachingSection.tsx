@@ -1,11 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
+import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { Users, TrendingUp } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
-import { SectionTitle } from '../components/shared/SectionTitle'
-import { SectionDescription } from '../components/shared/SectionDescription'
+import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
+import {
+  CardItemHeader,
+  CardItemSubHeader,
+} from '../uiElements/Typography'
 import { InfoCard } from '../components/shared/InfoCard'
 import { FAQCard } from '../components/shared/FAQCard'
 import { GroupTrainingCard } from './TeachingSection/GroupTrainingCard'
@@ -23,15 +26,23 @@ const TeachingSection: React.FC = () => {
 
   return (
     <section id="learn" className="section-odd py-10">
-      <SectionWrapper>
+      <GridWrapper>
         {/* Title Card */}
-        <SectionTitle title="Обучение соционике" />
+        <HeaderCardItem>
+          <CardItemHeader text={'Обучение соционике'} />
+        </HeaderCardItem>
         {/* Description Card */}
-        <SectionDescription description="- Изучение основ соционики, с акцентом на практики определения психотипов" />
-      </SectionWrapper>
+        <HeaderCardItem>
+          <CardItemSubHeader
+            text={
+              'Изучение основ соционики, с акцентом на практики определения психотипов'
+            }
+          />
+        </HeaderCardItem>
+      </GridWrapper>
 
       <div className="-mt-4">
-        <SectionWrapper>
+        <GridWrapper>
           {/* Left Column - Group Training */}
           <div className="flex-1 flex flex-col gap-3 mx-6">
             {/* Training Header */}
@@ -80,7 +91,7 @@ const TeachingSection: React.FC = () => {
             {/* Gallery Card */}
             <GalleryCard images={TEACHING_GALLERY} onImageClick={setSelectedImage} />
           </div>
-        </SectionWrapper>
+        </GridWrapper>
       </div>
 
       {/* Image Popup Modal */}

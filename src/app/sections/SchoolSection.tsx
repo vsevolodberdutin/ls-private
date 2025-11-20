@@ -1,11 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
+import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { BookOpen, FileText } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
-import { SectionTitle } from '../components/shared/SectionTitle'
-import { SectionDescription } from '../components/shared/SectionDescription'
+import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
+import {
+  CardItemHeader,
+  CardItemSubHeader,
+} from '../uiElements/Typography'
 import { InfoCard } from '../components/shared/InfoCard'
 import { FAQCard } from '../components/shared/FAQCard'
 import { OnlineCourseCard } from './SchoolSection/OnlineCourseCard'
@@ -23,15 +26,23 @@ const SchoolSection: React.FC = () => {
 
   return (
     <section id="school" className="section-odd py-10">
-      <SectionWrapper>
+      <GridWrapper>
         {/* Title Card */}
-        <SectionTitle title="Школа осознанных родителей" />
+        <HeaderCardItem>
+          <CardItemHeader text={'Школа осознанных родителей'} />
+        </HeaderCardItem>
         {/* Description Card */}
-        <SectionDescription description="- Изучение методик направленных на лучшее понимание своего ребенка и раскрытие его талантов" />
-      </SectionWrapper>
+        <HeaderCardItem>
+          <CardItemSubHeader
+            text={
+              'Изучение методик направленных на лучшее понимание своего ребенка и раскрытие его талантов'
+            }
+          />
+        </HeaderCardItem>
+      </GridWrapper>
 
       <div className="-mt-4">
-        <SectionWrapper>
+        <GridWrapper>
           {/* Left Column - Online Course */}
           <div className="flex-1 flex flex-col gap-3 mx-6">
             {/* Course Header */}
@@ -83,7 +94,7 @@ const SchoolSection: React.FC = () => {
             {/* Gallery Card */}
             <GalleryCard images={SCHOOL_GALLERY} onImageClick={setSelectedImage} />
           </div>
-        </SectionWrapper>
+        </GridWrapper>
       </div>
 
       {/* Image Popup Modal */}

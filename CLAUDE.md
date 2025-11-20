@@ -60,7 +60,7 @@ src/app/
 ├── components/        # Reusable components
 │   └── mainMenu/     # Sub-components for specific features
 ├── uiElements/        # UI primitives library
-│   ├── wrappers/     # Layout wrapper components (GridWrapper, SectionWrapper, etc.)
+│   ├── wrappers/     # Layout wrapper components (GridWrapper, etc.)
 │   ├── buttons/      # Button components (WhatsappBtn, ViberBtn, TelegramBtn)
 │   ├── Typography.tsx # Typography system (Header, SubHeader, etc.)
 │   └── Icon.tsx      # Icon + text label component
@@ -71,7 +71,7 @@ src/app/
 
 The codebase uses custom wrapper components for consistent layouts:
 
-- **GridWrapper/SectionWrapper** - Two-column layout: `grid-cols-1 lg:grid-cols-[450px_850px]`
+- **GridWrapper** - Two-column layout: `grid-cols-1 lg:grid-cols-[450px_850px]`
 - **MenuWrapper** - Responsive card grid: `grid-cols-1 md:grid-cols-2`
 - **ShadowImgWrapper** - Complex gradient shadows using CSS pseudo-elements
 - **RoundImgWrapper/MobileWrapper** - Responsive image containers

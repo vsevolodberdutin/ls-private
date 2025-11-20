@@ -1,9 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import { SectionWrapper } from '../uiElements/wrappers/SectionWrapper'
-import { SectionTitle } from '../components/shared/SectionTitle'
-import { SectionDescription } from '../components/shared/SectionDescription'
+import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
+import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
+import {
+  CardItemHeader,
+  CardItemSubHeader,
+} from '../uiElements/Typography'
 import { FAQCard } from '../components/shared/FAQCard'
 import { SessionTypesCard } from './FamilySection/SessionTypesCard'
 import { AreasCard } from './FamilySection/AreasCard'
@@ -20,15 +23,23 @@ const FamilySection: React.FC = () => {
 
   return (
     <section id="family" className="section-even py-10">
-      <SectionWrapper>
+      <GridWrapper>
         {/* Title Card */}
-        <SectionTitle title="Семейная консультация" />
+        <HeaderCardItem>
+          <CardItemHeader text={'Семейная консультация'} />
+        </HeaderCardItem>
         {/* Description Card */}
-        <SectionDescription description="- Улучшение отношений в семье, с партнером, детско — родительские отношения, примирение при конфликтах" />
-      </SectionWrapper>
+        <HeaderCardItem>
+          <CardItemSubHeader
+            text={
+              'Улучшение отношений в семье, с партнером, детско — родительские отношения, примирение при конфликтах'
+            }
+          />
+        </HeaderCardItem>
+      </GridWrapper>
 
       <div className="-mt-4">
-        <SectionWrapper>
+        <GridWrapper>
           {/* Left Column - Session Types */}
           <div className="flex-1 flex flex-col gap-3 mx-6">
             {/* Session Types */}
@@ -46,7 +57,7 @@ const FamilySection: React.FC = () => {
             {/* Gallery Card */}
             <GalleryCard images={FAMILY_GALLERY} onImageClick={setSelectedImage} />
           </div>
-        </SectionWrapper>
+        </GridWrapper>
       </div>
 
       {/* Image Popup Modal */}
