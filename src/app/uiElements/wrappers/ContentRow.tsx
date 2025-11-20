@@ -8,6 +8,3 @@ export interface ContentRowProps {
 export const ContentRow: React.FC<ContentRowProps> = ({ children }) => (
   <div className="flex gap-3  items-center ">{children}</div>
 )
-export const SubContentRow: React.FC<ContentRowProps> = ({ children }) => (
-  <div className="flex gap-3  items-center ">{children}</div>
-)

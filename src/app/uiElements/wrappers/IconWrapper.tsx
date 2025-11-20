@@ -11,12 +11,6 @@ export const CircleIconWrapper: React.FC<IconWrapperProps> = ({ children }) => (
   </div>
 )
 
-export const BoxIconWrapper: React.FC<IconWrapperProps> = ({ children }) => (
-  <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-    {children}
-  </div>
-)
-
 export const EmptyIconWrapper: React.FC<IconWrapperProps> = ({ children }) => (
   <div className=" text-orange-500 flex-shrink-0">{children}</div>
 )
