@@ -62,10 +62,83 @@ const extractPublicationType = (name: string): PublicationType => {
 // Tab Content Components
 
 export const IntroductionContent: React.FC = () => {
+  const iconSize = 'w-5 h-5'
+  const iconColor = 'text-white/90'
+
+  // Different icons for education items
+  const getEducationIcon = (educationText: string, index: number) => {
+    if (educationText.includes('Диплом')) {
+      // Use different diploma/certificate icons for each diploma
+      if (index === 0) {
+        return <Shield className={`${iconSize} ${iconColor}`} />
+      } else if (index === 1) {
+        return <BookOpen className={`${iconSize} ${iconColor}`} />
+      } else {
+        return <Book className={`${iconSize} ${iconColor}`} />
+      }
+    } else if (educationText.includes('Международная школа')) {
+      return <GraduationCap className={`${iconSize} ${iconColor}`} />
+    } else {
+      return <FileText className={`${iconSize} ${iconColor}`} />
+    }
+  }
+
   return (
-    <div className="grid gap-0.5 rounded-xl">
-      <div className="group">
-        <RowItem text={ABOUT.introduction} />
+    <div className="flex flex-col rounded-xl">
+      {/* Introduction Section - Glassmorphism Design */}
+      <div className="relative mb-6 group">
+        {/* Glassmorphism card container */}
+        <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-[0_8px_32px_rgba(251,146,60,0.15)] hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)] transition-all duration-500 overflow-hidden">
+          {/* Content area with padding */}
+          <div className="px-6 py-7">
+            {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
+              <p
+                key={idx}
+                className="text-base leading-[1.7] text-white/95 font-normal mb-4 last:mb-0 tracking-normal group-hover:text-white transition-colors duration-300"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {/* Subtle gradient overlay for depth */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-orange-500/10 to-transparent pointer-events-none" />
+        </div>
+      </div>
+
+      {/* Simple HR Separator */}
+      <div className="relative mb-6">
+        <hr className="border-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      </div>
+
+      {/* Education Items - Glassmorphism Cards */}
+      <div className="flex flex-col gap-3">
+        {ABOUT.education.map((item, index) => (
+          <div
+            key={`education-${index}`}
+            className="relative group"
+          >
+            {/* Glassmorphism education card */}
+            <div className="relative bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
+              <div className="flex items-start gap-3">
+                {/* Icon container with glassmorphism */}
+                <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-orange-400/20 to-pink-400/20 backdrop-blur-sm border border-white/30 p-2 min-w-[40px] h-[40px] flex-shrink-0">
+                  {getEducationIcon(item, index)}
+                </div>
+
+                {/* Text content */}
+                <div className="flex flex-col gap-1 flex-1">
+                  <h4 className="text-sm font-medium text-white/95 group-hover:text-white transition-colors leading-relaxed">
+                    {item}
+                  </h4>
+                </div>
+              </div>
+
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-400/0 to-pink-400/0 group-hover:from-orange-400/5 group-hover:to-pink-400/5 transition-all duration-300 pointer-events-none" />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )

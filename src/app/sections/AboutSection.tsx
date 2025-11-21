@@ -2,11 +2,10 @@ import React from 'react'
 import { TabContainer, TabConfig } from '@/app/components/TabSystem/TabContainer'
 import {
   IntroductionContent,
-  EducationContent,
   PublicationContent,
   ConferenceContent,
 } from '@/app/components/TabSystem/TabContent'
-import { UserCircle, GraduationCap, BookOpen, Presentation } from 'lucide-react'
+import { UserCircle, BookOpen, Presentation } from 'lucide-react'
 
 const AboutSection = () => {
   const tabs: TabConfig[] = [
@@ -15,12 +14,6 @@ const AboutSection = () => {
       label: 'Будем\nзнакомы!',
       icon: <UserCircle className="w-full h-full" />,
       content: <IntroductionContent />,
-    },
-    {
-      id: 'education',
-      label: 'Академическая\nоснова',
-      icon: <GraduationCap className="w-full h-full" />,
-      content: <EducationContent />,
     },
     {
       id: 'publications',

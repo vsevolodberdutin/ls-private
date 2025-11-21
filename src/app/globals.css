@@ -4,8 +4,10 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: #ffd9aa;
+  --background-start-rgb: #fff0dc;
+  --background-end-rgb: #4779cd;
   --background-end-rgb: #f78e74;
+  --background-start-rgb: #ffd9aa;
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */

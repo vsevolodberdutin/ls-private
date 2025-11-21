@@ -29,12 +29,12 @@ export const TabContainer: React.FC<TabContainerProps> = ({
   const buttonHeight = 98 // approximate height per button
   const gap = 12 // gap-3 = 12px
   const totalLeftHeight = tabs.length * buttonHeight + (tabs.length - 1) * gap
-  const minHeight = 4 * buttonHeight + 3 * gap // Height of 4 buttons
+  const minHeight = 4 * buttonHeight + 3 * gap + 112 // Height of 4 buttons
 
   return (
     <div className="h-fit w-svw px-10 py-10 grid grid-cols-1 lg:grid-cols-[450px_850px] justify-center items-start gap-5">
       {/* Left side: Vertical tab buttons */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 mt-[58px] mb-[58px]">
         {tabs.map((tab) => (
           <TabButton
             key={tab.id}
@@ -192,45 +192,50 @@ const TabPanel: React.FC<TabPanelProps> = ({ children }) => {
     }
   }
 
-  const upButtonHeight = showUpButton ? 48 : 0
-  const downButtonHeight = showDownButton ? 48 : 0
-  const totalButtonHeight = upButtonHeight + downButtonHeight
+  const buttonSpaceHeight = 56 // h-14 (56px) for button space
+  const totalButtonSpaceHeight = buttonSpaceHeight * 2 // Top and bottom spaces
+  const additionalContentHeight = buttonSpaceHeight * 2 + 16 // Add 2 button spaces + gaps (8px each)
 
   return (
     <div className="flex flex-col h-full">
-      {/* Scroll Up Button */}
-      {showUpButton && (
-        <button
-          onClick={scrollUp}
-          className="w-full py-2 bg-orange-50/30 border border-orange-200 hover:bg-orange-100/40 rounded-lg mb-2 flex items-center justify-center transition-colors duration-200"
-          aria-label="Scroll up"
-        >
-          <ChevronUp className="w-5 h-5 text-gray-600" />
-        </button>
-      )}
+      {/* Top Button Space - Always Reserved */}
+      <div className="h-14 flex items-center justify-center mb-2">
+        {showUpButton && (
+          <button
+            onClick={scrollUp}
+            className="w-12 h-12 bg-orange-50/30 border border-orange-200 hover:bg-orange-100/40 rounded-full flex items-center justify-center transition-colors duration-200"
+            aria-label="Scroll up"
+          >
+            <ChevronUp className="w-5 h-5 text-gray-600" />
+          </button>
+        )}
+      </div>
 
       {/* Scrollable Content */}
       <div
         ref={scrollContainerRef}
         onScroll={checkScroll}
+        onWheel={(e) => e.preventDefault()}
         className="flex-1 overflow-y-auto rounded-xl animate-fadeIn scrollbar-hide"
         style={{
-          maxHeight: `calc(100% - ${totalButtonHeight}px)`,
+          maxHeight: `calc(100% - ${totalButtonSpaceHeight}px + ${additionalContentHeight}px)`,
         }}
       >
         {children}
       </div>
 
-      {/* Scroll Down Button */}
-      {showDownButton && (
-        <button
-          onClick={scrollDown}
-          className="w-full py-2 bg-orange-50/30 border border-orange-200 hover:bg-orange-100/40 rounded-lg mt-2 flex items-center justify-center transition-colors duration-200"
-          aria-label="Scroll down"
-        >
-          <ChevronDown className="w-5 h-5 text-gray-600" />
-        </button>
-      )}
+      {/* Bottom Button Space - Always Reserved */}
+      <div className="h-14 flex items-center justify-center mt-2">
+        {showDownButton && (
+          <button
+            onClick={scrollDown}
+            className="w-12 h-12 bg-orange-50/30 border border-orange-200 hover:bg-orange-100/40 rounded-full flex items-center justify-center transition-colors duration-200"
+            aria-label="Scroll down"
+          >
+            <ChevronDown className="w-5 h-5 text-gray-600" />
+          </button>
+        )}
+      </div>
     </div>
   )
 }
