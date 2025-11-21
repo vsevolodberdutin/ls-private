@@ -64,7 +64,7 @@ const TabButton: React.FC<TabButtonProps> = ({
     <button
       onClick={onClick}
       className={`
-        group flex w-full items-center gap-4 px-6 py-4 rounded-lg border
+        group flex w-full items-center gap-2 px-6 py-4 rounded-lg border
         transition-colors duration-200
         ${
           isActive
