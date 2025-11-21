@@ -1,10 +1,33 @@
-import productsData from '@/data/products.json'
-
 /**
  * Typed constants for product offerings
  * This provides type safety and follows the architectural pattern
  */
-export const PRODUCTS = productsData
+export const PRODUCTS = [
+  {
+    id: 'private',
+    title: 'Личная сессия',
+    subtitle:
+      'Разберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности',
+  },
+  {
+    id: 'learn',
+    title: 'Обучение соционике',
+    subtitle:
+      'Изучение основ соционики, с акцентом на практики определения психотипов',
+  },
+  {
+    id: 'family',
+    title: 'Семейная консультация',
+    subtitle:
+      'Улучшение отношений в семье, с партнером, детско — родительские отношения, примирение при конфликтах',
+  },
+  {
+    id: 'school',
+    title: 'Школа осознанных родителей',
+    subtitle:
+      'Изучение методик направленных на лучшее понимание своего ребенка и раскрытие его талантов',
+  },
+] as const
 
 export type Product = (typeof PRODUCTS)[number]
 export type ProductsData = typeof PRODUCTS
