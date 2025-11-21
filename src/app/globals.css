@@ -4,10 +4,20 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: #fff0dc;
-  --background-end-rgb: #4779cd;
+  /* --background-start-rgb: #fff0dc; */
+  /* --background-end-rgb: #4779cd; */
+  /* --background-end-rgb: #a39bd0; */
   --background-end-rgb: #f78e74;
   --background-start-rgb: #ffd9aa;
+
+  --navigation-rgb: #d48888;
+
+  --footer-start-rgb: #ffd9aa;
+  --footer-mid-rgb: #42569a;
+  --footer-end-rgb: #d77d72;
+
+  --header-text-rgb: #4c0519;
+  --subheader-text-rgb: #000000;
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */

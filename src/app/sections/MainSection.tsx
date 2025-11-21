@@ -16,7 +16,7 @@ const MainSection = () => {
           <Offer />
           <MainMenu />
         </div>
-        </GridWrapper>
+      </GridWrapper>
     </main>
   )
 }

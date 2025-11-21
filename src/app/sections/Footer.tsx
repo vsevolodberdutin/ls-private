@@ -32,9 +32,12 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative text-amber-50 pt-16 pb-8">
       {/* Gradient transition from main content to footer */}
-
-      {/* <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_#ffd9aa_0%,_#324a94_2%,_#72bcd7_100%)]" /> */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_#ffd9aa_0%,_#5b76cc_18%,_#D77D72_100%)]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to bottom, var(--footer-start-rgb) 0%, var(--footer-mid-rgb) 18%, var(--footer-end-rgb) 100%)'
+        }}
+      />
 
       <div className="relative w-svw px-10 py-4 pb-10 ">
         {/* Main Footer Content Grid */}

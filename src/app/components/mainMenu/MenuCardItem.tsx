@@ -26,7 +26,7 @@ export const MenuCardItem: React.FC<MenuItemProps> = ({
     <a
       href={`#${id}`}
       onClick={handleClick}
-      className="block border-b border-gray-300 bg-zinc-200 p-6 backdrop-blur-2xl w-[340px] h-fit transition duration-500 rounded-xl border cursor-pointer hover:bg-white hover:scale-[102%] no-underline"
+      className=" hover:opacity-100 opacity-90 hover:border-gray-600 hover:shadow-lg shadow-gray-800 block border-b border-gray-300 bg-white p-6 backdrop-blur-2xl w-[340px] transition duration-500 rounded-xl border cursor-pointer hover:bg-white hover:scale-[103%] no-underline"
     >
       <CardHeader text={title} />
       <CardSubHeader text={subtitle} />

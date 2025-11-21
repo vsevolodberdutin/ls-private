@@ -3,17 +3,20 @@ import Image from 'next/image'
 import { ShadowImgWrapper } from '../uiElements/wrappers/ShadowImgWrapper'
 import { RoundImgWrapper } from '../uiElements/wrappers/RoundImgWrapper'
 import { MobileWrapper } from '../uiElements/wrappers/MobileWrapper'
+import { WhiteCircleWrapper } from '../uiElements/wrappers/WhiteCircleWrapper'
 
 export const MainPicture: React.FC = () => (
   <ShadowImgWrapper>
-    <Image
-      className="relative hidden lg:flex"
-      src="/main.svg"
-      alt="Eleonora main"
-      width={400}
-      height={400}
-      priority
-    />
+    <WhiteCircleWrapper>
+      <Image
+        className="relative w-96 hidden lg:flex"
+        src="/main.svg"
+        alt="Eleonora main"
+        width={500}
+        height={500}
+        priority
+      />
+    </WhiteCircleWrapper>
   </ShadowImgWrapper>
 )
 
