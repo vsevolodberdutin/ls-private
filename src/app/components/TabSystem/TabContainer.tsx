@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState, ReactNode } from 'react'
+import React, { useState, ReactNode, useRef } from 'react'
+import { ChevronUp, ChevronDown } from 'lucide-react'
 
 export interface TabConfig {
   id: string
@@ -24,6 +25,12 @@ export const TabContainer: React.FC<TabContainerProps> = ({
 
   const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content
 
+  // Calculate total height of left side buttons
+  const buttonHeight = 98 // approximate height per button
+  const gap = 12 // gap-3 = 12px
+  const totalLeftHeight = tabs.length * buttonHeight + (tabs.length - 1) * gap
+  const minHeight = 4 * buttonHeight + 3 * gap // Height of 4 buttons
+
   return (
     <div className="h-fit w-svw px-10 py-10 grid grid-cols-1 lg:grid-cols-[450px_850px] justify-center items-start gap-5">
       {/* Left side: Vertical tab buttons */}
@@ -40,8 +47,15 @@ export const TabContainer: React.FC<TabContainerProps> = ({
         ))}
       </div>
 
-      {/* Right side: Tab content panel */}
-      <TabPanel>{activeTabContent}</TabPanel>
+      {/* Right side: Tab content panel with fixed height */}
+      <div
+        style={{
+          height: `${totalLeftHeight}px`,
+          minHeight: `${minHeight}px`,
+        }}
+      >
+        <TabPanel>{activeTabContent}</TabPanel>
+      </div>
     </div>
   )
 }
@@ -118,7 +132,105 @@ interface TabPanelProps {
 }
 
 const TabPanel: React.FC<TabPanelProps> = ({ children }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [showUpButton, setShowUpButton] = useState(false)
+  const [showDownButton, setShowDownButton] = useState(false)
+
+  // Check scroll position and content scrollability
+  const checkScroll = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const isScrollable = container.scrollHeight > container.clientHeight
+
+      if (!isScrollable) {
+        setShowUpButton(false)
+        setShowDownButton(false)
+        return
+      }
+
+      const scrollTop = container.scrollTop
+      const maxScroll = container.scrollHeight - container.clientHeight
+
+      // Show up button if not at top
+      setShowUpButton(scrollTop > 0)
+      // Show down button if not at bottom
+      setShowDownButton(scrollTop < maxScroll - 1)
+    }
+  }
+
+  // Check scrollability on mount and content change
+  React.useEffect(() => {
+    checkScroll()
+    const timer = setTimeout(checkScroll, 100)
+    return () => clearTimeout(timer)
+  }, [children])
+
+  const scrollUp = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const scrollAmount = 200
+      container.scrollTo({
+        top: Math.max(0, container.scrollTop - scrollAmount),
+        behavior: 'smooth',
+      })
+      // Update button visibility after scroll
+      setTimeout(checkScroll, 300)
+    }
+  }
+
+  const scrollDown = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const scrollAmount = 200
+      const maxScroll = container.scrollHeight - container.clientHeight
+      container.scrollTo({
+        top: Math.min(maxScroll, container.scrollTop + scrollAmount),
+        behavior: 'smooth',
+      })
+      // Update button visibility after scroll
+      setTimeout(checkScroll, 300)
+    }
+  }
+
+  const upButtonHeight = showUpButton ? 48 : 0
+  const downButtonHeight = showDownButton ? 48 : 0
+  const totalButtonHeight = upButtonHeight + downButtonHeight
+
   return (
-    <div className="grid gap-0.5 rounded-xl animate-fadeIn">{children}</div>
+    <div className="flex flex-col h-full">
+      {/* Scroll Up Button */}
+      {showUpButton && (
+        <button
+          onClick={scrollUp}
+          className="w-full py-2 bg-orange-50/30 border border-orange-200 hover:bg-orange-100/40 rounded-lg mb-2 flex items-center justify-center transition-colors duration-200"
+          aria-label="Scroll up"
+        >
+          <ChevronUp className="w-5 h-5 text-gray-600" />
+        </button>
+      )}
+
+      {/* Scrollable Content */}
+      <div
+        ref={scrollContainerRef}
+        onScroll={checkScroll}
+        className="flex-1 overflow-y-auto rounded-xl animate-fadeIn scrollbar-hide"
+        style={{
+          maxHeight: `calc(100% - ${totalButtonHeight}px)`,
+        }}
+      >
+        {children}
+      </div>
+
+      {/* Scroll Down Button */}
+      {showDownButton && (
+        <button
+          onClick={scrollDown}
+          className="w-full py-2 bg-orange-50/30 border border-orange-200 hover:bg-orange-100/40 rounded-lg mt-2 flex items-center justify-center transition-colors duration-200"
+          aria-label="Scroll down"
+        >
+          <ChevronDown className="w-5 h-5 text-gray-600" />
+        </button>
+      )}
+    </div>
   )
 }

@@ -158,3 +158,4 @@ The codebase is under active development:
 
 When adding new sections, follow the established pattern: create section component, add data files if needed, import into page.tsx, and apply appropriate gradient class.
 - when you ask anything start with "My dear friend,"
+- add to "My dear friend," emoji face with smile and sunglasses
