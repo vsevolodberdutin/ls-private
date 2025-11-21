@@ -7,7 +7,7 @@ export interface SchoolPackage {
   name: string
   price: string
   note?: string
-  features: string[]
+  features: readonly string[]
   message: string
 }
 

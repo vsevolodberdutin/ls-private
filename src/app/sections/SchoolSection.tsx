@@ -23,7 +23,7 @@ const SCHOOL_PACKAGES: SchoolPackage[] = SCHOOL_SERVICES.packages.map(
   (pkg, index) => ({
     name: pkg.name,
     price: pkg.priceFormatted,
-    note: pkg.note,
+    note: 'note' in pkg ? pkg.note : undefined,
     features: pkg.features,
     message: `Здравствуйте, Элеонора! Интересует "${pkg.name}". Расскажите подробнее...`,
   })

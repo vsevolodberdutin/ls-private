@@ -22,14 +22,14 @@ import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
 const TEACHING_COURSES: TeachingCourse[] = TEACHING_SERVICES.courses.map(
   (course) => ({
     name: course.name,
-    duration: course.duration,
-    format: course.format,
-    subtitle: course.subtitle,
-    description: course.description,
-    requirement: course.requirement,
-    target: course.target,
-    features: course.features,
-    modules: course.modules,
+    duration: 'duration' in course ? course.duration : undefined,
+    format: 'format' in course ? course.format : undefined,
+    subtitle: 'subtitle' in course ? course.subtitle : undefined,
+    description: 'description' in course ? course.description : undefined,
+    requirement: 'requirement' in course ? course.requirement : undefined,
+    target: 'target' in course ? course.target : undefined,
+    features: 'features' in course ? course.features : undefined,
+    modules: 'modules' in course ? course.modules : undefined,
     price: course.priceFormatted,
     message: `Здравствуйте, Элеонора! Интересует "${course.name}". Расскажите подробнее...`,
   })

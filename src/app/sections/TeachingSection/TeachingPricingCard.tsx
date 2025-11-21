@@ -11,12 +11,12 @@ export interface TeachingCourse {
   description?: string
   requirement?: string
   target?: string
-  features?: string[]
-  modules?: Array<{
-    name: string
-    hours: string
-    topics: string
-  }>
+  features?: readonly string[]
+  modules?: readonly {
+    readonly name: string
+    readonly hours: string
+    readonly topics: string
+  }[]
   price: string
   message: string
 }

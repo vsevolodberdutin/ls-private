@@ -1,19 +1,45 @@
 import React from 'react'
+import { TabContainer, TabConfig } from '@/app/components/TabSystem/TabContainer'
 import {
-  EducationBlock,
-  IntroductionBlock,
-  PublicationBlock,
-  ConferenceBlock,
-} from '@/app/components/AboutBlocks'
+  IntroductionContent,
+  EducationContent,
+  PublicationContent,
+  ConferenceContent,
+} from '@/app/components/TabSystem/TabContent'
+import { UserCircle, GraduationCap, BookOpen, Presentation } from 'lucide-react'
 
 const AboutSection = () => {
+  const tabs: TabConfig[] = [
+    {
+      id: 'introduction',
+      label: 'Будем\nзнакомы!',
+      icon: <UserCircle className="w-full h-full" />,
+      content: <IntroductionContent />,
+    },
+    {
+      id: 'education',
+      label: 'Академическая\nоснова',
+      icon: <GraduationCap className="w-full h-full" />,
+      content: <EducationContent />,
+    },
+    {
+      id: 'publications',
+      label: 'Научные\nпубликации',
+      icon: <BookOpen className="w-full h-full" />,
+      content: <PublicationContent />,
+    },
+    {
+      id: 'conferences',
+      label: 'Выступления',
+      icon: <Presentation className="w-full h-full" />,
+      content: <ConferenceContent />,
+    },
+  ]
+
   return (
     <section className="flex w-svw flex-col items-center section-odd">
       <div className="w-screen h-fit flex flex-col items-center">
-        <IntroductionBlock />
-        <EducationBlock />
-        <PublicationBlock />
-        <ConferenceBlock />
+        <TabContainer tabs={tabs} defaultActiveTab="introduction" />
       </div>
     </section>
   )
