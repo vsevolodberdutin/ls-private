@@ -3,6 +3,7 @@ import {
   EducationBlock,
   IntroductionBlock,
   PublicationBlock,
+  ConferenceBlock,
 } from '@/app/components/AboutBlocks'
 
 const AboutSection = () => {
@@ -12,6 +13,7 @@ const AboutSection = () => {
         <IntroductionBlock />
         <EducationBlock />
         <PublicationBlock />
+        <ConferenceBlock />
       </div>
     </section>
   )

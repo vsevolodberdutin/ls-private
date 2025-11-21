@@ -3,10 +3,11 @@ import * as Typography from '@/app/uiElements/Typography'
 import { ABOUT } from '@/constants/about'
 import { ARTICLES } from '@/constants/articles'
 import { COMPANIES } from '@/constants/companies'
+import { CONFERENCES } from '@/constants/conferences'
 import { GridWrapper } from '@/app/uiElements/wrappers/GridWrapper'
 import Image from 'next/image'
 import Icon from '@/app/uiElements/Icon'
-import { Book, FileText, BookOpen } from 'lucide-react'
+import { Book, FileText, BookOpen, Presentation } from 'lucide-react'
 
 /**
  * Type definition for publication types
@@ -157,6 +158,34 @@ export const CompaniesBlock: React.FC = () => {
             <LabelItem text={item.name} />
           </div>
         ))}
+      </div>
+    </GridWrapper>
+  )
+}
+
+export const ConferenceBlock: React.FC = () => {
+  return (
+    <GridWrapper>
+      <div className="group flex w-fit items-center mx-auto">
+        <div className="w-20 h-20 p-5 flex items-center justify-center border rounded-full mr-5 bg-pink-900/[.3] hover:scale-105 focus-within:scale-105 lg:scale-100 scale-75 transition-all duration-200">
+          <Presentation className="w-[50px] h-[50px] text-white" />
+        </div>
+        <div className="w-fit lg:w-[50px]">
+          <Typography.PageHeader text={'Выступления'} />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-1 h-fit">
+        {CONFERENCES.map((item, index) => {
+          return (
+            <div
+              className="grid grid-cols-[2fr_1fr] gap-1.5 hover:gap-5 hover:scale-[101%] group rounded-xl transition-all duration-200"
+              key={`conference-${index}`}
+            >
+              <RowItem text={item.name} />
+              <RowItem text={item.data} />
+            </div>
+          )
+        })}
       </div>
     </GridWrapper>
   )
