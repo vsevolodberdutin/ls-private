@@ -2,7 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { Book, FileText, BookOpen } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
-import { ABOUT } from '@/constants/about'
+import { ARTICLES } from '@/constants/articles'
+import { COMPANIES } from '@/constants/companies'
 
 /**
  * Type definition for publication types
@@ -33,7 +34,6 @@ const Footer: React.FC = () => {
       {/* Gradient transition from main content to footer */}
 
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_#ffd9aa_0%,_#5b76cc_18%,_#D77D72_100%)]" />
-
 
       <div className="relative w-svw px-10 py-4 pb-10 ">
         {/* Main Footer Content Grid */}
@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
               Научные публикации
             </h3>
             <div className="space-y-4">
-              {ABOUT.articles.map((article, index) => {
+              {ARTICLES.map((article, index) => {
                 const publicationType = extractPublicationType(article.name)
                 return (
                   <div
@@ -215,10 +215,10 @@ const Footer: React.FC = () => {
                 эффективных команд
               </p>
             </div>
-            <div className="flex flex-wrap gap-4 items-center justify-start">
-              {ABOUT.companies.map((company, index) => (
+            <div className="flex flex-wrap gap-4 items-center justify-center">
+              {COMPANIES.map((company, index) => (
                 <div key={index} className="group relative">
-                  <div className="w-[60px] h-[60px] rounded-full bg-white/100 backdrop-blur-sm hover:bg-white hover:scale-110 transition-all duration-200 p-1 border border-amber-700/30 hover:border-amber-600/50 flex items-center justify-center overflow-hidden">
+                  <div className="w-[60px] h-[60px] rounded-full bg-white/100 backdrop-blur-sm hover:bg-white hover:scale-110 transition-all duration-200 border-4 border-white hover:border-amber-600/50 flex items-center justify-center overflow-hidden">
                     <Image
                       src={`/companies/${company.data}_logo.png`}
                       alt={company.name}

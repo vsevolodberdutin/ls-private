@@ -1,6 +1,8 @@
 import React from 'react'
 import * as Typography from '@/app/uiElements/Typography'
 import { ABOUT } from '@/constants/about'
+import { ARTICLES } from '@/constants/articles'
+import { COMPANIES } from '@/constants/companies'
 import { GridWrapper } from '@/app/uiElements/wrappers/GridWrapper'
 import Image from 'next/image'
 import Icon from '@/app/uiElements/Icon'
@@ -112,7 +114,7 @@ export const PublicationBlock: React.FC = () => {
         text={'Научные\nпубликации'}
       />
       <div className="grid grid-cols-1 gap-1 h-fit">
-        {ABOUT.articles.map((item, index) => {
+        {ARTICLES.map((item, index) => {
           const publicationType = extractPublicationType(item.name)
           return (
             <div
@@ -138,7 +140,7 @@ export const CompaniesBlock: React.FC = () => {
         text={'Мои\nклиенты'}
       />
       <div className="flex w-full flex-wrap justify-center">
-        {ABOUT.companies.map((item, index) => (
+        {COMPANIES.map((item, index) => (
           <div
             className="px-4 py-2 flex items-center grid-flow-dense"
             key={`company-${index}`}
