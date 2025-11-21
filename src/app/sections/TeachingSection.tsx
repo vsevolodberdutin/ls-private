@@ -1,98 +1,127 @@
 'use client'
 
 import React, { useState } from 'react'
-import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
-import { Users, TrendingUp } from 'lucide-react'
+import { Award } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
+import {
+  TeachingPricingCard,
+  type TeachingCourse,
+} from './TeachingSection/TeachingPricingCard'
+import { ContactCard } from '@/app/components/shared/ContactCard'
+import { GalleryCard } from '@/app/components/shared/GalleryCard'
+import { ImagePopup } from '@/app/components/shared/ImagePopup'
+import { TEACHING_GALLERY } from '@/constants/gallery'
+import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
-import { InfoCard } from '../components/shared/InfoCard'
-import { ContactCard } from '../components/shared/ContactCard'
-import { GroupTrainingCard } from './TeachingSection/GroupTrainingCard'
-import { StrategicCoachingCard } from './TeachingSection/StrategicCoachingCard'
-import { GalleryCard } from '../components/shared/GalleryCard'
-import { ImagePopup } from '../components/shared/ImagePopup'
-import { TEACHING_GALLERY } from '@/constants/gallery'
 
-/**
- * Teaching Section - Socionics Training
- * Follows PrivateSession structure with title/description cards and two-column layout
- */
+// ============================================================================
+// Courses Configuration
+// ============================================================================
+
+const TEACHING_COURSES: TeachingCourse[] = TEACHING_SERVICES.courses.map(
+  (course) => ({
+    name: course.name,
+    duration: course.duration,
+    format: course.format,
+    subtitle: course.subtitle,
+    description: course.description,
+    requirement: course.requirement,
+    target: course.target,
+    features: course.features,
+    modules: course.modules,
+    price: course.priceFormatted,
+    message: `Здравствуйте, Элеонора! Интересует "${course.name}". Расскажите подробнее...`,
+  })
+)
+
+// ============================================================================
+// Main Component
+// ============================================================================
+
 const TeachingSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section id="learn" className="section-odd py-10">
+    <section id="learn" className="section-odd">
       <GridWrapper>
         {/* Title Card */}
         <HeaderCardItem>
-          <CardItemHeader text={'Обучение соционике'} />
+          <CardItemHeader text={TEACHING_SERVICES.title} />
         </HeaderCardItem>
         {/* Description Card */}
         <HeaderCardItem>
-          <CardItemSubHeader
-            text={
-              'Изучение основ соционики, с акцентом на практики определения психотипов'
-            }
-          />
+          <CardItemSubHeader text={TEACHING_SERVICES.description} />
         </HeaderCardItem>
+
+        {/* Left Column - Courses */}
+        <div className="flex-1 flex flex-col gap-3 mx-6">
+          {TEACHING_COURSES.map((course, index) => (
+            <TeachingPricingCard key={index} course={course} />
+          ))}
+
+          {/* Contact Card */}
+          <ContactCard message="Здравствуйте, Элеонора! Интересует обучение соционике. Расскажите подробнее о..." />
+        </div>
+
+        {/* Right Column - Strategic Session and Gallery */}
+        <div className="flex-1 flex flex-col gap-3">
+          {/* Strategic Session Card */}
+          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                <Award className="w-6 h-6 text-orange-500" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800">
+                {TEACHING_SERVICES.strategicSession.name}
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              {/* Goal */}
+              <div>
+                <div className="text-xs font-semibold text-gray-700 mb-1">
+                  Цель:
+                </div>
+                <div className="text-sm text-gray-700 leading-relaxed">
+                  {TEACHING_SERVICES.strategicSession.goal}
+                </div>
+              </div>
+
+              {/* Format */}
+              <div>
+                <div className="text-xs font-semibold text-gray-700 mb-1">
+                  Состав:
+                </div>
+                <div className="text-sm text-gray-700 leading-relaxed">
+                  {TEACHING_SERVICES.strategicSession.format}
+                </div>
+              </div>
+
+              {/* Price */}
+              <div className="text-2xl font-bold text-orange-700 pt-2">
+                {TEACHING_SERVICES.strategicSession.priceFormatted}
+              </div>
+
+              {/* Contact Button */}
+              <a
+                href={`https://wa.me/79103811250?text=${encodeURIComponent('Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
+              >
+                Записаться
+              </a>
+            </div>
+          </div>
+
+          {/* Gallery Card */}
+          <GalleryCard
+            images={TEACHING_GALLERY}
+            onImageClick={setSelectedImage}
+          />
+        </div>
       </GridWrapper>
-
-      <div className="-mt-4">
-        <GridWrapper>
-          {/* Left Column - Group Training */}
-          <div className="flex-1 flex flex-col gap-3 mx-6">
-            {/* Training Header */}
-            <InfoCard icon={Users}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <Users className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {TEACHING_SERVICES.groupTraining.title}
-                  </h2>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    <strong>{TEACHING_SERVICES.groupTraining.format}</strong>
-                  </p>
-                </div>
-              </div>
-            </InfoCard>
-
-            {/* Training Details */}
-            <GroupTrainingCard />
-
-            {/* FAQ Card */}
-            <ContactCard message="Здравствуйте, Элеонора! Интересует групповое обучение/коучинг. Расскажите подробнее о..." />
-          </div>
-
-          {/* Right Column - Strategic Coaching */}
-          <div className="flex-1 flex flex-col gap-3">
-            {/* Coaching Header */}
-            <InfoCard icon={TrendingUp}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <TrendingUp className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {TEACHING_SERVICES.strategicCoaching.title}
-                  </h2>
-                </div>
-              </div>
-            </InfoCard>
-
-            {/* Coaching Details */}
-            <StrategicCoachingCard />
-
-            {/* Gallery Card */}
-            <GalleryCard
-              images={TEACHING_GALLERY}
-              onImageClick={setSelectedImage}
-            />
-          </div>
-        </GridWrapper>
-      </div>
 
       {/* Image Popup Modal */}
       <ImagePopup

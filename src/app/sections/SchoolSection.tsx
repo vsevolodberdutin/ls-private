@@ -1,103 +1,118 @@
 'use client'
 
 import React, { useState } from 'react'
-import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
-import { BookOpen, FileText } from 'lucide-react'
+import { BookOpen, Target } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
+import {
+  SchoolPricingCard,
+  type SchoolPackage,
+} from './SchoolSection/SchoolPricingCard'
+import { ContactCard } from '@/app/components/shared/ContactCard'
+import { GalleryCard } from '@/app/components/shared/GalleryCard'
+import { ImagePopup } from '@/app/components/shared/ImagePopup'
+import { SCHOOL_GALLERY } from '@/constants/gallery'
+import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
-import { InfoCard } from '../components/shared/InfoCard'
-import { ContactCard } from '../components/shared/ContactCard'
-import { OnlineCourseCard } from './SchoolSection/OnlineCourseCard'
-import { PsychotypeCard } from './SchoolSection/PsychotypeCard'
-import { GalleryCard } from '../components/shared/GalleryCard'
-import { ImagePopup } from '../components/shared/ImagePopup'
-import { SCHOOL_GALLERY } from '@/constants/gallery'
 
-/**
- * School Section - Conscious Parents School
- * Follows PrivateSession structure with title/description cards and two-column layout
- */
+// ============================================================================
+// Pricing Options Configuration
+// ============================================================================
+
+const SCHOOL_PACKAGES: SchoolPackage[] = SCHOOL_SERVICES.packages.map(
+  (pkg, index) => ({
+    name: pkg.name,
+    price: pkg.priceFormatted,
+    note: pkg.note,
+    features: pkg.features,
+    message: `Здравствуйте, Элеонора! Интересует "${pkg.name}". Расскажите подробнее...`,
+  })
+)
+
+// ============================================================================
+// Main Component
+// ============================================================================
+
 const SchoolSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section id="school" className="section-odd py-10">
+    <section id="school" className="section-odd">
       <GridWrapper>
         {/* Title Card */}
         <HeaderCardItem>
-          <CardItemHeader text={'Школа осознанных родителей'} />
+          <CardItemHeader text={SCHOOL_SERVICES.title} />
         </HeaderCardItem>
         {/* Description Card */}
         <HeaderCardItem>
-          <CardItemSubHeader
-            text={
-              'Изучение методик направленных на лучшее понимание своего ребенка и раскрытие его талантов'
-            }
-          />
+          <CardItemSubHeader text={SCHOOL_SERVICES.description} />
         </HeaderCardItem>
+
+        {/* Left Column - Course Goals and Marathon Info */}
+        <div className="flex-1 flex flex-col gap-3 mx-6">
+          {/* Course Goals Card */}
+          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                <Target className="w-6 h-6 text-orange-500" />
+              </div>
+              <h3 className="text-md font-semibold text-gray-800">
+                Видео-курс из 16 уроков о том как:
+              </h3>
+            </div>
+            <ul className="space-y-2 text-sm text-gray-700 leading-relaxed ml-3">
+              {SCHOOL_SERVICES.courseGoals.map((goal, index) => (
+                <li key={index} className="flex gap-2">
+                  <span className="text-orange-500 font-semibold">
+                    {index + 1})
+                  </span>
+                  <span>{goal}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Marathon Info Card */}
+          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+                <BookOpen className="w-6 h-6 text-orange-500" />
+              </div>
+              <h3 className="text-md font-semibold text-gray-800">
+                2 Марафона по 8 уроков
+              </h3>
+            </div>
+            <div className="space-y-3">
+              {SCHOOL_SERVICES.marathons.map((marathon, index) => (
+                <div key={index} className="text-sm">
+                  <div className="font-semibold text-gray-800 mb-1">
+                    {marathon.name}
+                  </div>
+                  <div className="text-gray-600 leading-relaxed">
+                    {marathon.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Card */}
+          <ContactCard message="Здравствуйте, Элеонора! Интересует обучение в школе соционики. Расскажите подробнее о..." />
+        </div>
+
+        {/* Right Column - Pricing Packages */}
+        <div className="flex-1 flex flex-col gap-3">
+          {SCHOOL_PACKAGES.map((pkg, index) => (
+            <SchoolPricingCard key={index} package={pkg} />
+          ))}
+
+          {/* Gallery Card */}
+          <GalleryCard
+            images={SCHOOL_GALLERY}
+            onImageClick={setSelectedImage}
+          />
+        </div>
       </GridWrapper>
-
-      <div className="-mt-4">
-        <GridWrapper>
-          {/* Left Column - Online Course */}
-          <div className="flex-1 flex flex-col gap-3 mx-6">
-            {/* Course Header */}
-            <InfoCard icon={BookOpen}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <BookOpen className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {SCHOOL_SERVICES.onlineCourse.title}
-                  </h2>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    <strong>{SCHOOL_SERVICES.onlineCourse.format}</strong>
-                  </p>
-                </div>
-              </div>
-            </InfoCard>
-
-            {/* Course Modules */}
-            <OnlineCourseCard />
-
-            {/* FAQ Card */}
-            <ContactCard message="Здравствуйте, Элеонора! Интересует обучение в школе соционики. Расскажите подробнее о..." />
-          </div>
-
-          {/* Right Column - Psychotype Assessment */}
-          <div className="flex-1 flex flex-col gap-3">
-            {/* Assessment Header */}
-            <InfoCard icon={FileText}>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-orange-500" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-800">
-                    {SCHOOL_SERVICES.psychotypeAssessment.title}
-                  </h2>
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    <strong>
-                      {SCHOOL_SERVICES.psychotypeAssessment.format}
-                    </strong>
-                  </p>
-                </div>
-              </div>
-            </InfoCard>
-
-            {/* Assessment Details */}
-            <PsychotypeCard />
-
-            {/* Gallery Card */}
-            <GalleryCard
-              images={SCHOOL_GALLERY}
-              onImageClick={setSelectedImage}
-            />
-          </div>
-        </GridWrapper>
-      </div>
 
       {/* Image Popup Modal */}
       <ImagePopup

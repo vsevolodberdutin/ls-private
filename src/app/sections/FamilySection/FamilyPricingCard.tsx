@@ -23,7 +23,7 @@ interface FamilyPricingCardProps {
 export const FamilyPricingCard: React.FC<FamilyPricingCardProps> = ({
   option,
 }) => {
-  const whatsappUrl = `https://wa.me/${CONTACTS.whatsapp.number}?text=${encodeURIComponent(option.message)}`
+  const whatsappUrl = `https://wa.me/79103811250?text=${encodeURIComponent(option.message)}`
 
   return (
     <li className="px-4 py-3 rounded-lg border border-orange-200 bg-orange-50/30">
