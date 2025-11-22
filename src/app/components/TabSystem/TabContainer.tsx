@@ -215,7 +215,6 @@ const TabPanel: React.FC<TabPanelProps> = ({ children }) => {
       <div
         ref={scrollContainerRef}
         onScroll={checkScroll}
-        onWheel={(e) => e.preventDefault()}
         className="flex-1 overflow-y-auto rounded-xl animate-fadeIn scrollbar-hide"
         style={{
           maxHeight: `calc(100% - ${totalButtonSpaceHeight}px + ${additionalContentHeight}px)`,

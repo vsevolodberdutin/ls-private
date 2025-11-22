@@ -10,7 +10,10 @@
   --background-end-rgb: #f78e74;
   --background-start-rgb: #ffd9aa;
 
-  --navigation-rgb: #d48888;
+  /* --navigation-rgb: #3f354d; */
+  --navigation-rgb: #e0a499;
+  /* --navigation-rgb: #443725; */
+  /* --navigation-rgb: #5f1b30; */
 
   --footer-start-rgb: #ffd9aa;
   --footer-mid-rgb: #42569a;

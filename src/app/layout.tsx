@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en" className="">
       {/* <!-- Dark mode enabled -->
           <html class="dark"></html> */}
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   )
 }
