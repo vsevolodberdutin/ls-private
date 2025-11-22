@@ -90,17 +90,17 @@ export const IntroductionContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col rounded-xl">
+    <div className="flex flex-col gap-2">
       {/* Introduction Section - Glassmorphism Design */}
-      <div className="relative mb-6 group">
+      <div className="relative group">
         {/* Glassmorphism card container */}
-        <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-[0_8px_32px_rgba(251,146,60,0.15)] hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)] transition-all duration-500 overflow-hidden">
+        <div className=" bg-orange-50/70 rounded-2xl border border-white/20">
           {/* Content area with padding */}
           <div className="px-6 py-7">
             {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
               <p
                 key={idx}
-                className="text-base leading-[1.7] text-white/95 font-normal mb-4 last:mb-0 tracking-normal group-hover:text-white transition-colors duration-300"
+                className="text-base leading-[1.7] text-gray-500 font-normal mb-4 last:mb-0 tracking-normal group-hover:text-gray-700 transition-colors duration-300"
               >
                 {paragraph}
               </p>
@@ -112,36 +112,18 @@ export const IntroductionContent: React.FC = () => {
         </div>
       </div>
 
-      {/* Simple HR Separator */}
-      <div className="relative mb-6">
-        <hr className="border-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-      </div>
-
       {/* Education Items - Glassmorphism Cards */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         {ABOUT.education.map((item, index) => (
-          <div
-            key={`education-${index}`}
-            className="relative group"
-          >
-            {/* Glassmorphism education card */}
-            <div className="relative bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 p-4 hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
-              <div className="flex items-start gap-3">
-                {/* Icon container with glassmorphism */}
-                <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-orange-400/20 to-pink-400/20 backdrop-blur-sm border border-white/30 p-2 min-w-[40px] h-[40px] flex-shrink-0">
-                  {getEducationIcon(item, index)}
-                </div>
-
-                {/* Text content */}
-                <div className="flex flex-col gap-1 flex-1">
-                  <h4 className="text-sm font-medium text-white/95 group-hover:text-white transition-colors leading-relaxed">
-                    {item}
-                  </h4>
-                </div>
+          <div key={`education-${index}`} className="relative group">
+            <div className="flex align-middle gap-3 relative bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 px-4 py-[7px] hover:bg-white/15 hover:border-white/30 transition-all duration-300 ">
+              <div className=" rounded-lg text-gray-700 border border-white/30  p-2 min-w-[40px] h-[40px] ">
+                {getEducationIcon(item, index)}
               </div>
 
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-400/0 to-pink-400/0 group-hover:from-orange-400/5 group-hover:to-pink-400/5 transition-all duration-300 pointer-events-none" />
+              <h4 className="text-sm self-center font-medium text-gray-700 group-hover:text-gray-700 transition-colors ">
+                {item}
+              </h4>
             </div>
           </div>
         ))}
@@ -191,9 +173,7 @@ export const PublicationContent: React.FC = () => {
                 <h4 className="text-sm font-semibold text-gray-800 group-hover:text-gray-900 transition-colors">
                   {article.name}
                 </h4>
-                <p className="text-xs text-gray-600 italic">
-                  {article.data}
-                </p>
+                <p className="text-xs text-gray-600 italic">{article.data}</p>
               </div>
             </div>
           </div>
@@ -219,7 +199,10 @@ export const ConferenceContent: React.FC = () => {
       return <Users className={`${iconSize} ${iconColor}`} />
     } else if (conferenceName.includes('конфликту')) {
       return <Shield className={`${iconSize} ${iconColor}`} />
-    } else if (conferenceName.includes('профориентации') && conferenceName.includes('детей')) {
+    } else if (
+      conferenceName.includes('профориентации') &&
+      conferenceName.includes('детей')
+    ) {
       return <GraduationCap className={`${iconSize} ${iconColor}`} />
     } else if (conferenceName.includes('HR')) {
       return <Briefcase className={`${iconSize} ${iconColor}`} />
