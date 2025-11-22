@@ -20,7 +20,7 @@ export const TabContainer: React.FC<TabContainerProps> = ({
   defaultActiveTab,
 }) => {
   const [activeTab, setActiveTab] = useState(
-    defaultActiveTab || tabs[0]?.id || ''
+    defaultActiveTab || tabs[0]?.id || '',
   )
 
   const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content
@@ -82,7 +82,7 @@ const TabButton: React.FC<TabButtonProps> = ({
         transition-colors duration-200
         ${
           isActive
-            ? 'bg-orange-50/30 border-white'
+            ? ' bg-orange-50/70 '
             : 'bg-orange-50/30 border-orange-200 hover:bg-orange-100/40 hover:border-orange-300'
         }
       `}
@@ -90,29 +90,21 @@ const TabButton: React.FC<TabButtonProps> = ({
       {/* Icon */}
       <div
         className={`
-        w-16 h-16 p-3 flex items-center justify-center border-2 rounded-full
+        w-16 h-16 p-3 flex items-center justify-center border border-gray-500 rounded-full text-gray-500
         transition-colors duration-200
-        ${
-          isActive
-            ? 'bg-white border-orange-400'
-            : 'bg-orange-50/40 border-orange-300'
-        }
+        ${isActive ? 'bg-white  ' : 'bg-white/50  '}
       `}
       >
-        <div className="w-10 h-10 text-gray-600">{icon}</div>
+        <div className="w-9 h-9">{icon}</div>
       </div>
 
       {/* Label */}
       <div className="flex-1 text-left">
         <p
           className={`
-          lg:text-lg text-base font-bold whitespace-nowrap
-          transition-colors duration-200
-          ${
-            isActive
-              ? 'text-gray-800'
-              : 'text-gray-700'
-          }
+          lg:text-lg text-base  whitespace-nowrap
+          transition-colors duration-200 font-semibold text-gray-700
+          
         `}
         >
           {label.replace(/\n/g, ' ')}
@@ -120,9 +112,9 @@ const TabButton: React.FC<TabButtonProps> = ({
       </div>
 
       {/* Active indicator */}
-      {isActive && (
-        <div className="w-2 h-2 rounded-full bg-orange-500" />
-      )}
+      {isActive && <div className="w-2 h-2 rounded-full bg-white" />}
+
+
     </button>
   )
 }

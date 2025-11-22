@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as Typography from '@/app/uiElements/Typography'
 import { ABOUT } from '@/constants/about'
 import { ARTICLES } from '@/constants/articles'
@@ -16,7 +16,13 @@ import {
   UserCircle,
   Brain,
   Moon,
+  ChevronDown,
+  ChevronUp,
+  Lightbulb,
+  Network,
+  GitMerge,
 } from 'lucide-react'
+import Image from 'next/image'
 
 /**
  * Type definition for publication types
