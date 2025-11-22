@@ -9,4 +9,7 @@ export const ContentColumn: React.FC<ContentColumnProps> = ({ children }) => (
   <div className="flex flex-col gap-3 mb-2">{children}</div>
 )
 
-{/* <div className="flex flex-col gap-3 m-3"> */}
+export const FixedContentColumn: React.FC<ContentColumnProps> = ({ children }) => (
+  <div className="flex flex-col gap-3 mb-2 h-[430px]">{children}</div>
+)
+

@@ -103,3 +103,39 @@ main {
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+/* Custom scrollbar for AboutSection TabPanel */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(
+    255,
+    237,
+    213,
+    0.3
+  ); /* bg-orange-50/30 - non-active tab button color */
+  border-radius: 20px;
+  margin: 80px 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 16px;
+  border: 5px solid rgba(255, 237, 213, 0.3);
+  aspect-ratio: 1;
+  height: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 5px solid rgba(255, 237, 213, 0.3);
+  transform: scale(1.1);
+}
+
+/* Firefox scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: white rgba(255, 237, 213, 0.3);
+}

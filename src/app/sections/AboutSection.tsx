@@ -1,5 +1,8 @@
 import React from 'react'
-import { TabContainer, TabConfig } from '@/app/components/TabSystem/TabContainer'
+import {
+  TabContainer,
+  TabConfig,
+} from '@/app/components/TabSystem/TabContainer'
 import {
   IntroductionContent,
   PublicationContent,
@@ -37,10 +40,8 @@ const AboutSection = () => {
   ]
 
   return (
-    <section className="flex w-svw flex-col items-center section-odd">
-      <div className="w-screen h-fit flex flex-col items-center">
-        <TabContainer tabs={tabs} defaultActiveTab="introduction" />
-      </div>
+    <section id="about" className="section-odd">
+      <TabContainer tabs={tabs} defaultActiveTab="introduction" />
     </section>
   )
 }
