@@ -5,10 +5,13 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: #fff0dc;
+  /* --background-start-rgb: #f4acac; */
   /* --background-start-rgb: #ffd9aa; */
-  --background-end-rgb: #4779cd;
+  /* --background-end-rgb: #4779cd; */
+  /* --background-end-rgb: #99c8b7; */
   /* --background-end-rgb: #a39bd0; */
   --background-end-rgb: #f78e74;
+  --background-end-rgb: #b9b9b9;
 
   /* --navigation-rgb: #3f354d; */
   /* --navigation-rgb: #e0a499; */

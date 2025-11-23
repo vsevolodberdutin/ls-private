@@ -11,7 +11,10 @@ import {
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
 import { PRIVATE_SESSION_GALLERY } from '@/constants/gallery'
-import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
+import {
+  GridProductWrapper,
+  GridWrapper,
+} from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import {
   CardItemHeader,
@@ -67,14 +70,26 @@ const PrivateSection: React.FC = () => {
 
   return (
     <section id="private" className="section-even">
-      <GridWrapper>
-        {/* Left Column - Pricing and FAQ */}
-        <MainColumn>
+      <MainColumn>
+        {/* HEADER */}
+        <GridProductWrapper>
           {/* Title Card */}
           <HeaderCardItem>
             <CardItemHeader text={'Личная сессия'} />
           </HeaderCardItem>
+          {/* Description Card */}
+          <HeaderCardItem>
+            <CardItemSubHeader
+              text={
+                'На ней пройдет диагностика психотипа с применением комплекса методик, после чего мы разберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности'
+              }
+            />
+          </HeaderCardItem>
+        </GridProductWrapper>
 
+        {/* PRODUCT 1 */}
+        <GridProductWrapper>
+          {/* Left Column */}
           {/* Pricing Card */}
           <CardItem>
             <ContentColumn>
@@ -91,22 +106,7 @@ const PrivateSection: React.FC = () => {
             </ContentColumn>
           </CardItem>
 
-          {/* Contact Card */}
-          <ContactCard />
-        </MainColumn>
-
-        {/* Right Column - Additional Info */}
-        <MainColumn>
-          {/* Description Card */}
-          <HeaderCardItem>
-            <CardItemSubHeader
-              text={
-                'На ней пройдет диагностика психотипа с применением комплекса методик, после чего мы разберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности'
-              }
-            />
-          </HeaderCardItem>
-
-          {/* Info Cards Column */}
+          {/* Right Column */}
           <ContentColumn>
             {/* Duration Card */}
             <CardItem>
@@ -161,15 +161,21 @@ const PrivateSection: React.FC = () => {
                 </ContentRow>
               </ContentColumn>
             </CardItem>
-
-            {/* Gallery Card */}
-            <GalleryCard
-              images={PRIVATE_SESSION_GALLERY}
-              onImageClick={setSelectedImage}
-            />
           </ContentColumn>
-        </MainColumn>
-      </GridWrapper>
+        </GridProductWrapper>
+
+        {/* Contact Card && Gallery Card */}
+        <GridProductWrapper>
+          {/* Contact Card */}
+          <ContactCard />
+
+          {/* Gallery Card */}
+          <GalleryCard
+            images={PRIVATE_SESSION_GALLERY}
+            onImageClick={setSelectedImage}
+          />
+        </GridProductWrapper>
+      </MainColumn>
 
       {/* Image Popup Modal */}
       <ImagePopup

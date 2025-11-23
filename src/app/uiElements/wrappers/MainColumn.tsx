@@ -6,5 +6,5 @@ export interface MainColumnProps {
 }
 
 export const MainColumn: React.FC<MainColumnProps> = ({ children }) => (
-  <div className="flex flex-col gap-6">{children}</div>
+  <div className="flex flex-col gap-6 py-10">{children}</div>
 )
