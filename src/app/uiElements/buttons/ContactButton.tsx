@@ -10,7 +10,7 @@ export const WhatsappBtn = () => {
       target="_top"
       aria-label="What's App"
       className="rounded-full border-[1px] border-slate p-2
-        hover:shadow-slate-500
+        hover:shadow-slate-500 bg-white/90
         transition-all duration-300
         focus:outline-none focus:ring hover:bg-green-500"
     >
@@ -18,7 +18,7 @@ export const WhatsappBtn = () => {
         className=""
         src="/whatsapp.svg"
         alt="whatsapp"
-        style={{ filter: 'var(--logo-filter)' }}
+        // style={{ filter: 'var(--logo-filter)' }}
         width={size}
         height={size}
       />
@@ -33,7 +33,7 @@ export const ViberBtn = () => {
       target="_top"
       aria-label="Viber"
       className="rounded-full border-[1px] border-slate p-2
-        hover:shadow-slate-500
+        hover:shadow-slate-500 bg-white/90
         transition-all duration-300
         focus:outline-none focus:ring hover:bg-violet-500"
     >
@@ -41,7 +41,7 @@ export const ViberBtn = () => {
         className=""
         src="/viber.svg"
         alt="viber"
-        style={{ filter: 'var(--logo-filter)' }}
+        // style={{ filter: 'var(--logo-filter)' }}
         width={size}
         height={size}
         priority
@@ -56,7 +56,7 @@ export const TelegramBtn = () => {
       target="_top"
       aria-label="Telegram"
       className="rounded-full border-[1px] border-slate p-2
-        hover:shadow-slate-500
+        hover:shadow-slate-500 bg-white/90
         transition-all duration-300
         focus:outline-none focus:ring hover:bg-blue-500"
     >
@@ -64,7 +64,7 @@ export const TelegramBtn = () => {
         className=""
         src="/telegram.svg"
         alt="telegram"
-        style={{ filter: 'var(--logo-filter)' }}
+        // style={{ filter: 'var(--logo-filter)' }}
         width={size}
         height={size}
         priority
