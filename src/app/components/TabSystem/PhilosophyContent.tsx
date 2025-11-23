@@ -1,13 +1,19 @@
 import React from 'react'
-import { Lightbulb, Network, GitMerge } from 'lucide-react'
+import {
+  Lightbulb,
+  Network,
+  GitMerge,
+  GitCompareArrows,
+  Shapes,
+} from 'lucide-react'
 import Image from 'next/image'
 
 export const PhilosophyContent: React.FC = () => {
   const philosophyCards = [
     {
       title: 'Основа индивидуальных различий',
-      icon: <Lightbulb className="w-full h-full" />,
-      text: 'Люди воспринимают и понимают мир принципиально по-разному, создавая барьеры в общении, подобные Вавилонской башне. Мы говорим на разных языках, но не осознаем этого. Признание разнообразия точек зрения формирует первый столп понимания соционики.',
+      icon: <Shapes className="w-full h-full" />,
+      text: 'Люди различаются в своем видении мира. Мы, зачастую, никак не можем понять мотивов, поступков, интересов друг друга. Мы говорим на разных языках, но не осознавая этого, не утруждаемся переводом чужих слов. Результатом служит отсутствие эффективного взаимодействия, непонимание и взаимные обиды.',
       image: '/philosophy/individual.svg',
     },
     {
@@ -19,7 +25,7 @@ export const PhilosophyContent: React.FC = () => {
     {
       title: 'Интеграция обоих принципов',
       icon: <GitMerge className="w-full h-full" />,
-      text: 'Ни один принцип не работает эффективно в отдельности. Признание бесконечных индивидуальных различий без структурных рамок становится бессмысленным — «бесконечность значит ноль». И наоборот, игнорирование уникальности сводит людей к пустым категориям. Соcionика устраняет этот разрыв, сочетая признание подлинных различий с систематической психологической архитектурой для обеспечения значимого общения и взаимопонимания.',
+      text: 'Ни один принцип не работает эффективно в отдельности. Признание бесконечных индивидуальных различий без структурных рамок становится бессмысленным — «бесконечность значит ноль». И наоборот, игнорирование уникальности сводит людей к пустым категориям. Соционика устраняет этот разрыв, сочетая признание подлинных различий с систематической психологической архитектурой для обеспечения значимого общения и взаимопонимания.',
       image: '/philosophy/integration.svg',
     },
   ]
@@ -28,35 +34,36 @@ export const PhilosophyContent: React.FC = () => {
     <div className="flex flex-col gap-4">
       {philosophyCards.map((card, index) => (
         <div key={index} className="rounded-xl animate-fadeIn">
-          <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-[0_8px_32px_rgba(251,146,60,0.15)] hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)] transition-all duration-500 overflow-hidden">
+          <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-gray-800/20 shadow-[0_8px_32px_rgba(251,146,60,0.15)] hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)] transition-all duration-500 overflow-hidden">
             <div className="px-6 py-5 flex flex-col gap-4">
               {/* Icon and Title */}
               <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-orange-400/20 to-pink-400/20 backdrop-blur-sm border border-white/30 p-3 w-[48px] h-[48px] flex-shrink-0">
-                  <div className="w-6 h-6 text-white/90">{card.icon}</div>
+                <div className="flex items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm border border-gray-800/20 p-3 w-[48px] h-[48px] flex-shrink-0">
+                  <div className="w-6 h-6 text-gray-800/80">{card.icon}</div>
                 </div>
-                <h3 className="text-lg font-bold text-white/95">
+                <h3 className="text-lg font-bold text-gray-800/80">
                   {card.title}
                 </h3>
               </div>
-
-              {/* Image */}
-              <div className="flex justify-center items-center bg-white/5 rounded-xl p-3 border border-white/10">
-                <div className="relative w-full h-32">
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    fill
-                    className="object-contain"
-                  />
+              <div className="grid grid-cols-[1fr_3fr] gap-8">
+                {/* Image */}
+                <div className="flex justify-center items-center bg-gray-900/90 rounded-xl border border-white/10">
+                  <div className="relative w-48 h-40">
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* Text Content */}
-              <div>
-                <p className="text-sm leading-[1.6] text-white/95 font-normal tracking-normal">
-                  {card.text}
-                </p>
+                {/* Text Content */}
+                <div>
+                  <p className="text-sm leading-[1.6] text-gray-800/90 font-normal tracking-normal">
+                    {card.text}
+                  </p>
+                </div>
               </div>
             </div>
 

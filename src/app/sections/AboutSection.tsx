@@ -9,7 +9,13 @@ import {
   ConferenceContent,
 } from '@/app/components/TabSystem/TabContent'
 import { PhilosophyContent } from '@/app/components/TabSystem/PhilosophyContent'
-import { UserCircle, BookOpen, Presentation, Lightbulb } from 'lucide-react'
+import {
+  UserCircle,
+  BookOpen,
+  Presentation,
+  Lightbulb,
+  Shapes,
+} from 'lucide-react'
 
 const AboutSection = () => {
   const tabs: TabConfig[] = [
@@ -34,7 +40,7 @@ const AboutSection = () => {
     {
       id: 'philosophy',
       label: 'Философия\nметодики',
-      icon: <Lightbulb className="w-full h-full" />,
+      icon: <Shapes className="w-full h-full" />,
       content: <PhilosophyContent />,
     },
   ]

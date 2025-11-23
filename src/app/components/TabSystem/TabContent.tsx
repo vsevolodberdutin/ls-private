@@ -90,7 +90,7 @@ export const IntroductionContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 ">
       {/* Introduction Section - Glassmorphism Design */}
       <div className="relative group">
         {/* Glassmorphism card container */}

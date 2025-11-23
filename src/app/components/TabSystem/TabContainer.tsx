@@ -43,21 +43,30 @@ export const TabContainer: React.FC<TabContainerProps> = ({
         {/* Left side: Vertical tab buttons */}
         <div className="flex flex-col gap-3">
           {tabs.map((tab) => (
-            <TabButton
-              key={tab.id}
-              id={tab.id}
-              label={tab.label}
-              icon={tab.icon}
-              isActive={activeTab === tab.id}
-              onClick={() => setActiveTab(tab.id)}
-            />
+            <div key={tab.id} className="flex flex-col gap-3">
+              <TabButton
+                id={tab.id}
+                label={tab.label}
+                icon={tab.icon}
+                isActive={activeTab === tab.id}
+                onClick={() => setActiveTab(tab.id)}
+              />
+              {/* Mobile content - shows below active button on small screens */}
+              {activeTab === tab.id && (
+                <div className="lg:hidden">
+                  <TabPanel>{tab.content}</TabPanel>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </MainColumn>
 
-      {/* Right side: Tab content panel with fixed height */}
+      {/* Right side: Tab content panel - hidden on mobile, shown on desktop */}
       <FixedContentColumn>
-        <TabPanel>{activeTabContent}</TabPanel>
+        <div className="hidden lg:block lg:max-h-[430px]">
+          <TabPanel>{activeTabContent}</TabPanel>
+        </div>
       </FixedContentColumn>
     </GridWrapper>
   )
