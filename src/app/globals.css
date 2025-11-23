@@ -4,10 +4,10 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  /* --background-start-rgb: #fff0dc; */
-  --background-start-rgb: #ffd9aa;
+  --background-start-rgb: #fff0dc;
+  /* --background-start-rgb: #ffd9aa; */
   --background-end-rgb: #4779cd;
-  /* --background-end-rgb: #a39bd0; */
+  --background-end-rgb: #a39bd0;
   /* --background-end-rgb: #f78e74; */
 
   /* --navigation-rgb: #3f354d; */
@@ -25,7 +25,8 @@
   --subheader-text-rgb: #000000;
 
   /* #FFFFFF */
-  --logo-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  --logo-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+    saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
@@ -81,22 +82,6 @@ main {
 
 .scroll-container::-webkit-scrollbar {
   display: none;
-}
-
-/* Tab transition animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 /* Hide scrollbar utility class */

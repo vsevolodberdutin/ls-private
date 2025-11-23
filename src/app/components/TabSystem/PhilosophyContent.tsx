@@ -1,12 +1,8 @@
 import React from 'react'
-import {
-  Lightbulb,
-  Network,
-  GitMerge,
-  GitCompareArrows,
-  Shapes,
-} from 'lucide-react'
+import { Network, GitMerge, Shapes } from 'lucide-react'
 import Image from 'next/image'
+import { ListColumn } from '@/app/uiElements/wrappers/ListColumn'
+import { BoxIcon } from '@/app/uiElements/BoxIcon'
 
 export const PhilosophyContent: React.FC = () => {
   const philosophyCards = [
@@ -31,53 +27,37 @@ export const PhilosophyContent: React.FC = () => {
   ]
 
   return (
-    <div className="flex flex-col gap-4">
+    <ListColumn>
       {philosophyCards.map((card, index) => (
-        <div key={index} className="rounded-xl animate-fadeIn">
-          <div className="relative flex flex-col gap-4 overflow-hidden
-            rounded-2xl border border-gray-800/20 bg-white/30 backdrop-blur-xl px-6 py-5
-            shadow-[0_8px_32px_rgba(251,146,60,0.15)]
-            transition-all duration-500
-            hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)]">
-            <div className="flex flex-col gap-4">
-              {/* Icon and Title */}
-              <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-[48px] h-[48px] flex-shrink-0
-                  rounded-lg border border-gray-800/20 bg-white/20 backdrop-blur-sm p-3">
-                  <div className="w-6 h-6 text-gray-800/80">{card.icon}</div>
-                </div>
-                <h3 className="text-lg font-bold text-gray-800/80">
-                  {card.title}
-                </h3>
-              </div>
-              <div className="grid grid-cols-[1fr_3fr] gap-8">
-                {/* Image */}
-                <div className="flex justify-center items-center bg-gray-900/90 rounded-xl border border-white/10">
-                  <div className="relative w-48 h-40">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
+        <div
+          className=" flex flex-col gap-6 rounded-2xl border px-6 py-5
+            border-white/40 bg-white/50 backdrop-blur-xl
+            transition-all duration-500 animate-fadeIn"
+        >
+          {/* Icon and Title */}
+          <div className="flex items-center gap-4">
+            <BoxIcon icon={card.icon} variant="white" size="lg" />
 
-                {/* Text Content */}
-                <div>
-                  <p className="text-sm leading-[1.6] text-gray-800/90 font-normal tracking-normal">
-                    {card.text}
-                  </p>
-                </div>
-              </div>
+            <h3 className="text-lg font-bold text-gray-800/80">{card.title}</h3>
+          </div>
+          <div className="grid grid-cols-[1fr_3fr] gap-8">
+            {/* Image */}
+            <div className="flex justify-center items-center bg-gray-900/90 rounded-xl border border-white/10 relative w-48 h-40">
+              <Image
+                src={card.image}
+                alt={card.title}
+                fill
+                className="object-contain"
+              />
             </div>
 
-            {/* Subtle gradient overlay */}
-            <div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none
-              bg-gradient-to-t from-orange-500/10 to-transparent" />
+            {/* Text Content */}
+            <p className="text-sm leading-relaxed opacity-70">
+              {card.text}
+            </p>
           </div>
         </div>
       ))}
-    </div>
+    </ListColumn>
   )
 }

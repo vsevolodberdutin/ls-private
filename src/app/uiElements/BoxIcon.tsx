@@ -8,8 +8,9 @@ interface BoxIconProps {
 }
 
 const variantConfig = {
-  default: 'border-white/40 bg-transparent',
-  white: 'border-white/40 bg-white/10 backdrop-blur-lg',
+  default: 'border-white/40 bg-transparent text-white/90  w-5 h-5',
+  white:
+    'border-white/40 bg-white/10 backdrop-blur-lg text-gray-800/80  w-6 h-6',
 }
 
 const sizeConfig = {
@@ -26,7 +27,7 @@ export const BoxIcon: React.FC<BoxIconProps> = ({
 }) => {
   return (
     <div
-      className={`flex items-center justify-center flex-shrink-0 rounded-lg border text-white/90 w-5 h-5
+      className={`flex items-center justify-center flex-shrink-0 rounded-lg border
         ${variantConfig[variant]}
         ${sizeConfig[size]}
         ${className}`}
