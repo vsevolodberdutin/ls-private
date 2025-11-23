@@ -48,8 +48,14 @@ export const TabContainer: React.FC<TabContainerProps> = ({
             />
             {/* Mobile content - shows below active button on small screens */}
             {activeTab === tab.id && (
-              <div className="lg:hidden">
-                <TabPanelColumn>{tab.content}</TabPanelColumn>
+              <div
+                className="mb-2 gap-3 rounded-xl pr-1
+                  flex flex-col
+                  overflow-y-auto
+                  custom-scrollbar
+                  lg:hidden"
+              >
+                {tab.content}
               </div>
             )}
           </div>

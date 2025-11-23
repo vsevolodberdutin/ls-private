@@ -12,7 +12,12 @@ export const ContentColumn: React.FC<ContentColumnProps> = ({ children }) => (
 export const TabPanelColumn: React.FC<ContentColumnProps> = ({
   children,
 }) => (
-  <div className="flex-col gap-3 mb-2 lg:flex lg:h-[430px] hidden overflow-y-auto rounded-xl custom-scrollbar pr-1">
+  <div
+    className="mb-2 gap-3 rounded-xl pr-1
+      hidden lg:flex lg:flex-col lg:h-[430px]
+      overflow-y-auto
+      custom-scrollbar"
+  >
     {children}
   </div>
 )
