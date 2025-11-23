@@ -3,6 +3,8 @@ import * as Typography from '@/app/uiElements/Typography'
 import { ABOUT } from '@/constants/about'
 import { ARTICLES } from '@/constants/articles'
 import { CONFERENCES } from '@/constants/conferences'
+import { BoxIcon } from '@/app/uiElements/BoxIcon'
+import { ListItemRow } from '@/app/uiElements/wrappers/ListItemRow'
 import {
   Book,
   FileText,
@@ -17,7 +19,6 @@ import {
   Brain,
   Moon,
 } from 'lucide-react'
-import Image from 'next/image'
 
 /**
  * Type definition for publication types
@@ -38,7 +39,7 @@ const RowItem: React.FC<MenuItemProps> = ({ id, text }) => {
     <div
       id={id}
       className="flex items-center gap-3 w-full min-h-[44px]
-        rounded-xl border border-b border-gray-200 bg-pink-900/[.2] bg-neutral-900/[.1] px-6 py-2
+        rounded-xl border border-b border-gray-200  bg-neutral-900/[.1] px-6 py-2
         transition-colors duration-200
         group-hover:bg-pink-900/[.3]"
     >
@@ -58,29 +59,26 @@ const extractPublicationType = (name: string): PublicationType => {
 // Tab Content Components
 
 export const IntroductionContent: React.FC = () => {
-  const iconSize = 'w-5 h-5'
-  const iconColor = 'text-white/90'
-
   // Different icons for education items
   const getEducationIcon = (educationText: string, index: number) => {
     if (educationText.includes('Диплом')) {
       // Use different diploma/certificate icons for each diploma
       if (index === 0) {
-        return <Shield className={`${iconSize} ${iconColor}`} />
+        return <Shield />
       } else if (index === 1) {
-        return <BookOpen className={`${iconSize} ${iconColor}`} />
+        return <BookOpen />
       } else {
-        return <Book className={`${iconSize} ${iconColor}`} />
+        return <Book />
       }
     } else if (educationText.includes('Международная школа')) {
-      return <GraduationCap className={`${iconSize} ${iconColor}`} />
+      return <GraduationCap />
     } else {
-      return <FileText className={`${iconSize} ${iconColor}`} />
+      return <FileText />
     }
   }
 
   return (
-    <div className="flex flex-col gap-2.5 ">
+    <div className="flex flex-col gap-2">
       {/* Introduction Section */}
 
       <div className=" bg-white/50 rounded-2xl border border-white/60 p-6">
@@ -98,28 +96,16 @@ export const IntroductionContent: React.FC = () => {
       {/* Education Items */}
 
       {ABOUT.education.map((item, index) => (
-        <div key={`education-${index}`}>
-          <div
-            className="flex align-middle gap-4
-              rounded-xl border border-white/40 bg-white/10 backdrop-blur-lg px-4 py-2
-              transition-all duration-300
-              hover:bg-white/20 hover:border-white/30"
-          >
-            <div
-              className="
-                rounded-lg border border-white/40 p-2"
-            >
-              {getEducationIcon(item, index)}
-            </div>
-
-            <h4
-              className="text-sm self-center font-medium opacity-70
-                transition-colors"
-            >
-              {item}
-            </h4>
-          </div>
-        </div>
+        <ListItemRow
+          key={`education-${index}`}
+          icon={
+            <BoxIcon icon={getEducationIcon(item, index)} variant="default" />
+          }
+        >
+          <h4 className="text-sm self-center font-medium opacity-70 transition-colors">
+            {item}
+          </h4>
+        </ListItemRow>
       ))}
     </div>
   )
@@ -138,48 +124,40 @@ export const EducationContent: React.FC = () => {
 }
 
 export const PublicationContent: React.FC = () => {
-  const iconSize = 'w-5 h-5'
-  const iconColor = 'text-orange-600'
-
   const iconMap = {
-    монография: <Book className={`${iconSize} ${iconColor}`} />,
-    статья: <FileText className={`${iconSize} ${iconColor}`} />,
-    'учебное пособие': <BookOpen className={`${iconSize} ${iconColor}`} />,
+    монография: <Book />,
+    статья: <FileText />,
+    'учебное пособие': <BookOpen />,
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-2">
       {ARTICLES.map((article, index) => {
         const publicationType = extractPublicationType(article.name)
         return (
-          <div
+          <ListItemRow
             key={index}
-            className="group
-              rounded-lg p-3
-              transition-all duration-200
-              hover:bg-pink-900/20"
+            icon={
+              publicationType && iconMap[publicationType] ? (
+                <BoxIcon
+                  icon={iconMap[publicationType]}
+                  variant="default"
+                  className="mt-0.5"
+                />
+              ) : undefined
+            }
           >
-            <div className="flex items-start gap-3">
-              {publicationType && iconMap[publicationType] && (
-                <div
-                  className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
-                  rounded-lg border border-orange-200 bg-orange-50 p-2"
-                >
-                  {iconMap[publicationType]}
-                </div>
-              )}
-              <div className="flex flex-col gap-1">
-                <h4
-                  className="text-sm font-semibold text-gray-800
-                  transition-colors
-                  group-hover:text-gray-900"
-                >
-                  {article.name}
-                </h4>
-                <p className="text-xs text-gray-600 italic">{article.data}</p>
-              </div>
+            <div className="flex flex-col gap-1">
+              <h4
+                className="text-sm font-semibold text-gray-800
+                transition-colors
+                group-hover:text-gray-900"
+              >
+                {article.name}
+              </h4>
+              <p className="text-xs text-gray-600 italic">{article.data}</p>
             </div>
-          </div>
+          </ListItemRow>
         )
       })}
     </div>
@@ -187,75 +165,65 @@ export const PublicationContent: React.FC = () => {
 }
 
 export const ConferenceContent: React.FC = () => {
-  const iconSize = 'w-5 h-5'
-  const iconColor = 'text-orange-600'
-
   // Different icons based on unique keywords in conference topics
   const getConferenceIcon = (conferenceName: string) => {
     if (conferenceName.includes('коммуникации')) {
-      return <Presentation className={`${iconSize} ${iconColor}`} />
+      return <Presentation />
     } else if (conferenceName.includes('оценке')) {
-      return <ClipboardCheck className={`${iconSize} ${iconColor}`} />
+      return <ClipboardCheck />
     } else if (conferenceName.includes('ассесмента')) {
-      return <FileText className={`${iconSize} ${iconColor}`} />
+      return <FileText />
     } else if (conferenceName.includes('подбора персонала')) {
-      return <Users className={`${iconSize} ${iconColor}`} />
+      return <Users />
     } else if (conferenceName.includes('конфликту')) {
-      return <Shield className={`${iconSize} ${iconColor}`} />
+      return <Shield />
     } else if (
       conferenceName.includes('профориентации') &&
       conferenceName.includes('детей')
     ) {
-      return <GraduationCap className={`${iconSize} ${iconColor}`} />
+      return <GraduationCap />
     } else if (conferenceName.includes('HR')) {
-      return <Briefcase className={`${iconSize} ${iconColor}`} />
+      return <Briefcase />
     } else if (conferenceName.includes('ТОП - менеджера')) {
-      return <UserCircle className={`${iconSize} ${iconColor}`} />
+      return <UserCircle />
     } else if (conferenceName.includes('детских домов')) {
-      return <GraduationCap className={`${iconSize} ${iconColor}`} />
+      return <GraduationCap />
     } else if (conferenceName.includes('медицинского')) {
-      return <Book className={`${iconSize} ${iconColor}`} />
+      return <Book />
     } else if (conferenceName.includes('дифференциальной диагностике')) {
-      return <Brain className={`${iconSize} ${iconColor}`} />
+      return <Brain />
     } else if (conferenceName.includes('расстройства сна')) {
-      return <Moon className={`${iconSize} ${iconColor}`} />
+      return <Moon />
     } else {
-      return <BookOpen className={`${iconSize} ${iconColor}`} />
+      return <BookOpen />
     }
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-2">
       {CONFERENCES.map((conference, index) => {
         return (
-          <div
+          <ListItemRow
             key={index}
-            className="group
-              rounded-lg p-3
-              transition-all duration-200
-              hover:bg-pink-900/20"
+            icon={
+              <BoxIcon
+                icon={getConferenceIcon(conference.name)}
+                variant="white"
+                className="mt-0.5"
+              />
+            }
           >
-            <div className="flex items-start gap-3">
-              <div
-                className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
-                rounded-lg border border-orange-200 bg-orange-50 p-2"
+            <div className="flex flex-col gap-1">
+              <h4
+                className="text-sm font-semibold text-gray-800
+                transition-colors
+                group-hover:text-gray-900"
               >
-                {getConferenceIcon(conference.name)}
-              </div>
-              <div className="flex flex-col gap-1">
-                <h4
-                  className="text-sm font-semibold text-gray-800
-                  transition-colors
-                  group-hover:text-gray-900"
-                >
-                  {conference.name}
-                </h4>
-                <p className="text-xs text-gray-600 italic">
-                  {conference.data}
-                </p>
-              </div>
+                {conference.name}
+              </h4>
+              <p className="text-xs text-gray-600 italic">{conference.data}</p>
             </div>
-          </div>
+          </ListItemRow>
         )
       })}
     </div>

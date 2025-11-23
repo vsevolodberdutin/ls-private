@@ -6,5 +6,5 @@ export interface ContentRowProps {
 }
 
 export const ContentRow: React.FC<ContentRowProps> = ({ children }) => (
-  <div className="flex gap-3  items-center ">{children}</div>
+  <div className="flex gap-3 items-center ">{children}</div>
 )
