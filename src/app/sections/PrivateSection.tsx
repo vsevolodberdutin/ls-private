@@ -11,10 +11,7 @@ import {
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
 import { PRIVATE_SESSION_GALLERY } from '@/constants/gallery'
-import {
-  GridProductWrapper,
-  GridWrapper,
-} from '../uiElements/wrappers/GridWrapper'
+import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import {
   CardItemHeader,

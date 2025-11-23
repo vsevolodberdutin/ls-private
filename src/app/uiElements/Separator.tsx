@@ -3,7 +3,7 @@ import Image from 'next/image'
 import * as Typography from '@/app/uiElements/Typography'
 
 const Separator: React.FC = () => {
-  return <hr className="my-4 border-orange-300" />
+  return <hr className="my-4 border-black/10 " />
 }
 
 export default Separator
