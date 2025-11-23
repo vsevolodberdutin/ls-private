@@ -5,15 +5,17 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   /* --background-start-rgb: #fff0dc; */
+  --background-start-rgb: #ffd9aa;
   /* --background-end-rgb: #4779cd; */
   /* --background-end-rgb: #a39bd0; */
   --background-end-rgb: #f78e74;
-  --background-start-rgb: #ffd9aa;
 
   /* --navigation-rgb: #3f354d; */
-  --navigation-rgb: #e0a499;
+  /* --navigation-rgb: #e0a499; */
   /* --navigation-rgb: #443725; */
   /* --navigation-rgb: #5f1b30; */
+  /* --navigation-rgb: #888486; */
+  --navigation-rgb: #282934;
 
   --footer-start-rgb: #ffd9aa;
   --footer-mid-rgb: #42569a;
@@ -21,6 +23,9 @@
 
   --header-text-rgb: #4c0519;
   --subheader-text-rgb: #000000;
+
+  /* #FFFFFF */
+  --logo-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
