@@ -54,9 +54,9 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
         </div>
 
         <div className="flex gap-3">
-          <WhatsappBtn />
-          <ViberBtn />
-          <TelegramBtn />
+          <WhatsappBtn url={messengers[0].url} />
+          <ViberBtn url={messengers[1].url} />
+          <TelegramBtn url={messengers[2].url} />
         </div>
       </div>
     </div>

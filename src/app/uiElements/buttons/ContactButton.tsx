@@ -3,10 +3,14 @@ import Image from 'next/image'
 
 const size = 24
 
-export const WhatsappBtn = () => {
+interface ContactButtonProps {
+  url?: string
+}
+
+export const WhatsappBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   return (
     <a
-      href="whatsapp://send?phone=79103811250&amp;text="
+      href={url || 'whatsapp://send?phone=79103811250&text='}
       target="_top"
       aria-label="What's App"
       className="rounded-full border-[1px] border-slate p-2
@@ -18,7 +22,6 @@ export const WhatsappBtn = () => {
         className=""
         src="/whatsapp.svg"
         alt="whatsapp"
-        // style={{ filter: 'var(--logo-filter)' }}
         width={size}
         height={size}
       />
@@ -26,10 +29,10 @@ export const WhatsappBtn = () => {
   )
 }
 
-export const ViberBtn = () => {
+export const ViberBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   return (
     <a
-      href="viber://chat?number=%2B79103811250"
+      href={url || 'viber://chat?number=%2B79103811250'}
       target="_top"
       aria-label="Viber"
       className="rounded-full border-[1px] border-slate p-2
@@ -41,7 +44,6 @@ export const ViberBtn = () => {
         className=""
         src="/viber.svg"
         alt="viber"
-        // style={{ filter: 'var(--logo-filter)' }}
         width={size}
         height={size}
         priority
@@ -49,10 +51,11 @@ export const ViberBtn = () => {
     </a>
   )
 }
-export const TelegramBtn = () => {
+
+export const TelegramBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   return (
     <a
-      href="tg://resolve?domain=eleanor_live"
+      href={url || 'tg://resolve?domain=eleanor_live'}
       target="_top"
       aria-label="Telegram"
       className="rounded-full border-[1px] border-slate p-2
@@ -64,7 +67,6 @@ export const TelegramBtn = () => {
         className=""
         src="/telegram.svg"
         alt="telegram"
-        // style={{ filter: 'var(--logo-filter)' }}
         width={size}
         height={size}
         priority
