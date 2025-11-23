@@ -51,9 +51,14 @@ const SchoolSection: React.FC = () => {
         {/* Left Column - Course Goals and Marathon Info */}
         <div className="flex-1 flex flex-col gap-3 mx-6">
           {/* Course Goals Card */}
-          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+          <div className="bg-white/60 backdrop-blur-xl
+            rounded-2xl border border-orange-200 p-6
+            shadow-sm
+            transition
+            hover:shadow-md">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center justify-center w-11 h-11 flex-shrink-0
+                rounded-full border border-orange-200 bg-orange-50">
                 <Target className="w-6 h-6 text-orange-500" />
               </div>
               <h3 className="text-md font-semibold text-gray-800">
@@ -73,9 +78,14 @@ const SchoolSection: React.FC = () => {
           </div>
 
           {/* Marathon Info Card */}
-          <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+          <div className="bg-white/60 backdrop-blur-xl
+            rounded-2xl border border-orange-200 p-6
+            shadow-sm
+            transition
+            hover:shadow-md">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-11 h-11 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center justify-center w-11 h-11 flex-shrink-0
+                rounded-full border border-orange-200 bg-orange-50">
                 <BookOpen className="w-6 h-6 text-orange-500" />
               </div>
               <h3 className="text-md font-semibold text-gray-800">

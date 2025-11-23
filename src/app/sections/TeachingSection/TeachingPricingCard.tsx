@@ -35,7 +35,11 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
   const whatsappUrl = `https://wa.me/79103811250?text=${encodeURIComponent(course.message)}`
 
   return (
-    <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+    <div className="bg-white/60 backdrop-blur-xl
+      rounded-2xl border border-orange-200 p-6
+      shadow-sm
+      transition
+      hover:shadow-md">
       {/* Course Name */}
       <h3 className="text-lg font-semibold text-gray-800 mb-2">
         {course.name}
@@ -67,7 +71,8 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
 
       {/* Target Audience */}
       {course.target && (
-        <div className="mb-3 p-3 bg-orange-50/50 rounded-lg border border-orange-100">
+        <div className="mb-3
+          rounded-lg border border-orange-100 bg-orange-50/50 p-3">
           <div className="text-xs font-semibold text-orange-700 mb-1">
             Для кого:
           </div>
@@ -112,7 +117,7 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
             {course.modules.map((module, index) => (
               <div
                 key={index}
-                className="p-3 bg-orange-50/30 rounded-lg border border-orange-100"
+                className="rounded-lg border border-orange-100 bg-orange-50/30 p-3"
               >
                 <div className="font-semibold text-sm text-gray-800 mb-1">
                   {module.name} <span className="text-xs">({module.hours})</span>
@@ -128,7 +133,8 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
 
       {/* Requirement */}
       {course.requirement && (
-        <div className="mb-3 flex gap-2 items-start p-3 bg-blue-50 rounded-lg border border-blue-200">
+        <div className="mb-3 flex gap-2 items-start
+          rounded-lg border border-blue-200 bg-blue-50 p-3">
           <Info className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
           <div className="text-xs text-blue-800">{course.requirement}</div>
         </div>
@@ -144,7 +150,10 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
+        className="w-full inline-flex items-center justify-center gap-2 text-sm font-medium text-white
+          rounded-lg bg-green-500 px-4 py-3
+          transition-colors
+          hover:bg-green-600"
       >
         <MessageCircle className="w-4 h-4" />
         Записаться

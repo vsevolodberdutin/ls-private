@@ -53,7 +53,9 @@ const Footer: React.FC = () => {
               <p className="text-sm text-amber-200/70 mb-2">Телефон:</p>
               <a
                 href={`tel:${CONTACTS.phone}`}
-                className="text-lg font-semibold text-amber-100 hover:text-amber-400 transition-colors"
+                className="text-lg font-semibold text-amber-100
+                  transition-colors
+                  hover:text-amber-400"
               >
                 {CONTACTS.phoneFormatted}
               </a>
@@ -64,7 +66,9 @@ const Footer: React.FC = () => {
               <p className="text-sm text-amber-200/70 mb-2">Email:</p>
               <a
                 href="mailto:livesocionics@gmail.com"
-                className="text-lg font-semibold text-amber-100 hover:text-amber-400 transition-colors break-all"
+                className="text-lg font-semibold text-amber-100 break-all
+                  transition-colors
+                  hover:text-amber-400"
               >
                 livesocionics@gmail.com
               </a>
@@ -77,7 +81,9 @@ const Footer: React.FC = () => {
                 href="https://www.youtube.com/user/LiveSocionicsStudio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-amber-100 hover:text-amber-400 transition-colors inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-100
+                  transition-colors
+                  hover:text-amber-400"
               >
                 <svg
                   className="w-5 h-5"
@@ -97,7 +103,9 @@ const Footer: React.FC = () => {
                 href="http://vk.com/club43658401"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-amber-100 hover:text-amber-400 transition-colors inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-100
+                  transition-colors
+                  hover:text-amber-400"
               >
                 <svg
                   className="w-5 h-5"
@@ -116,7 +124,10 @@ const Footer: React.FC = () => {
               <div className="flex flex-col gap-3">
                 <a
                   href={CONTACTS.whatsapp.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-emerald-400/30 rounded-lg border border-amber-300/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="group flex items-center gap-3
+                    rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
+                    transition-all duration-200
+                    hover:border-amber-600/50 hover:bg-emerald-400/30 hover:scale-[102%]"
                   aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
                   rel="noopener noreferrer"
                 >
@@ -134,7 +145,10 @@ const Footer: React.FC = () => {
 
                 <a
                   href={CONTACTS.viber.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-violet-200/30 rounded-lg border border-amber-300/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="group flex items-center gap-3
+                    rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
+                    transition-all duration-200
+                    hover:border-amber-600/50 hover:bg-violet-200/30 hover:scale-[102%]"
                   aria-label={`Связаться через ${CONTACTS.viber.label}`}
                   rel="noopener noreferrer"
                 >
@@ -152,7 +166,10 @@ const Footer: React.FC = () => {
 
                 <a
                   href={CONTACTS.telegram.url}
-                  className="flex items-center gap-3 px-4 py-3 bg-orange-700/30 hover:bg-sky-300/40 rounded-lg border border-amber-300/30 hover:border-amber-600/50 transition-all duration-200 hover:scale-[102%] group"
+                  className="group flex items-center gap-3
+                    rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
+                    transition-all duration-200
+                    hover:border-amber-600/50 hover:bg-sky-300/40 hover:scale-[102%]"
                   aria-label={`Связаться через ${CONTACTS.telegram.label}`}
                   rel="noopener noreferrer"
                 >
@@ -182,16 +199,22 @@ const Footer: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className="group hover:bg-amber-900/20 p-3 rounded-lg transition-all duration-200"
+                    className="group
+                      rounded-lg p-3
+                      transition-all duration-200
+                      hover:bg-amber-900/20"
                   >
                     <div className="flex items-start gap-3">
                       {publicationType && iconMap[publicationType] && (
-                        <div className="flex items-center justify-center rounded-lg bg-amber-200/10 border border-amber-300/10 p-2 min-w-[40px] flex-shrink-0 mt-0.5">
+                        <div className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
+                          rounded-lg border border-amber-300/10 bg-amber-200/10 p-2">
                           {iconMap[publicationType]}
                         </div>
                       )}
                       <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-amber-100 mb-1 group-hover:text-amber-50 transition-colors">
+                        <h4 className="text-sm font-semibold text-amber-100 mb-1
+                          transition-colors
+                          group-hover:text-amber-50">
                           {article.name}
                         </h4>
                         <p className="text-xs text-amber-200/70 italic">
@@ -222,7 +245,10 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-4 items-center justify-center">
               {COMPANIES.map((company, index) => (
                 <div key={index} className="group relative">
-                  <div className="w-[60px] h-[60px] rounded-full bg-white/100 backdrop-blur-sm hover:bg-white hover:scale-110 transition-all duration-200 border-4 border-white hover:border-amber-600/50 flex items-center justify-center overflow-hidden">
+                  <div className="flex items-center justify-center w-[60px] h-[60px] overflow-hidden
+                    rounded-full border-4 border-white bg-white/100 backdrop-blur-sm
+                    transition-all duration-200
+                    hover:border-amber-600/50 hover:bg-white hover:scale-110">
                     <Image
                       src={`/companies/${company.data}_logo.png`}
                       alt={company.name}
@@ -232,7 +258,11 @@ const Footer: React.FC = () => {
                     />
                   </div>
                   {/* Tooltip */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-amber-900/95 backdrop-blur-sm text-amber-50 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 pointer-events-none whitespace-nowrap z-10 text-xs text-amber-50
+                    rounded-lg bg-amber-900/95 backdrop-blur-sm
+                    opacity-0
+                    transition-opacity duration-200
+                    group-hover:opacity-100">
                     {company.name}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-amber-900/95"></div>
                   </div>

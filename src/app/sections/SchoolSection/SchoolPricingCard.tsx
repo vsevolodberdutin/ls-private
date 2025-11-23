@@ -25,7 +25,11 @@ export const SchoolPricingCard: React.FC<SchoolPricingCardProps> = ({
   const whatsappUrl = `https://wa.me/79103811250?text=${encodeURIComponent(pkg.message)}`
 
   return (
-    <div className="bg-white/60 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm hover:shadow-md transition">
+    <div className="bg-white/60 backdrop-blur-xl
+      rounded-2xl border border-orange-200 p-6
+      shadow-sm
+      transition
+      hover:shadow-md">
       {/* Package Name */}
       <h3 className="text-lg font-semibold text-gray-800 mb-3">{pkg.name}</h3>
 
@@ -54,7 +58,10 @@ export const SchoolPricingCard: React.FC<SchoolPricingCardProps> = ({
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
+        className="w-full inline-flex items-center justify-center gap-2 text-sm font-medium text-white
+          rounded-lg bg-green-500 px-4 py-3
+          transition-colors
+          hover:bg-green-600"
       >
         <MessageCircle className="w-4 h-4" />
         Записаться

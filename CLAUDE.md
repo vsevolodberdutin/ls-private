@@ -133,6 +133,36 @@ Contact buttons use platform-specific protocols:
 - Mobile: Smaller rounded versions with separate components
 - Breakpoints: `sm:`, `md:`, `lg:` (Tailwind defaults)
 
+### Multi-Line className Formatting
+
+All className attributes should follow a consistent multi-line style with logical grouping for readability and maintainability:
+
+```tsx
+className="[Line 1: Layout & interaction basics]
+  [Line 2: Visual styling (border, background, spacing)]
+  [Line 3: Effects (opacity, shadows, transforms)]
+  [Line 4: Transitions/animations]
+  [Line 5: Hover/focus states]"
+```
+
+**Example:**
+```tsx
+<a
+  className="block w-[340px] cursor-pointer no-underline
+    rounded-xl border border-gray-300 bg-white p-6
+    opacity-90 shadow-lg shadow-gray-600/50
+    transition duration-500
+    hover:scale-[103%] hover:border-white hover:opacity-100"
+>
+```
+
+**Rules:**
+- ✅ Use multi-line format for className strings longer than 60 characters
+- ✅ Group classes logically by purpose (layout → styling → effects → transitions → states)
+- ✅ Indent continuation lines with 2 spaces
+- ✅ Keep lines readable without horizontal scrolling
+- ✅ Separate concerns on different lines for easier maintenance and cleaner git diffs
+
 ## Path Aliases
 
 TypeScript configured with `@/*` alias mapping to `./src/*`:

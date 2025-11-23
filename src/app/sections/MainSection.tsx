@@ -8,7 +8,7 @@ import { GridWrapper } from '@/app/uiElements/wrappers/GridWrapper'
 
 const MainSection = () => {
   return (
-    <main className="relative z-0 w-svw h-fit">
+    <main className="relative z-0 w-svw h-fit lg:pb-10">
       <GridWrapper>
         <MainPicture />
         <div className="flex flex-col items-center pt-14 sm:pt-28">

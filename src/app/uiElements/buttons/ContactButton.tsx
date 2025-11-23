@@ -8,8 +8,11 @@ export const WhatsappBtn = () => {
     <a
       href="whatsapp://send?phone=79103811250&amp;text="
       target="_top"
-      aria-label="What’s App"
-      className="rounded-full p-2 hover:shadow-slate-500 hover:bg-green-500  border-[1px] focus:outline-none focus:ring border-slate transition-all duration-300"
+      aria-label="What's App"
+      className="rounded-full border-[1px] border-slate p-2
+        hover:shadow-slate-500
+        transition-all duration-300
+        focus:outline-none focus:ring hover:bg-green-500"
     >
       <Image
         className=""
@@ -29,7 +32,10 @@ export const ViberBtn = () => {
       href="viber://chat?number=%2B79103811250"
       target="_top"
       aria-label="Viber"
-      className="rounded-full p-2 hover:shadow-slate-500 hover:bg-violet-500 border-[1px] focus:outline-none focus:ring border-slate transition-all duration-300"
+      className="rounded-full border-[1px] border-slate p-2
+        hover:shadow-slate-500
+        transition-all duration-300
+        focus:outline-none focus:ring hover:bg-violet-500"
     >
       <Image
         className=""
@@ -49,7 +55,10 @@ export const TelegramBtn = () => {
       href="tg://resolve?domain=eleanor_live"
       target="_top"
       aria-label="Telegram"
-      className="rounded-full p-2 hover:shadow-slate-500 hover:bg-blue-500  border-[1px] focus:outline-none focus:ring border-slate transition-all duration-300"
+      className="rounded-full border-[1px] border-slate p-2
+        hover:shadow-slate-500
+        transition-all duration-300
+        focus:outline-none focus:ring hover:bg-blue-500"
     >
       <Image
         className=""

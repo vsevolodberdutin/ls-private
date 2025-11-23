@@ -19,7 +19,11 @@ export const GalleryCard: React.FC<{
           <button
             key={index}
             onClick={() => onImageClick(imageSrc)}
-            className="relative w-20 h-20 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-orange-200 hover:border-orange-400 hover:scale-110 shadow-md hover:shadow-lg transition-all duration-200 flex-shrink-0 group"
+            className="group relative w-20 h-20 sm:w-20 sm:h-20 flex-shrink-0
+              rounded-full border-2 border-orange-200 overflow-hidden
+              shadow-md
+              transition-all duration-200
+              hover:border-orange-400 hover:scale-110 hover:shadow-lg"
             aria-label={`Просмотреть изображение ${index + 1}`}
           >
             <Image

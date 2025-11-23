@@ -34,11 +34,16 @@ export const PhilosophyContent: React.FC = () => {
     <div className="flex flex-col gap-4">
       {philosophyCards.map((card, index) => (
         <div key={index} className="rounded-xl animate-fadeIn">
-          <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-gray-800/20 shadow-[0_8px_32px_rgba(251,146,60,0.15)] hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)] transition-all duration-500 overflow-hidden">
-            <div className="px-6 py-5 flex flex-col gap-4">
+          <div className="relative flex flex-col gap-4 overflow-hidden
+            rounded-2xl border border-gray-800/20 bg-white/30 backdrop-blur-xl px-6 py-5
+            shadow-[0_8px_32px_rgba(251,146,60,0.15)]
+            transition-all duration-500
+            hover:shadow-[0_12px_40px_rgba(251,146,60,0.25)]">
+            <div className="flex flex-col gap-4">
               {/* Icon and Title */}
               <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm border border-gray-800/20 p-3 w-[48px] h-[48px] flex-shrink-0">
+                <div className="flex items-center justify-center w-[48px] h-[48px] flex-shrink-0
+                  rounded-lg border border-gray-800/20 bg-white/20 backdrop-blur-sm p-3">
                   <div className="w-6 h-6 text-gray-800/80">{card.icon}</div>
                 </div>
                 <h3 className="text-lg font-bold text-gray-800/80">
@@ -68,7 +73,8 @@ export const PhilosophyContent: React.FC = () => {
             </div>
 
             {/* Subtle gradient overlay */}
-            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-orange-500/10 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none
+              bg-gradient-to-t from-orange-500/10 to-transparent" />
           </div>
         </div>
       ))}

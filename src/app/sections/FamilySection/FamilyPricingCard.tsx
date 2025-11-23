@@ -45,7 +45,10 @@ export const FamilyPricingCard: React.FC<FamilyPricingCardProps> = ({
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white
+              rounded-lg bg-green-500 px-4 py-2
+              transition-colors
+              hover:bg-green-600"
           >
             <MessageCircle className="w-4 h-4" />
             Записаться

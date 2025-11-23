@@ -37,7 +37,10 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
   ]
 
   return (
-    <div className="bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-orange-200 shadow-sm transition">
+    <div className="bg-white/10 backdrop-blur-xl
+      rounded-2xl border border-orange-200 p-6
+      shadow-sm
+      transition">
       <div className="flex items-center justify-between">
         <div className="flex gap-3 items-center">
           <CircleIconWrapper>
@@ -55,7 +58,10 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
               href={messenger.url}
               target="_top"
               aria-label={messenger.name}
-              className={`rounded-full p-3 hover:shadow-md ${messenger.hoverColor} border-[1px] focus:outline-none focus:ring border-orange-200 transition-all duration-300`}
+              className={`rounded-full border-[1px] border-orange-200 p-3
+                hover:shadow-md
+                transition-all duration-300
+                focus:outline-none focus:ring ${messenger.hoverColor}`}
             >
               <Image
                 src={messenger.icon}

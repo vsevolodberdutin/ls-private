@@ -32,7 +32,10 @@ export const ImagePopup: React.FC<{
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-lg animate-in fade-in duration-300 cursor-pointer"
+      className="fixed inset-0 z-50 flex cursor-pointer items-center justify-center
+        bg-black/60 backdrop-blur-lg
+        animate-in fade-in
+        duration-300"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
