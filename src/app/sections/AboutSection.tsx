@@ -21,13 +21,13 @@ const AboutSection = () => {
   const tabs: TabConfig[] = [
     {
       id: 'introduction',
-      label: 'Будем\nзнакомы!',
+      label: 'Будем знакомы!',
       icon: <UserCircle className="w-full h-full" />,
       content: <IntroductionContent />,
     },
     {
       id: 'publications',
-      label: 'Научные\nпубликации',
+      label: 'Научные публикации',
       icon: <BookOpen className="w-full h-full" />,
       content: <PublicationContent />,
     },
@@ -39,7 +39,7 @@ const AboutSection = () => {
     },
     {
       id: 'philosophy',
-      label: 'Философия\nметодики',
+      label: 'Философия методики',
       icon: <Shapes className="w-full h-full" />,
       content: <PhilosophyContent />,
     },

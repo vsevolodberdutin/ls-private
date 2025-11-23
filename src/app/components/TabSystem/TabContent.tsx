@@ -52,14 +52,6 @@ const RowItem: React.FC<MenuItemProps> = ({ id, text }) => {
   )
 }
 
-const IconWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <div className="flex items-center justify-center w-[44px] h-[44px] flex-shrink-0
-      rounded-lg border border-orange-200 bg-orange-50 p-2">
-      {children}
-    </div>
-  )
-}
 
 /**
  * Extract publication type from the name field
@@ -104,18 +96,14 @@ export const IntroductionContent: React.FC = () => {
             {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
               <p
                 key={idx}
-                className="text-base leading-[1.7] text-gray-500 font-normal tracking-normal mb-4 last:mb-0
-                  transition-colors duration-300
-                  group-hover:text-gray-700"
+                className="text-base leading-[1.7] opacity-70 font-normal tracking-normal mb-4 last:mb-0
+                  transition-colors duration-300"
               >
                 {paragraph}
               </p>
             ))}
           </div>
 
-          {/* Subtle gradient overlay for depth */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none
-            bg-gradient-to-t from-orange-500/10 to-transparent" />
         </div>
       </div>
 
@@ -123,18 +111,24 @@ export const IntroductionContent: React.FC = () => {
       <div className="flex flex-col gap-2">
         {ABOUT.education.map((item, index) => (
           <div key={`education-${index}`} className="relative group">
-            <div className="flex align-middle gap-3 relative
+            <div
+              className="flex align-middle gap-3 relative
               rounded-xl border border-white/20 bg-white/10 backdrop-blur-lg px-4 py-[7px]
               transition-all duration-300
-              hover:bg-white/15 hover:border-white/30">
-              <div className="min-w-[40px] h-[40px] text-gray-700
-                rounded-lg border border-white/30 p-2">
+              hover:bg-white/15 hover:border-white/30"
+            >
+              <div
+                className="min-w-[40px] h-[40px] text-gray-700
+                rounded-lg border border-white/30 p-2"
+              >
                 {getEducationIcon(item, index)}
               </div>
 
-              <h4 className="text-sm self-center font-medium text-gray-700
+              <h4
+                className="text-sm self-center font-medium text-gray-700
                 transition-colors
-                group-hover:text-gray-700">
+                group-hover:text-gray-700"
+              >
                 {item}
               </h4>
             </div>
@@ -181,15 +175,19 @@ export const PublicationContent: React.FC = () => {
           >
             <div className="flex items-start gap-3">
               {publicationType && iconMap[publicationType] && (
-                <div className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
-                  rounded-lg border border-orange-200 bg-orange-50 p-2">
+                <div
+                  className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
+                  rounded-lg border border-orange-200 bg-orange-50 p-2"
+                >
                   {iconMap[publicationType]}
                 </div>
               )}
               <div className="flex flex-col gap-1">
-                <h4 className="text-sm font-semibold text-gray-800
+                <h4
+                  className="text-sm font-semibold text-gray-800
                   transition-colors
-                  group-hover:text-gray-900">
+                  group-hover:text-gray-900"
+                >
                   {article.name}
                 </h4>
                 <p className="text-xs text-gray-600 italic">{article.data}</p>
@@ -252,14 +250,18 @@ export const ConferenceContent: React.FC = () => {
               hover:bg-pink-900/20"
           >
             <div className="flex items-start gap-3">
-              <div className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
-                rounded-lg border border-orange-200 bg-orange-50 p-2">
+              <div
+                className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
+                rounded-lg border border-orange-200 bg-orange-50 p-2"
+              >
                 {getConferenceIcon(conference.name)}
               </div>
               <div className="flex flex-col gap-1">
-                <h4 className="text-sm font-semibold text-gray-800
+                <h4
+                  className="text-sm font-semibold text-gray-800
                   transition-colors
-                  group-hover:text-gray-900">
+                  group-hover:text-gray-900"
+                >
                   {conference.name}
                 </h4>
                 <p className="text-xs text-gray-600 italic">
