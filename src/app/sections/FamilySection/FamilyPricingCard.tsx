@@ -3,6 +3,7 @@
 import React from 'react'
 import { MessageCircle } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
+import { ListColumn } from '@/app/uiElements/wrappers/ListColumn'
 
 export interface FamilyPricingOption {
   name: string
@@ -27,7 +28,7 @@ export const FamilyPricingCard: React.FC<FamilyPricingCardProps> = ({
 
   return (
     <li className="px-4 py-3 rounded-lg border border-orange-200 bg-orange-50/30">
-      <div className="flex flex-col gap-2">
+      <ListColumn>
         {/* Service Name */}
         <div className="font-semibold text-gray-800">{option.name}</div>
 
@@ -61,7 +62,7 @@ export const FamilyPricingCard: React.FC<FamilyPricingCardProps> = ({
             {option.additional}
           </div>
         )}
-      </div>
+      </ListColumn>
     </li>
   )
 }

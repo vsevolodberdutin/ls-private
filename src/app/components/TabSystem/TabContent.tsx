@@ -5,6 +5,7 @@ import { ARTICLES } from '@/constants/articles'
 import { CONFERENCES } from '@/constants/conferences'
 import { BoxIcon } from '@/app/uiElements/BoxIcon'
 import { ListItemRow } from '@/app/uiElements/wrappers/ListItemRow'
+import { ListColumn } from '@/app/uiElements/wrappers/ListColumn'
 import {
   Book,
   FileText,
@@ -78,7 +79,7 @@ export const IntroductionContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <ListColumn>
       {/* Introduction Section */}
 
       <div className=" bg-white/50 rounded-2xl border border-white/60 p-6">
@@ -107,7 +108,7 @@ export const IntroductionContent: React.FC = () => {
           </h4>
         </ListItemRow>
       ))}
-    </div>
+    </ListColumn>
   )
 }
 
@@ -131,7 +132,7 @@ export const PublicationContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <ListColumn>
       {ARTICLES.map((article, index) => {
         const publicationType = extractPublicationType(article.name)
         return (
@@ -160,7 +161,7 @@ export const PublicationContent: React.FC = () => {
           </ListItemRow>
         )
       })}
-    </div>
+    </ListColumn>
   )
 }
 
@@ -200,7 +201,7 @@ export const ConferenceContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <ListColumn>
       {CONFERENCES.map((conference, index) => {
         return (
           <ListItemRow
@@ -226,6 +227,6 @@ export const ConferenceContent: React.FC = () => {
           </ListItemRow>
         )
       })}
-    </div>
+    </ListColumn>
   )
 }
