@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, ReactNode, useRef } from 'react'
+import React, { useState, ReactNode } from 'react'
 
 import { GridWrapper } from '@/app/uiElements/wrappers/GridWrapper'
 

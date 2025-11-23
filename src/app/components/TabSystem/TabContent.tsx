@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import * as Typography from '@/app/uiElements/Typography'
 import { ABOUT } from '@/constants/about'
 import { ARTICLES } from '@/constants/articles'
@@ -16,11 +16,6 @@ import {
   UserCircle,
   Brain,
   Moon,
-  ChevronDown,
-  ChevronUp,
-  Lightbulb,
-  Network,
-  GitMerge,
 } from 'lucide-react'
 import Image from 'next/image'
 
@@ -51,7 +46,6 @@ const RowItem: React.FC<MenuItemProps> = ({ id, text }) => {
     </div>
   )
 }
-
 
 /**
  * Extract publication type from the name field
@@ -86,55 +80,47 @@ export const IntroductionContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2 ">
-      {/* Introduction Section - Glassmorphism Design */}
-      <div className="relative group">
-        {/* Glassmorphism card container */}
-        <div className=" bg-orange-50/70 rounded-2xl border border-white/20">
-          {/* Content area with padding */}
-          <div className="px-6 py-7">
-            {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
-              <p
-                key={idx}
-                className="text-base leading-[1.7] opacity-70 font-normal tracking-normal mb-4 last:mb-0
+    <div className="flex flex-col gap-2.5 ">
+      {/* Introduction Section */}
+
+      <div className=" bg-white/50 rounded-2xl border border-white/60 p-6">
+        {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
+          <p
+            key={idx}
+            className="text-base leading-[1.7] opacity-70 font-normal tracking-normal mb-4 last:mb-0
                   transition-colors duration-300"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-        </div>
-      </div>
-
-      {/* Education Items - Glassmorphism Cards */}
-      <div className="flex flex-col gap-2">
-        {ABOUT.education.map((item, index) => (
-          <div key={`education-${index}`} className="relative group">
-            <div
-              className="flex align-middle gap-3 relative
-              rounded-xl border border-white/20 bg-white/10 backdrop-blur-lg px-4 py-[7px]
-              transition-all duration-300
-              hover:bg-white/15 hover:border-white/30"
-            >
-              <div
-                className="min-w-[40px] h-[40px] text-gray-700
-                rounded-lg border border-white/30 p-2"
-              >
-                {getEducationIcon(item, index)}
-              </div>
-
-              <h4
-                className="text-sm self-center font-medium text-gray-700
-                transition-colors
-                group-hover:text-gray-700"
-              >
-                {item}
-              </h4>
-            </div>
-          </div>
+          >
+            {paragraph}
+          </p>
         ))}
       </div>
+
+      {/* Education Items */}
+
+      {ABOUT.education.map((item, index) => (
+        <div key={`education-${index}`}>
+          <div
+            className="flex align-middle gap-4
+              rounded-xl border border-white/40 bg-white/10 backdrop-blur-lg px-4 py-2
+              transition-all duration-300
+              hover:bg-white/20 hover:border-white/30"
+          >
+            <div
+              className="
+                rounded-lg border border-white/40 p-2"
+            >
+              {getEducationIcon(item, index)}
+            </div>
+
+            <h4
+              className="text-sm self-center font-medium opacity-70
+                transition-colors"
+            >
+              {item}
+            </h4>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
