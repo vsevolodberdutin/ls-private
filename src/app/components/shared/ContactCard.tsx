@@ -1,10 +1,14 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { MessageCircleQuestion } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
-import { CircleIconWrapper } from '@/app/uiElements/wrappers/IconWrapper'
+import { CircleIcon } from '@/app/uiElements/CircleIcon'
+import {
+  TelegramBtn,
+  ViberBtn,
+  WhatsappBtn,
+} from '@/app/uiElements/buttons/ContactButton'
 
 /**
  * FAQ contact card with messenger buttons
@@ -37,40 +41,22 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
   ]
 
   return (
-    <div className="bg-white/10 backdrop-blur-xl
-      rounded-2xl border border-orange-200 p-6
+    <div
+      className="bg-white/30 backdrop-blur-xl
+      rounded-2xl border border-wite/90 p-6
       shadow-sm
-      transition">
+      transition"
+    >
       <div className="flex items-center justify-between">
         <div className="flex gap-3 items-center">
-          <CircleIconWrapper>
-            <MessageCircleQuestion />
-          </CircleIconWrapper>
-          <p className="text-xs text-gray-100 font-medium">
-            Есть вопросы? Пишите!
-          </p>
+          <CircleIcon icon={<MessageCircleQuestion />} size="sm" />
+          <p className="text-sm opacity-50">Есть вопросы? Пишите!</p>
         </div>
 
         <div className="flex gap-3">
-          {messengers.map((messenger) => (
-            <a
-              key={messenger.name}
-              href={messenger.url}
-              target="_top"
-              aria-label={messenger.name}
-              className={`rounded-full border-[1px] border-orange-200 p-3
-                hover:shadow-md
-                transition-all duration-300
-                focus:outline-none focus:ring ${messenger.hoverColor}`}
-            >
-              <Image
-                src={messenger.icon}
-                alt={messenger.name.toLowerCase()}
-                width={28}
-                height={28}
-              />
-            </a>
-          ))}
+          <WhatsappBtn />
+          <ViberBtn />
+          <TelegramBtn />
         </div>
       </div>
     </div>
