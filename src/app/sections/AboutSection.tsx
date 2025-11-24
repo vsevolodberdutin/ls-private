@@ -47,6 +47,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="section-odd">
+      
       <TabContainer tabs={tabs} defaultActiveTab="introduction" />
     </section>
   )

@@ -37,7 +37,6 @@ export const TEACHING_GALLERY = [
   '/gallery/teaching_10.png',
   '/gallery/teaching_11.jpg',
   '/gallery/teaching_12.jpg',
-  '/gallery/teaching_13.jpg',
   '/gallery/teaching_14.jpg',
   '/gallery/teaching_15.jpg',
   '/gallery/teaching_16.jpg',

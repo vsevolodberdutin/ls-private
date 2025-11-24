@@ -2,23 +2,26 @@
 
 import React, { useState } from 'react'
 import {
-  Award,
   Users,
-  Lightbulb,
   Settings,
   UserPlus,
   Brain,
   ShipWheel,
+  Crown,
+  UserRoundSearch,
+  Video,
+  MessageSquare,
+  ClipboardList,
+  GraduationCap,
+  Target,
+  Headset,
 } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
-import {
-  TeachingPricingCard,
-  type TeachingCourse,
-} from './TeachingSection/TeachingPricingCard'
+
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
-import { InfoCard } from '@/app/components/shared/InfoCard'
+
 import { TEACHING_GALLERY } from '@/constants/gallery'
 import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
@@ -33,10 +36,12 @@ import { MainColumn } from '../uiElements/wrappers/MainColumn'
 import { DurationContent } from '../uiElements/cardItems/content/DurationContent'
 import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
 import { TargetClientContent } from '../uiElements/cardItems/content/TargetClientContent'
-import { ReportContent } from '../uiElements/cardItems/content/ReportContent'
 import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
-import { PricingCard, type PricingOption } from '../components/shared/PricingCard'
-import { ModuleCard } from '../uiElements/cardItems/content/ModuleCard'
+import {
+  PricingCard,
+  type PricingOption,
+} from '../components/shared/PricingCard'
+import { Separator } from '../uiElements/Separator'
 
 // ============================================================================
 // Courses Configuration
@@ -69,22 +74,6 @@ const INTENSIV_MODULES: PricingOption[] = [
   },
 ]
 
-const TEACHING_COURSES: TeachingCourse[] = TEACHING_SERVICES.courses.map(
-  (course) => ({
-    name: course.name,
-    duration: 'duration' in course ? course.duration : undefined,
-    format: 'format' in course ? course.format : undefined,
-    subtitle: 'subtitle' in course ? course.subtitle : undefined,
-    description: 'description' in course ? course.description : undefined,
-    requirement: 'requirement' in course ? course.requirement : undefined,
-    target: 'target' in course ? course.target : undefined,
-    features: 'features' in course ? course.features : undefined,
-    modules: 'modules' in course ? course.modules : undefined,
-    price: course.priceFormatted,
-    message: `Здравствуйте, Элеонора! Интересует "${course.name}". Расскажите подробнее...`,
-  }),
-)
-
 // ============================================================================
 // Main Component
 // ============================================================================
@@ -107,12 +96,14 @@ const TeachingSection: React.FC = () => {
           </HeaderCardItem>
         </GridProductWrapper>
 
+        <Separator />
+
         {/* PRODUCTS */}
         {/* Course 1: ИНТЕНСИВ */}
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Курс ИНТЕНСИВ" />
+              <ProductHeader text="Курс «ИНТЕНСИВ»" />
             </CardItem>
 
             {/* Modules */}
@@ -122,7 +113,7 @@ const TeachingSection: React.FC = () => {
                 <PricingCard option={INTENSIV_MODULES[1]} />
                 <PricingCard
                   option={{
-                    label: 'Курс ИНТЕНСИВ - в записи',
+                    label: 'Курс «ИНТЕНСИВ» - в записи',
                     price: '15 000 ₽',
                     message:
                       'Здравствуйте, Элеонора! Интересует "Курс ИНТЕНСИВ - в записи". Расскажите подробнее...',
@@ -178,55 +169,212 @@ const TeachingSection: React.FC = () => {
           </ContentColumn>
         </GridProductWrapper>
 
-        {/* Course 2: ИНТЕНСИВ - в записи */}
-        <GridProductWrapper>
-          <TeachingPricingCard course={TEACHING_COURSES[1]} />
-        </GridProductWrapper>
+        <Separator />
 
         {/* Course 3: ТОНКОСТИ ТИПИРОВАНИЯ */}
         <GridProductWrapper>
-          <TeachingPricingCard course={TEACHING_COURSES[2]} />
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Курс «ТОНКОСТИ ТИПИРОВАНИЯ»" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard
+                  option={{
+                    label: 'Модуль 3: TYPE-SPECIAL',
+                    price: '18 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует "Курс «ТОНКОСТИ ТИПИРОВАНИЯ»". Расскажите подробнее...',
+                  }}
+                />
+
+                <Footnote
+                  text={[
+                    'Только после прохождения 2-x базовых модулей Курса ИНТЕНСИВА',
+                  ]}
+                />
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <DurationContent
+                text="32 академических часа"
+                note="онлайн, записи + живые встречи, закрытый телеграм-чат группы"
+              />
+            </CardItem>
+            <CardItem>
+              <ProgramContent
+                headerText="Программа курса:"
+                items={[
+                  {
+                    icon: Video,
+                    text: '5 тренингов в записи + 3 вебинара',
+                  },
+                  {
+                    icon: Users,
+                    text: 'Развитие навыков типирования',
+                  },
+                  {
+                    icon: Crown,
+                    text: 'Авторский метод "Типирование по сказке"',
+                  },
+                  {
+                    icon: UserRoundSearch,
+                    text: 'Личная практика с наставником',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
         </GridProductWrapper>
+
+        <Separator />
 
         {/* Course 4: ПРАКТИКА 3.0. */}
         <GridProductWrapper>
-          <TeachingPricingCard course={TEACHING_COURSES[3]} />
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Курс «ПРАКТИКА 3.0.»" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard
+                  option={{
+                    label: 'Модуль 4: TYPE-PRACTICE',
+                    description: ['онлайн-школа типирования'],
+                    price: '10 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует "Курс «ПРАКТИКА 3.0.»". Расскажите подробнее...',
+                  }}
+                />
+
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <ProgramContent
+                headerText="Программа курса:"
+                items={[
+                  {
+                    icon: ClipboardList,
+                    text: '3 кейса по определению психотипов волонтеров у каждого участника',
+                  },
+                  {
+                    icon: Video,
+                    text: '3 онлайн-вебинара с разбором преподавателем',
+                  },
+                  {
+                    icon: MessageSquare,
+                    text: 'Чат группы с изучением кейсов одногруппников',
+                  },
+                  {
+                    icon: GraduationCap,
+                    text: 'В среднем 25 кейсов для изучения',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
         </GridProductWrapper>
+
+        <Separator />
 
         {/* Strategic Session */}
         <GridProductWrapper>
-          <CardItem>
-            <ContentColumn>
-              <InfoCard
-                icon={<Award />}
-                title={TEACHING_SERVICES.strategicSession.name}
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Стратегическая сессия для управленцев" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard
+                  option={{
+                    label: 'Индивидуальная сессия',
+                    price: '50 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...',
+                  }}
+                />
+
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+            {/* Contact Card */}
+            <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Ксть вопрос о..." />
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <TargetClientContent text="Руководители, топ-менеджеры, владельцы бизнеса, HR-директора" />
+            </CardItem>
+            <CardItem>
+              <DurationContent
+                text="4 занятия еженедельно (7-8 академ.часов)"
+                note="онлайн/оффлайн, онлайн-сопровождение в течение всего периода"
+              />
+            </CardItem>
+            <CardItem>
+              <ProgramContent
+                headerText="Цель сессии:"
                 items={[
                   {
-                    label: 'Цель:',
-                    value: TEACHING_SERVICES.strategicSession.goal,
+                    icon: Target,
+                    text: 'Проработка осознанности путей развития лидерских качеств',
                   },
                   {
-                    label: 'Состав:',
-                    value: TEACHING_SERVICES.strategicSession.format,
+                    icon: Brain,
+                    text: 'Развитие с опорой на психотип',
+                  },
+                  {
+                    icon: ShipWheel,
+                    text: 'Помощь в решении управленческих кейсов',
+                  },
+                  {
+                    icon: Headset,
+                    text: 'Персональное онлайн-сопровождение',
                   },
                 ]}
-                price={TEACHING_SERVICES.strategicSession.priceFormatted}
-                message="Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее..."
               />
-            </ContentColumn>
-          </CardItem>
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
 
-          {/* Right Column - Gallery */}
+        <Separator />
+
+        {/* Gallery */}
+        <div className="h-fit w-svw px-40 grid grid-cols-1 justify-center items-start gap-5">
           <GalleryCard
             images={TEACHING_GALLERY}
             onImageClick={setSelectedImage}
           />
-        </GridProductWrapper>
-
-        {/* Contact Card */}
-        <GridProductWrapper>
-          <ContactCard message="Здравствуйте, Элеонора! Интересует обучение соционике. Расскажите подробнее о..." />
-        </GridProductWrapper>
+        </div>
       </MainColumn>
 
       {/* Image Popup Modal */}

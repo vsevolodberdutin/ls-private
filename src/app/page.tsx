@@ -6,6 +6,7 @@ import SchoolSection from './sections/SchoolSection'
 import TeachingSection from './sections/TeachingSection'
 import PrivateSession from './sections/PrivateSection'
 import Footer from './sections/Footer'
+import { Separator } from './uiElements/Separator'
 
 export default function Home() {
   return (

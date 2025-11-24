@@ -17,8 +17,6 @@ import {
   CardItemHeader,
   CardItemSubHeader,
   Footnote,
-  InfoItemHeader,
-  InfoItemSubHeader,
 } from '../uiElements/Typography'
 import { CardItem } from '../uiElements/cardItems/CardItem'
 
@@ -27,6 +25,7 @@ import { ContactCard } from '../components/shared/ContactCard'
 import { MainColumn } from '../uiElements/wrappers/MainColumn'
 import { DurationContent } from '../uiElements/cardItems/content/DurationContent'
 import { ReportContent } from '../uiElements/cardItems/content/ReportContent'
+import { Separator } from '../uiElements/Separator'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -63,6 +62,7 @@ const PrivateSection: React.FC = () => {
 
   return (
     <section id="private" className="section-even">
+      <Separator />
       <MainColumn>
         {/* HEADER */}
         <GridProductWrapper>

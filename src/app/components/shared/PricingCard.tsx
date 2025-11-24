@@ -3,8 +3,7 @@
 import React from 'react'
 import { Send } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
-import Separator from '@/app/uiElements/Separator'
-import { CardSubHeader, PricingDescription } from '@/app/uiElements/Typography'
+import { PricingDescription } from '@/app/uiElements/Typography'
 
 export type PricingOption = {
   label: string

@@ -11,7 +11,7 @@ import { ContentRow } from '../../wrappers/ContentRow'
 import { ContentColumn } from '../../wrappers/ContentColumn'
 import { CircleIconWrapper, EmptyIconWrapper } from '../../wrappers/IconWrapper'
 import { InfoItemHeader, InfoItemSubHeader } from '../../Typography'
-import Separator from '../../Separator'
+import { CardSeparator, Separator } from '../../Separator'
 
 export interface ReportItem {
   icon: LucideIcon
@@ -35,7 +35,7 @@ export const ProgramContent: React.FC<ProgramContentProps> = ({
       <InfoItemHeader text={headerText} />
     </ContentRow>
 
-    <Separator />
+    <CardSeparator />
 
     <ContentColumn>
       {items.map((item, index) => (
