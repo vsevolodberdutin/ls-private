@@ -71,6 +71,9 @@ export const Footnote: React.FC<TypographyProps> = ({ text }) => {
 export const CardSubHeader: React.FC<TypographyProps> = ({ text }) => {
   return <p className={`m-0 text-sm opacity-50`}>{text}</p>
 }
+export const PricingDescription: React.FC<TypographyProps> = ({ text }) => {
+  return <p className={`m-0 text-sm text-black/70`}>{text}</p>
+}
 
 export const PageHeader: React.FC<TypographyProps> = ({ text }) => {
   return (

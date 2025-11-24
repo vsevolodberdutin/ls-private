@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Heart, Waves, Briefcase, Clock, FileText } from 'lucide-react'
+import { Heart, Waves, Briefcase } from 'lucide-react'
 import { PRICING } from '@/constants/contacts'
 import {
   PricingCard,
@@ -41,14 +41,14 @@ const PRICING_OPTIONS: PricingOption[] = [
   {
     label: PRICING.inPerson.label,
     price: PRICING.inPerson.formatted,
-    locations: PRICING.inPerson.locations,
+    description: PRICING.inPerson.descriptions,
     message:
       'Здравствуйте, я хочу записаться на личную сессию-встречу в городе ...',
   },
   {
     label: PRICING.otherCities.label,
     price: PRICING.otherCities.formatted,
-    locations: PRICING.otherCities.locations,
+    description: PRICING.otherCities.descriptions,
     message:
       'Здравствуйте, я хочу записаться на личную сессию-встречу в городе ...',
   },

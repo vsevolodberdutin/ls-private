@@ -22,7 +22,11 @@ import { InfoCard } from '@/app/components/shared/InfoCard'
 import { TEACHING_GALLERY } from '@/constants/gallery'
 import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
-import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
+import {
+  CardItemHeader,
+  CardItemSubHeader,
+  Footnote,
+} from '../uiElements/Typography'
 import { CardItem } from '../uiElements/cardItems/CardItem'
 import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
 import { MainColumn } from '../uiElements/wrappers/MainColumn'
@@ -31,10 +35,39 @@ import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
 import { TargetClientContent } from '../uiElements/cardItems/content/TargetClientContent'
 import { ReportContent } from '../uiElements/cardItems/content/ReportContent'
 import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
+import { PricingCard, type PricingOption } from '../components/shared/PricingCard'
+import { ModuleCard } from '../uiElements/cardItems/content/ModuleCard'
 
 // ============================================================================
 // Courses Configuration
 // ============================================================================
+
+const INTENSIV_MODULES: PricingOption[] = [
+  {
+    label: 'Модуль 1: BASICS',
+    description: [
+      'Теоретические основы',
+      'Модель А',
+      '16 психотипов',
+      'методы диагностики',
+    ],
+    price: '12 000 ₽',
+    message:
+      'Здравствуйте, Элеонора! Интересует "Модуль 1: BASICS". Расскажите подробнее...',
+  },
+  {
+    label: 'Модуль 2: MEDIUM',
+    description: [
+      'Интертипные отношения',
+      'малые группы',
+      'признаки Рейнина',
+      'методика определения психотипа',
+    ],
+    price: '12 000 ₽',
+    message:
+      'Здравствуйте, Элеонора! Интересует "Модуль 2: MEDIUM". Расскажите подробнее...',
+  },
+]
 
 const TEACHING_COURSES: TeachingCourse[] = TEACHING_SERVICES.courses.map(
   (course) => ({
@@ -81,25 +114,39 @@ const TeachingSection: React.FC = () => {
             <CardItem>
               <ProductHeader text="Курс ИНТЕНСИВ" />
             </CardItem>
-            <TeachingPricingCard
-              course={TEACHING_COURSES[0]}
-              hideFields={{
-                name: true,
-                duration: true,
-                format: true,
-                target: true,
-                features: true,
-              }}
-            />
+
+            {/* Modules */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard option={INTENSIV_MODULES[0]} />
+                <PricingCard option={INTENSIV_MODULES[1]} />
+                <PricingCard
+                  option={{
+                    label: 'Курс ИНТЕНСИВ - в записи',
+                    price: '15 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует "Курс ИНТЕНСИВ - в записи". Расскажите подробнее...',
+                  }}
+                />
+
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
           </ContentColumn>
+
           <ContentColumn>
             <CardItem>
               <TargetClientContent text="Руководители, HR-специалисты, психологи, люди, занимающиеся саморазвитием" />
             </CardItem>
             <CardItem>
               <DurationContent
-                text="72 академических часа"
-                note="онлайн, записи + живые встречи, закрытый телеграм-чат группы"
+                text="36 академических часов (каждый модуль)"
+                note="3 онлайн-тренинга (12ч), 6 тренингов в записи (24ч) + живые встречи, закрытый телеграм-чат группы"
               />
             </CardItem>
             <CardItem>

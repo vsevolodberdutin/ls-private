@@ -28,12 +28,12 @@ export const PRICING = {
     price: 15000,
     formatted: '15 000 ₽',
     label: 'Личная встреча',
-    locations: 'Москва/Ниж.Новгород',
+    descriptions: ['Москва/Ниж.Новгород'],
   },
   otherCities: {
     priceFrom: 50000,
     formatted: 'от 50 000 ₽',
     label: 'Личная встреча',
-    locations: 'другие города',
+    descriptions: ['другие города'],
   },
 } as const
