@@ -1,33 +1,70 @@
 'use client'
 
 import React, { useState } from 'react'
-import { BookOpen, Target } from 'lucide-react'
-import { SCHOOL_SERVICES } from '@/constants/services'
 import {
-  SchoolPricingCard,
-  type SchoolPackage,
-} from './SchoolSection/SchoolPricingCard'
+  BookOpen,
+  Target,
+  Video,
+  ClipboardCheck,
+  FileText,
+  Award,
+  Presentation,
+  Phone,
+  Home,
+  Baby,
+  Heart,
+  BrainCircuit,
+  TrendingUp,
+  Sparkles,
+  Smile,
+} from 'lucide-react'
+import { SCHOOL_SERVICES } from '@/constants/services'
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
 import { SCHOOL_GALLERY } from '@/constants/gallery'
-import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
+import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
-import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
+import {
+  CardItemHeader,
+  CardItemSubHeader,
+  Footnote,
+} from '../uiElements/Typography'
+import { CardItem } from '../uiElements/cardItems/CardItem'
+import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
+import { MainColumn } from '../uiElements/wrappers/MainColumn'
+import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
+import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
+import {
+  PricingCard,
+  type PricingOption,
+} from '../components/shared/PricingCard'
+import { Separator } from '../uiElements/Separator'
 
 // ============================================================================
 // Pricing Options Configuration
 // ============================================================================
 
-const SCHOOL_PACKAGES: SchoolPackage[] = SCHOOL_SERVICES.packages.map(
-  (pkg, index) => ({
-    name: pkg.name,
-    price: pkg.priceFormatted,
-    note: 'note' in pkg ? pkg.note : undefined,
-    features: pkg.features,
-    message: `Здравствуйте, Элеонора! Интересует "${pkg.name}". Расскажите подробнее...`,
-  })
-)
+const SCHOOL_PRICING_OPTIONS: PricingOption[] = [
+  {
+    label: SCHOOL_SERVICES.packages[0].name,
+    description: SCHOOL_SERVICES.packages[0].features,
+    price: SCHOOL_SERVICES.packages[0].priceFormatted,
+    message: `Здравствуйте, Элеонора! Интересует "${SCHOOL_SERVICES.packages[0].name}". Расскажите подробнее...`,
+  },
+  {
+    label: SCHOOL_SERVICES.packages[1].name,
+    description: SCHOOL_SERVICES.packages[1].features,
+    price: SCHOOL_SERVICES.packages[1].priceFormatted,
+    message: `Здравствуйте, Элеонора! Интересует "${SCHOOL_SERVICES.packages[1].name}". Расскажите подробнее...`,
+  },
+  {
+    label: SCHOOL_SERVICES.packages[2].name,
+    description: SCHOOL_SERVICES.packages[2].features,
+    price: SCHOOL_SERVICES.packages[2].priceFormatted,
+    message: `Здравствуйте, Элеонора! Интересует "${SCHOOL_SERVICES.packages[2].name}". Расскажите подробнее...`,
+  },
+]
 
 // ============================================================================
 // Main Component
@@ -38,91 +75,188 @@ const SchoolSection: React.FC = () => {
 
   return (
     <section id="school" className="section-odd">
-      <GridWrapper>
-        {/* Title Card */}
-        <HeaderCardItem>
-          <CardItemHeader text={SCHOOL_SERVICES.title} />
-        </HeaderCardItem>
-        {/* Description Card */}
-        <HeaderCardItem>
-          <CardItemSubHeader text={SCHOOL_SERVICES.description} />
-        </HeaderCardItem>
+      <MainColumn>
+        {/* HEADER */}
+        <GridProductWrapper>
+          {/* Title Card */}
+          <HeaderCardItem>
+            <CardItemHeader text={SCHOOL_SERVICES.title} />
+          </HeaderCardItem>
+          {/* Description Card */}
+          <HeaderCardItem>
+            <CardItemSubHeader text={SCHOOL_SERVICES.description} />
+          </HeaderCardItem>
+        </GridProductWrapper>
 
-        {/* Left Column - Course Goals and Marathon Info */}
-        <div className="flex-1 flex flex-col gap-3 mx-6">
-          {/* Course Goals Card */}
-          <div className="bg-white/60 backdrop-blur-xl
-            rounded-2xl border border-orange-200 p-6
-            shadow-sm
-            transition
-            hover:shadow-md">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="flex items-center justify-center w-11 h-11 flex-shrink-0
-                rounded-full border border-orange-200 bg-orange-50">
-                <Target className="w-6 h-6 text-orange-500" />
-              </div>
-              <h3 className="text-md font-semibold text-gray-800">
-                Видео-курс из 16 уроков о том как:
-              </h3>
-            </div>
-            <ul className="space-y-2 text-sm text-gray-700 leading-relaxed ml-3">
-              {SCHOOL_SERVICES.courseGoals.map((goal, index) => (
-                <li key={index} className="flex gap-2">
-                  <span className="text-orange-500 font-semibold">
-                    {index + 1})
-                  </span>
-                  <span>{goal}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <Separator />
 
-          {/* Marathon Info Card */}
-          <div className="bg-white/60 backdrop-blur-xl
-            rounded-2xl border border-orange-200 p-6
-            shadow-sm
-            transition
-            hover:shadow-md">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="flex items-center justify-center w-11 h-11 flex-shrink-0
-                rounded-full border border-orange-200 bg-orange-50">
-                <BookOpen className="w-6 h-6 text-orange-500" />
-              </div>
-              <h3 className="text-md font-semibold text-gray-800">
-                2 Марафона по 8 уроков
-              </h3>
-            </div>
-            <div className="space-y-3">
-              {SCHOOL_SERVICES.marathons.map((marathon, index) => (
-                <div key={index} className="text-sm">
-                  <div className="font-semibold text-gray-800 mb-1">
-                    {marathon.name}
-                  </div>
-                  <div className="text-gray-600 leading-relaxed">
-                    {marathon.description}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Package 1: Видеокурс 16 уроков */}
+        <GridProductWrapper>
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Видеокурс 16 уроков" />
+            </CardItem>
 
-          {/* Contact Card */}
-          <ContactCard message="Здравствуйте, Элеонора! Интересует обучение в школе соционики. Расскажите подробнее о..." />
-        </div>
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard option={SCHOOL_PRICING_OPTIONS[0]} />
 
-        {/* Right Column - Pricing Packages */}
-        <div className="flex-1 flex flex-col gap-3">
-          {SCHOOL_PACKAGES.map((pkg, index) => (
-            <SchoolPricingCard key={index} package={pkg} />
-          ))}
+                <Footnote
+                  text={[
+                    'Марафон 1 - 5500₽ / Марафон 2 - 5500₽',
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
 
-          {/* Gallery Card */}
+          <ContentColumn>
+            <CardItem>
+              <ProgramContent
+                headerText="Цели курса:"
+                items={[
+                  {
+                    icon: Baby,
+                    text: 'Достичь взаимопонимания с ребенком',
+                  },
+                  {
+                    icon: TrendingUp,
+                    text: 'Эффективно его мотивировать',
+                  },
+                  {
+                    icon: Sparkles,
+                    text: 'Определить сильные стороны ребенка и развивать их',
+                  },
+                  {
+                    icon: Target,
+                    text: 'Выбрать будущую профессию для успешной реализации',
+                  },
+                  {
+                    icon: Heart,
+                    text: 'Избежать нервных срывов и депрессий',
+                  },
+                  {
+                    icon: Smile,
+                    text: 'Гордиться достижениями вашего ребенка!',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
+
+        <Separator />
+
+        {/* Package 2: Видеокурс + консультации */}
+        <GridProductWrapper>
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Видеокурс + консультации" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard option={SCHOOL_PRICING_OPTIONS[1]} />
+
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <ProgramContent
+                headerText="Марафон 1: Пойми меня, МАМА!"
+                items={[
+                  {
+                    icon: BrainCircuit,
+                    text: 'Получение знаний по психотипу ребенка',
+                  },
+                  {
+                    icon: Target,
+                    text: 'Определение сильных и слабых от природы сторон',
+                  },
+                  {
+                    icon: Heart,
+                    text: 'Строим мосты ПОНИМАНИЯ между вами и ребенком!',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
+
+        <Separator />
+
+        {/* Package 3: Семейный коучинг */}
+        <GridProductWrapper>
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Семейный коучинг" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard option={SCHOOL_PRICING_OPTIONS[2]} />
+
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <ProgramContent
+                headerText="Марафон 2: Как раскрыть таланты ребенка"
+                items={[
+                  {
+                    icon: BrainCircuit,
+                    text: 'Понимание модели психики, ее целостной работы',
+                  },
+                  {
+                    icon: TrendingUp,
+                    text: 'Определение мотивации ребенка',
+                  },
+                  {
+                    icon: Sparkles,
+                    text: 'Развитие талантов ребенка',
+                  },
+                  {
+                    icon: Target,
+                    text: 'Ранняя профориентация, уверенный выбор профессии',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
+
+        <Separator />
+
+        {/* Gallery & Contact */}
+        <div className="h-fit w-svw px-40 grid grid-cols-1 justify-center items-start gap-5">
+          <ContactCard message="Здравствуйте, Элеонора! Интересует обучение в школе осознанных родителей. Расскажите подробнее о..." />
           <GalleryCard
             images={SCHOOL_GALLERY}
             onImageClick={setSelectedImage}
           />
         </div>
-      </GridWrapper>
+      </MainColumn>
 
       {/* Image Popup Modal */}
       <ImagePopup

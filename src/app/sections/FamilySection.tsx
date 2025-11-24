@@ -1,37 +1,46 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Clock } from 'lucide-react'
+import { Heart, Users, Handshake, UserCheck } from 'lucide-react'
 import { FAMILY_SERVICES } from '@/constants/services'
-import {
-  FamilyPricingCard,
-  type FamilyPricingOption,
-} from './FamilySection/FamilyPricingCard'
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
 import { FAMILY_GALLERY } from '@/constants/gallery'
-import { GridWrapper } from '../uiElements/wrappers/GridWrapper'
+import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
-import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
+import {
+  CardItemHeader,
+  CardItemSubHeader,
+  Footnote,
+} from '../uiElements/Typography'
+import { CardItem } from '../uiElements/cardItems/CardItem'
+import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
 import { MainColumn } from '../uiElements/wrappers/MainColumn'
+import { DurationContent } from '../uiElements/cardItems/content/DurationContent'
+import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
+import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
+import {
+  PricingCard,
+  type PricingOption,
+} from '../components/shared/PricingCard'
+import { Separator } from '../uiElements/Separator'
 
 // ============================================================================
 // Pricing Options Configuration
 // ============================================================================
 
-const FAMILY_PRICING_OPTIONS: FamilyPricingOption[] = [
+const FAMILY_PRICING_OPTIONS: PricingOption[] = [
   {
-    name: FAMILY_SERVICES.personalSession.types[0].name,
-    description: FAMILY_SERVICES.personalSession.types[0].description,
+    label: FAMILY_SERVICES.personalSession.types[0].name,
+    description: [FAMILY_SERVICES.personalSession.types[0].description],
     price: FAMILY_SERVICES.personalSession.types[0].priceFormatted,
-    additional: FAMILY_SERVICES.personalSession.types[0].additional,
     message:
       'Здравствуйте, Элеонора! Интересует консультация "Гармония отношений в паре, родитель/ребенок". Расскажите подробнее...',
   },
   {
-    name: FAMILY_SERVICES.personalSession.types[1].name,
-    description: FAMILY_SERVICES.personalSession.types[1].description,
+    label: FAMILY_SERVICES.personalSession.types[1].name,
+    description: [FAMILY_SERVICES.personalSession.types[1].description],
     price: FAMILY_SERVICES.personalSession.types[1].priceFormatted,
     message:
       'Здравствуйте, Элеонора! Интересует консультация "Разрешение конфликтов в паре". Расскажите подробнее...',
@@ -47,70 +56,147 @@ const FamilySection: React.FC = () => {
 
   return (
     <section id="family" className="section-even">
-      <GridWrapper>
-        {/* Left Column - Pricing */}
-        <MainColumn>
+      <MainColumn>
+        {/* HEADER */}
+        <GridProductWrapper>
           {/* Title Card */}
           <HeaderCardItem>
             <CardItemHeader text={FAMILY_SERVICES.personalSession.title} />
           </HeaderCardItem>
-
-          {/* Pricing Card */}
-          <div className="bg-white/60 backdrop-blur-xl
-            rounded-2xl border border-orange-200 p-6
-            shadow-sm
-            transition
-            hover:shadow-md">
-            <h3 className="text-md font-semibold text-gray-800 mb-3">
-              Виды консультаций:
-            </h3>
-            <ul className="space-y-3 text-sm text-gray-800 leading-relaxed">
-              {FAMILY_PRICING_OPTIONS.map((option, index) => (
-                <FamilyPricingCard key={index} option={option} />
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Card */}
-          <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация. Расскажите подробнее о..." />
-        </MainColumn>
-
-        {/* Right Column - Duration and Gallery */}
-        <MainColumn>
           {/* Description Card */}
           <HeaderCardItem>
             <CardItemSubHeader
               text={FAMILY_SERVICES.personalSession.description}
             />
           </HeaderCardItem>
-          <div className="flex-1 flex flex-col gap-3">
-            {/* Duration Card */}
-            <div className="bg-white/60 backdrop-blur-xl
-              rounded-2xl border border-orange-200 p-6
-              shadow-sm
-              transition
-              hover:shadow-md">
-              <div className="flex gap-3 items-center">
-                <div className="flex items-center justify-center w-11 h-11 flex-shrink-0
-                  rounded-full border border-orange-200 bg-orange-50">
-                  <Clock className="w-6 h-6 text-orange-500" />
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  <strong>
-                    Продолжительность {FAMILY_SERVICES.personalSession.duration}
-                  </strong>
-                </p>
-              </div>
-            </div>
+        </GridProductWrapper>
 
-            {/* Gallery Card */}
-            <GalleryCard
-              images={FAMILY_GALLERY}
-              onImageClick={setSelectedImage}
-            />
-          </div>
-        </MainColumn>
-      </GridWrapper>
+        <Separator />
+
+        {/* Consultation 1: Гармония отношений */}
+        <GridProductWrapper>
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Гармония отношений в паре, родитель/ребенок" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard option={FAMILY_PRICING_OPTIONS[0]} />
+
+                <Footnote
+                  text={[
+                    'Дополнение - 10 000 ₽/чел.',
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <DurationContent
+                text="4 часа"
+                note="2 личных сессии + разбор отношений на второй встрече"
+              />
+            </CardItem>
+            <CardItem>
+              <ProgramContent
+                headerText="Что включает:"
+                items={[
+                  {
+                    icon: Users,
+                    text: 'Первая сессия - индивидуальная встреча',
+                  },
+                  {
+                    icon: Heart,
+                    text: 'Вторая сессия - разбор отношений',
+                  },
+                  {
+                    icon: UserCheck,
+                    text: 'Улучшение взаимопонимания',
+                  },
+                  {
+                    icon: Handshake,
+                    text: 'Гармонизация отношений',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
+
+        <Separator />
+
+        {/* Consultation 2: Разрешение конфликтов */}
+        <GridProductWrapper>
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Разрешение конфликтов в паре" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard option={FAMILY_PRICING_OPTIONS[1]} />
+
+                <Footnote
+                  text={[
+                    'Для зарубежных клиентов — повышающий коэффициент',
+                    'Оплата: PayPal / WU',
+                  ]}
+                />
+              </ContentColumn>
+            </CardItem>
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <DurationContent
+                text="4 часа"
+                note="2 личных сессии участников конфликта + 1-2 сессии по примирению"
+              />
+            </CardItem>
+            <CardItem>
+              <ProgramContent
+                headerText="Что включает:"
+                items={[
+                  {
+                    icon: Users,
+                    text: 'Личные сессии каждого участника конфликта',
+                  },
+                  {
+                    icon: Handshake,
+                    text: 'Сессии по примирению сторон',
+                  },
+                  {
+                    icon: Heart,
+                    text: 'Выработка осознанной позиции',
+                  },
+                  {
+                    icon: UserCheck,
+                    text: 'Формирование мирной стратегии',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
+
+        <Separator />
+
+        {/* Gallery & Contact */}
+        <div className="h-fit w-svw px-40 grid grid-cols-1 justify-center items-start gap-5">
+          <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация. Расскажите подробнее о..." />
+          <GalleryCard
+            images={FAMILY_GALLERY}
+            onImageClick={setSelectedImage}
+          />
+        </div>
+      </MainColumn>
 
       {/* Image Popup Modal */}
       <ImagePopup
