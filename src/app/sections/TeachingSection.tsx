@@ -1,7 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Award } from 'lucide-react'
+import {
+  Award,
+  Users,
+  Lightbulb,
+  Settings,
+  UserPlus,
+  Brain,
+  ShipWheel,
+} from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
 import {
   TeachingPricingCard,
@@ -18,6 +26,11 @@ import { CardItemHeader, CardItemSubHeader } from '../uiElements/Typography'
 import { CardItem } from '../uiElements/cardItems/CardItem'
 import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
 import { MainColumn } from '../uiElements/wrappers/MainColumn'
+import { DurationContent } from '../uiElements/cardItems/content/DurationContent'
+import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
+import { TargetClientContent } from '../uiElements/cardItems/content/TargetClientContent'
+import { ReportContent } from '../uiElements/cardItems/content/ReportContent'
+import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
 
 // ============================================================================
 // Courses Configuration
@@ -36,7 +49,7 @@ const TEACHING_COURSES: TeachingCourse[] = TEACHING_SERVICES.courses.map(
     modules: 'modules' in course ? course.modules : undefined,
     price: course.priceFormatted,
     message: `Здравствуйте, Элеонора! Интересует "${course.name}". Расскажите подробнее...`,
-  })
+  }),
 )
 
 // ============================================================================
@@ -62,15 +75,81 @@ const TeachingSection: React.FC = () => {
         </GridProductWrapper>
 
         {/* PRODUCTS */}
+        {/* Course 1: ИНТЕНСИВ */}
         <GridProductWrapper>
-          {/* Left Column - Courses + Strategic Session */}
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Курс ИНТЕНСИВ" />
+            </CardItem>
+            <TeachingPricingCard
+              course={TEACHING_COURSES[0]}
+              hideFields={{
+                name: true,
+                duration: true,
+                format: true,
+                target: true,
+                features: true,
+              }}
+            />
+          </ContentColumn>
+          <ContentColumn>
+            <CardItem>
+              <TargetClientContent text="Руководители, HR-специалисты, психологи, люди, занимающиеся саморазвитием" />
+            </CardItem>
+            <CardItem>
+              <DurationContent
+                text="72 академических часа"
+                note="онлайн, записи + живые встречи, закрытый телеграм-чат группы"
+              />
+            </CardItem>
+            <CardItem>
+              <ProgramContent
+                items={[
+                  {
+                    icon: Users,
+                    text: 'Сочетание соционики и теории управления людьми',
+                  },
+                  {
+                    icon: UserPlus,
+                    text: 'Осознанный подбор членов команды',
+                  },
+                  {
+                    icon: Settings,
+                    text: 'Ярко выраженный прикладной характер',
+                  },
+                  {
+                    icon: ShipWheel,
+                    text: 'Методики применения в управлении',
+                  },
+                  {
+                    icon: Brain,
+                    text: 'Методики определения психотипов с личной практикой',
+                  },
+                ]}
+              />
+            </CardItem>
+          </ContentColumn>
+        </GridProductWrapper>
+
+        {/* Course 2: ИНТЕНСИВ - в записи */}
+        <GridProductWrapper>
+          <TeachingPricingCard course={TEACHING_COURSES[1]} />
+        </GridProductWrapper>
+
+        {/* Course 3: ТОНКОСТИ ТИПИРОВАНИЯ */}
+        <GridProductWrapper>
+          <TeachingPricingCard course={TEACHING_COURSES[2]} />
+        </GridProductWrapper>
+
+        {/* Course 4: ПРАКТИКА 3.0. */}
+        <GridProductWrapper>
+          <TeachingPricingCard course={TEACHING_COURSES[3]} />
+        </GridProductWrapper>
+
+        {/* Strategic Session */}
+        <GridProductWrapper>
           <CardItem>
             <ContentColumn>
-              {TEACHING_COURSES.map((course, index) => (
-                <TeachingPricingCard key={index} course={course} />
-              ))}
-
-              {/* Strategic Session */}
               <InfoCard
                 icon={<Award />}
                 title={TEACHING_SERVICES.strategicSession.name}

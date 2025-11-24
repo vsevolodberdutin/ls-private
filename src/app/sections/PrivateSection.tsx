@@ -25,12 +25,8 @@ import { CardItem } from '../uiElements/cardItems/CardItem'
 import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
 import { ContactCard } from '../components/shared/ContactCard'
 import { MainColumn } from '../uiElements/wrappers/MainColumn'
-import { ContentRow } from '../uiElements/wrappers/ContentRow'
-import {
-  CircleIconWrapper,
-  EmptyIconWrapper,
-} from '../uiElements/wrappers/IconWrapper'
-import Separator from '../uiElements/Separator'
+import { DurationContent } from '../uiElements/cardItems/content/DurationContent'
+import { ReportContent } from '../uiElements/cardItems/content/ReportContent'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -107,56 +103,28 @@ const PrivateSection: React.FC = () => {
           <ContentColumn>
             {/* Duration Card */}
             <CardItem>
-              <ContentRow>
-                <CircleIconWrapper>
-                  <Clock />
-                </CircleIconWrapper>
-
-                <InfoItemHeader text={' Продолжительность 2 часа'} />
-              </ContentRow>
+              <DurationContent text=" Продолжительность 2 часа" />
             </CardItem>
 
             {/* Report Card */}
             <CardItem>
-              <ContentRow>
-                <CircleIconWrapper>
-                  <FileText />
-                </CircleIconWrapper>
-                <InfoItemHeader
-                  text={
-                    ' После консультации вы получаете отчет / лист профориентации с рекомендациями:'
-                  }
-                />
-              </ContentRow>
-
-              <Separator />
-
-              <ContentColumn>
-                <ContentRow>
-                  <EmptyIconWrapper>
-                    <Briefcase className="w-4 h-4" />
-                  </EmptyIconWrapper>
-                  <InfoItemSubHeader
-                    text={'Как развить потенциал и построить карьеру'}
-                  />
-                </ContentRow>
-                <ContentRow>
-                  <EmptyIconWrapper>
-                    <Heart className="w-4 h-4" />
-                  </EmptyIconWrapper>
-                  <InfoItemSubHeader
-                    text={'Какие отношения подходят для гармоничной жизни'}
-                  />
-                </ContentRow>
-                <ContentRow>
-                  <EmptyIconWrapper>
-                    <Waves className="w-4 h-4" />
-                  </EmptyIconWrapper>
-                  <InfoItemSubHeader
-                    text={'Как восстанавливать энергию и ресурс'}
-                  />
-                </ContentRow>
-              </ContentColumn>
+              <ReportContent
+                headerText=" После консультации вы получаете отчет / лист профориентации с рекомендациями:"
+                items={[
+                  {
+                    icon: Briefcase,
+                    text: 'Как развить потенциал и построить карьеру',
+                  },
+                  {
+                    icon: Heart,
+                    text: 'Какие отношения подходят для гармоничной жизни',
+                  },
+                  {
+                    icon: Waves,
+                    text: 'Как восстанавливать энергию и ресурс',
+                  },
+                ]}
+              />
             </CardItem>
           </ContentColumn>
         </GridProductWrapper>

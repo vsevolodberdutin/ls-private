@@ -41,7 +41,7 @@ export const InfoItemHeader: React.FC<TypographyProps> = ({ text }) => {
   return <h3 className={`text-sm text-gray-700 font-semibold`}>{text}</h3>
 }
 export const InfoItemSubHeader: React.FC<TypographyProps> = ({ text }) => {
-  return <h3 className={`text-sm text-gray-700`}>{text}</h3>
+  return <h3 className={`text-sm text-black/70`}>{text}</h3>
 }
 
 export const CardItemSubHeader: React.FC<TypographyProps> = ({ text }) => {

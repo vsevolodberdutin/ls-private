@@ -23,6 +23,13 @@ export interface TeachingCourse {
 
 interface TeachingPricingCardProps {
   course: TeachingCourse
+  hideFields?: {
+    name?: boolean
+    duration?: boolean
+    format?: boolean
+    target?: boolean
+    features?: boolean
+  }
 }
 
 /**
@@ -31,6 +38,7 @@ interface TeachingPricingCardProps {
  */
 export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
   course,
+  hideFields = {},
 }) => {
   const whatsappUrl = `https://wa.me/79103811250?text=${encodeURIComponent(course.message)}`
 
@@ -41,9 +49,11 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
       transition
       hover:shadow-md">
       {/* Course Name */}
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">
-        {course.name}
-      </h3>
+      {!hideFields.name && (
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">
+          {course.name}
+        </h3>
+      )}
 
       {/* Subtitle */}
       {course.subtitle && (
@@ -53,24 +63,26 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
       )}
 
       {/* Duration & Format */}
-      {(course.duration || course.format) && (
-        <div className="mb-3 space-y-1">
-          {course.duration && (
-            <div className="flex items-center gap-2 text-sm text-gray-700">
-              <Clock className="w-4 h-4 text-orange-500" />
-              <span>{course.duration}</span>
-            </div>
-          )}
-          {course.format && (
-            <div className="text-xs text-gray-600 leading-relaxed">
-              {course.format}
-            </div>
-          )}
-        </div>
-      )}
+      {!hideFields.duration &&
+        !hideFields.format &&
+        (course.duration || course.format) && (
+          <div className="mb-3 space-y-1">
+            {course.duration && (
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                <Clock className="w-4 h-4 text-orange-500" />
+                <span>{course.duration}</span>
+              </div>
+            )}
+            {course.format && (
+              <div className="text-xs text-gray-600 leading-relaxed">
+                {course.format}
+              </div>
+            )}
+          </div>
+        )}
 
       {/* Target Audience */}
-      {course.target && (
+      {!hideFields.target && course.target && (
         <div className="mb-3
           rounded-lg border border-orange-100 bg-orange-50/50 p-3">
           <div className="text-xs font-semibold text-orange-700 mb-1">
@@ -88,24 +100,26 @@ export const TeachingPricingCard: React.FC<TeachingPricingCardProps> = ({
       )}
 
       {/* Features */}
-      {course.features && course.features.length > 0 && (
-        <div className="mb-3">
-          <div className="text-xs font-semibold text-gray-700 mb-2">
-            Особенности программы:
+      {!hideFields.features &&
+        course.features &&
+        course.features.length > 0 && (
+          <div className="mb-3">
+            <div className="text-xs font-semibold text-gray-700 mb-2">
+              Особенности программы:
+            </div>
+            <ul className="space-y-1.5">
+              {course.features.map((feature, index) => (
+                <li
+                  key={index}
+                  className="flex gap-2 items-start text-sm text-gray-700"
+                >
+                  <Check className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="space-y-1.5">
-            {course.features.map((feature, index) => (
-              <li
-                key={index}
-                className="flex gap-2 items-start text-sm text-gray-700"
-              >
-                <Check className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+        )}
 
       {/* Modules */}
       {course.modules && course.modules.length > 0 && (
