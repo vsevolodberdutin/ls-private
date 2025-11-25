@@ -6,14 +6,13 @@ import SchoolSection from './sections/SchoolSection'
 import TeachingSection from './sections/TeachingSection'
 import PrivateSession from './sections/PrivateSection'
 import Footer from './sections/Footer'
-import { Separator } from './uiElements/Separator'
 import { DynamicIsland } from './components/DynamicIsland'
 
 export default function Home() {
   return (
     <div className="scroll-container">
       <Navigation />
-      <DynamicIsland />
+      {/* <DynamicIsland /> */}
       <MainPage />
       <AboutPage />
       <PrivateSession />

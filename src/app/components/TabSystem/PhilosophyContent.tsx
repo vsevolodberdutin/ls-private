@@ -3,6 +3,7 @@ import { Network, GitMerge, Shapes } from 'lucide-react'
 import Image from 'next/image'
 import { ListColumn } from '@/app/uiElements/wrappers/ListColumn'
 import { BoxIcon } from '@/app/uiElements/BoxIcon'
+import { nanoid } from 'nanoid'
 
 export const PhilosophyContent: React.FC = () => {
   const philosophyCards = [
@@ -30,6 +31,7 @@ export const PhilosophyContent: React.FC = () => {
     <ListColumn>
       {philosophyCards.map((card, index) => (
         <div
+          key={nanoid()}
           className=" flex flex-col gap-6 rounded-2xl border px-6 py-5
             border-white/40 bg-white/50 backdrop-blur-xl
             transition-all duration-500 animate-fadeIn"
