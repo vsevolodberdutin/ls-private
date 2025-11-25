@@ -175,16 +175,12 @@ const Footer: React.FC = () => {
                   hover:border-sky-400/50 hover:bg-sky-500/10 hover:scale-[102%]"
               >
                 <div className="flex-shrink-0">
-                <svg
-                    className="w-8 h-8 text-amber-100 group-hover:text-amber-300 
-group-hover:scale-110 transition-all"
+                  <svg
+                    className="w-8 h-8 text-amber-100 group-hover:text-amber-300 group-hover:scale-110 transition-all"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 
-0zm5.562 8.161l-1.563 7.353c-.117.535-.424.663-.857.413l-2.372-1.748-1.144 
-1.102c-.126.126-.233.233-.479.233l.171-2.421 4.408-3.982c.192-.171-.042-.266-.297-.095l-5.447 
-3.429-2.348-.735c-.511-.161-.521-.511.106-.756l9.188-3.54c.425-.161.798.1.659.756z" />
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.563 7.353c-.117.535-.424.663-.857.413l-2.372-1.748-1.144 1.102c-.126.126-.233.233-.479.233l.171-2.421 4.408-3.982c.192-.171-.042-.266-.297-.095l-5.447 3.429-2.348-.735c-.511-.161-.521-.511.106-.756l9.188-3.54c.425-.161.798.1.659.756z" />
                   </svg>
                 </div>
                 <div className="flex-1">
@@ -307,18 +303,18 @@ group-hover:scale-110 transition-all"
 
         {/* Copyright Section */}
         {/* <div className="border-t border-amber-700/50 pt-8 w-full"> */}
-        <FooterSeparator/>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-[1300px] mx-auto">
-            <p className="text-sm text-amber-100/60">
-              © {new Date().getFullYear()} Элеонора Бердутина. Школа «Живая
-              соционика». Все права защищены.
-            </p>
-            <p className="text-xs text-amber-100/50">
-              Designed with ❤️ for understanding human nature
-            </p>
-          </div>
+        <FooterSeparator />
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-[1300px] mx-auto">
+          <p className="text-sm text-amber-100/60">
+            © {new Date().getFullYear()} Элеонора Бердутина. Школа «Живая
+            соционика». Все права защищены.
+          </p>
+          <p className="text-xs text-amber-100/50">
+            Designed with ❤️ for understanding human nature
+          </p>
         </div>
-        {/* </div> */}
+      </div>
+      {/* </div> */}
     </footer>
   )
 }

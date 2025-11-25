@@ -14,9 +14,9 @@ export const WhatsappBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
       target="_top"
       aria-label="What's App"
       className="rounded-full border-[1px] border-slate p-2
-        hover:shadow-slate-500 bg-white/90
-        transition-all duration-300
-        focus:outline-none focus:ring hover:bg-green-500"
+        bg-white/90
+        transition-all duration-200
+        hover:border-emerald-400/60 hover:bg-emerald-500/70 hover:scale-105"
     >
       <Image
         className=""
@@ -36,9 +36,9 @@ export const ViberBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
       target="_top"
       aria-label="Viber"
       className="rounded-full border-[1px] border-slate p-2
-        hover:shadow-slate-500 bg-white/90
-        transition-all duration-300
-        focus:outline-none focus:ring hover:bg-violet-500"
+        bg-white/90
+        transition-all duration-200
+        hover:border-violet-300/60 hover:bg-violet-400/70 hover:scale-105"
     >
       <Image
         className=""
@@ -59,9 +59,9 @@ export const TelegramBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
       target="_top"
       aria-label="Telegram"
       className="rounded-full border-[1px] border-slate p-2
-        hover:shadow-slate-500 bg-white/90
-        transition-all duration-300
-        focus:outline-none focus:ring hover:bg-blue-500"
+        bg-white/90
+        transition-all duration-200
+        hover:border-sky-400/60 hover:bg-sky-500/70 hover:scale-105"
     >
       <Image
         className=""
