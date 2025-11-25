@@ -274,7 +274,7 @@ const Footer: React.FC = () => {
                     className="flex items-center justify-center w-[60px] h-[60px] overflow-hidden
                     rounded-full border-4 border-white bg-white/100 backdrop-blur-sm
                     transition-all duration-200
-                    hover:border-amber-600/50 hover:bg-white hover:scale-110"
+                    hover:border-amber-100 hover:bg-white hover:scale-110"
                   >
                     <Image
                       src={`/companies/${company.data}_logo.png`}
@@ -287,7 +287,7 @@ const Footer: React.FC = () => {
                   {/* Tooltip */}
                   <div
                     className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 pointer-events-none whitespace-nowrap z-10 text-xs text-amber-50
-                    rounded-lg bg-amber-900/95 backdrop-blur-sm
+                    rounded-lg bg-[#282934] backdrop-blur-sm
                     opacity-0
                     transition-opacity duration-200
                     group-hover:opacity-100"
