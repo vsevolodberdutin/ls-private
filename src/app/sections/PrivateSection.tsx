@@ -61,7 +61,11 @@ const PrivateSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section id="private" className="section-even">
+    <section
+      id="private"
+      className="section-even"
+      style={{ scrollMarginTop: 'var(--scroll-margin-top)' }}
+    >
       <Separator />
       <MainColumn>
         {/* HEADER */}

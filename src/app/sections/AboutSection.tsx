@@ -46,8 +46,12 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="section-odd">
-      
+    <section
+      id="about"
+      className="section-odd"
+      style={{ scrollMarginTop: 'var(--scroll-margin-top)' }}
+    >
+
       <TabContainer tabs={tabs} defaultActiveTab="introduction" />
     </section>
   )

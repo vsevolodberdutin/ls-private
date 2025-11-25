@@ -58,7 +58,11 @@ const FamilySection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section id="family" className="section-even">
+    <section
+      id="family"
+      className="section-even"
+      style={{ scrollMarginTop: 'var(--scroll-margin-top)' }}
+    >
       <Separator />
       <MainColumn>
         {/* HEADER */}

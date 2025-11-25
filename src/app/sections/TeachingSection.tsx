@@ -87,7 +87,11 @@ const TeachingSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section id="learn" className="section-odd">
+    <section
+      id="learn"
+      className="section-odd"
+      style={{ scrollMarginTop: 'var(--scroll-margin-top)' }}
+    >
       <Separator />
       <MainColumn>
         {/* HEADER */}

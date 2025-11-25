@@ -35,6 +35,8 @@
   /* #FFFFFF */
   --logo-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
     saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+
+  --scroll-margin-top: 100px;
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
