@@ -14,9 +14,9 @@ export const ListItemRow: React.FC<ListItemRowProps> = ({
   return (
     <div
       className={`group flex items-start gap-4 rounded-xl border px-4 py-2
-        border-white/40 bg-white/10 backdrop-blur-lg
+        border-white/50 bg-white/20 backdrop-blur-lg
         transition-all
-        hover:bg-white/20 hover:border-white/30
+        hover:bg-white/30 hover:border-white/30
         ${className}`}
     >
       {icon}
