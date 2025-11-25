@@ -9,19 +9,13 @@ import {
   FileText,
   Award,
   Presentation,
-  Phone,
-  Home,
   Baby,
   Heart,
-  BrainCircuit,
   TrendingUp,
   Sparkles,
   Smile,
   Crosshair,
   PlayCircle,
-  MessageCircle,
-  BookCheck,
-  GraduationCap,
 } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
 import { ContactCard } from '@/app/components/shared/ContactCard'
@@ -40,40 +34,8 @@ import { ContentColumn } from '../uiElements/wrappers/ContentColumn'
 import { MainColumn } from '../uiElements/wrappers/MainColumn'
 import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
 import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
-import {
-  PricingCard,
-  type PricingOption,
-} from '../components/shared/PricingCard'
+import { PricingCard } from '../components/shared/PricingCard'
 import { Separator } from '../uiElements/Separator'
-
-// ============================================================================
-// Pricing Options Configuration
-// ============================================================================
-
-const SCHOOL_PRICING_OPTIONS: PricingOption[] = [
-  {
-    label: SCHOOL_SERVICES.packages[0].name,
-    description: SCHOOL_SERVICES.packages[0].features,
-    price: SCHOOL_SERVICES.packages[0].priceFormatted,
-    message: `Здравствуйте, Элеонора! Интересует "${SCHOOL_SERVICES.packages[0].name}". Расскажите подробнее...`,
-  },
-  {
-    label: SCHOOL_SERVICES.packages[1].name,
-    description: SCHOOL_SERVICES.packages[1].features,
-    price: SCHOOL_SERVICES.packages[1].priceFormatted,
-    message: `Здравствуйте, Элеонора! Интересует "${SCHOOL_SERVICES.packages[1].name}". Расскажите подробнее...`,
-  },
-  {
-    label: SCHOOL_SERVICES.packages[2].name,
-    description: SCHOOL_SERVICES.packages[2].features,
-    price: SCHOOL_SERVICES.packages[2].priceFormatted,
-    message: `Здравствуйте, Элеонора! Интересует "${SCHOOL_SERVICES.packages[2].name}". Расскажите подробнее...`,
-  },
-]
-
-// ============================================================================
-// Main Component
-// ============================================================================
 
 const SchoolSection: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -104,27 +66,40 @@ const SchoolSection: React.FC = () => {
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard option={SCHOOL_PRICING_OPTIONS[0]} />
+                <PricingCard
+                  option={{
+                    label: 'Модуль 1',
+                    price: '5 500 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует Курс "Пойми меня, МАМА! - Модуль 1". Расскажите подробнее о...',
+                  }}
+                />
 
-                <PricingCard option={SCHOOL_PRICING_OPTIONS[1]} />
+                <PricingCard
+                  option={{
+                    label: 'Модуль 2',
+                    price: '5 500 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует Курс "Пойми меня, МАМА! - Модуль 2". Расскажите подробнее о...',
+                  }}
+                />
                 <PricingCard
                   option={{
                     label: 'Полный курс (M1+M2)',
-
                     price: '10 000 ₽',
                     message:
-                      'Здравствуйте, Элеонора! Интересует "Комплексный видео-курс + консультации". Расскажите подробнее...',
+                      'Здравствуйте, Элеонора! Интересует "Пойми меня, МАМА!" "Полный курс (M1+M2)". Расскажите подробнее о...',
                   }}
                 />
                 <PricingCard
                   option={{
                     label: 'Полный курс (M1+M2) + консультации',
                     description: [
-                      '4 личных SKYPE-консультации с детальным разбором',
+                      '4 личных ZOOM-консультации с детальным разбором',
                     ],
                     price: '28 000 ₽',
                     message:
-                      'Здравствуйте, Элеонора! Интересует "Комплексный видео-курс + консультации". Расскажите подробнее...',
+                      'Здравствуйте, Элеонора! Интересует  "Пойми меня, МАМА!"  "Полный курс (M1+M2)+ консультации". Расскажите подробнее...',
                   }}
                 />
                 <PricingCard
@@ -132,12 +107,12 @@ const SchoolSection: React.FC = () => {
                     label: 'Семейный коучинг',
                     description: [
                       'Полный курс (M1+M2)',
-                      'SKYPE-консультации с экспертом (любое количество)',
+                      'ZOOM-консультации с экспертом (любое количество)',
                       'Приезд эксперта (по РФ)',
                     ],
                     price: '120 000 ₽',
                     message:
-                      'Здравствуйте, Элеонора! Интересует "Комплексный видео-курс + консультации". Расскажите подробнее...',
+                      'Здравствуйте, Элеонора! Интересует "Семейный коучинг". Расскажите подробнее о...',
                   }}
                 />
 
@@ -218,7 +193,6 @@ const SchoolSection: React.FC = () => {
             </CardItem>
           </ContentColumn>
         </GridProductWrapper>
-
 
         {/* Gallery & Contact */}
         <GridProductWrapper>
