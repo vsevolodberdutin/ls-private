@@ -4,6 +4,7 @@ import { Book, FileText, BookOpen } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
 import { ARTICLES } from '@/constants/articles'
 import { COMPANIES } from '@/constants/companies'
+import { FooterSeparator, Separator } from '../uiElements/Separator'
 
 /**
  * Type definition for publication types
@@ -36,187 +37,217 @@ const Footer: React.FC = () => {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(to bottom, var(--footer-start-rgb) 0%, var(--footer-mid-rgb) 18%, var(--footer-end-rgb) 100%)',
+            'linear-gradient(to bottom, var(--footer-start-rgb) 0%, var(--footer-mid-rgb) 25%, var(--footer-end-rgb) 100%)',
         }}
       />
-
-      <div className="relative w-svw px-10 py-4 pb-10 ">
+      <div className="relative w-svw px-10 py-4 pb-10">
+        <Separator />
         {/* Main Footer Content Grid */}
-        <div className="h-fit grid grid-cols-1 lg:grid-cols-[450px_850px] justify-center items-start gap-12 mb-5 ">
-          {/* Contact Section */}
-          <div>
-            <h3 className="text-xl font-bold text-amber-100 mb-6 border-b border-amber-700/50 pb-3">
+        <div className="h-fit grid grid-cols-1 lg:grid-cols-2 justify-center items-stretch gap-8 pt-10 mb-12 max-w-[1300px] mx-auto">
+          {/* LEFT COLUMN - Contact Information */}
+          <div className="rounded-2xl border border-white/20 bg-white/5 p-8">
+            <h3
+              className="text-2xl font-bold mb-6
+                bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent"
+            >
               Связаться со мной
             </h3>
 
-            {/* Phone */}
-            <div className="mb-6">
-              <p className="text-sm text-amber-200/70 mb-2">Телефон:</p>
-              <a
-                href={`tel:${CONTACTS.phone}`}
-                className="text-lg font-semibold text-amber-100
-                  transition-colors
-                  hover:text-amber-400"
-              >
-                {CONTACTS.phoneFormatted}
-              </a>
-            </div>
-
-            {/* Email */}
-            <div className="mb-6">
-              <p className="text-sm text-amber-200/70 mb-2">Email:</p>
-              <a
-                href="mailto:livesocionics@gmail.com"
-                className="text-lg font-semibold text-amber-100 break-all
-                  transition-colors
-                  hover:text-amber-400"
-              >
-                livesocionics@gmail.com
-              </a>
-            </div>
-
-            {/* YouTube */}
-            <div className="mb-6">
-              <p className="text-sm text-amber-200/70 mb-2">YouTube:</p>
-              <a
-                href="https://www.youtube.com/user/LiveSocionicsStudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-100
-                  transition-colors
-                  hover:text-amber-400"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-                LiveSocionicsStudio
-              </a>
-            </div>
-
-            {/* VK */}
-            <div className="mb-6">
-              <p className="text-sm text-amber-200/70 mb-2">VK:</p>
-              <a
-                href="http://vk.com/club43658401"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-100
-                  transition-colors
-                  hover:text-amber-400"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.406.44-.406h2.744c.373 0 .508.203.508.643v3.473c0 .372.169.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.78 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z" />
-                </svg>
-                Живая соционика
-              </a>
-            </div>
-
-            {/* Messengers */}
-            <div>
-              <p className="text-sm text-amber-200/70 mb-3">Мессенджеры:</p>
-              <div className="flex flex-col gap-3">
+            <div className="space-y-6">
+              {/* Phone */}
+              <div className="group">
+                <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-2">
+                  Телефон:
+                </p>
                 <a
-                  href={CONTACTS.whatsapp.url}
-                  className="group flex items-center gap-3
-                    rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
+                  href={`tel:${CONTACTS.phone}`}
+                  className="text-lg font-semibold text-amber-100 block
                     transition-all duration-200
-                    hover:border-amber-600/50 hover:bg-emerald-400/30 hover:scale-[102%]"
-                  aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
-                  rel="noopener noreferrer"
+                    hover:text-amber-300 hover:translate-x-1"
                 >
-                  <Image
-                    src="/whatsapp.svg"
-                    alt="WhatsApp"
-                    width={24}
-                    height={24}
-                    className="group-hover:scale-110 transition-transform"
-                  />
-                  <span className="text-sm font-medium text-amber-100 group-hover:text-amber-50">
-                    {CONTACTS.whatsapp.label}
-                  </span>
-                </a>
-
-                <a
-                  href={CONTACTS.viber.url}
-                  className="group flex items-center gap-3
-                    rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
-                    transition-all duration-200
-                    hover:border-amber-600/50 hover:bg-violet-200/30 hover:scale-[102%]"
-                  aria-label={`Связаться через ${CONTACTS.viber.label}`}
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src="/viber.svg"
-                    alt="Viber"
-                    width={24}
-                    height={24}
-                    className="group-hover:scale-110 transition-transform"
-                  />
-                  <span className="text-sm font-medium text-amber-100 group-hover:text-amber-50">
-                    {CONTACTS.viber.label}
-                  </span>
-                </a>
-
-                <a
-                  href={CONTACTS.telegram.url}
-                  className="group flex items-center gap-3
-                    rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
-                    transition-all duration-200
-                    hover:border-amber-600/50 hover:bg-sky-300/40 hover:scale-[102%]"
-                  aria-label={`Связаться через ${CONTACTS.telegram.label}`}
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src="/telegram.svg"
-                    alt="Telegram"
-                    width={24}
-                    height={24}
-                    className="group-hover:scale-110 transition-transform"
-                  />
-                  <span className="text-sm font-medium text-amber-100 group-hover:text-amber-50">
-                    {CONTACTS.telegram.label}
-                  </span>
+                  {CONTACTS.phoneFormatted}
                 </a>
               </div>
-            </div>
 
-            {/* Telegram Group */}
-            <div className="mt-8">
-              <p className="text-sm text-amber-200/70 mb-3">
-                Присоединяйтесь к нашему Telegram-сообществу:
-              </p>
+              {/* Email */}
+              <div className="group">
+                <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-2">
+                  Email:
+                </p>
+                <a
+                  href="mailto:livesocionics@gmail.com"
+                  className="text-lg font-semibold text-amber-100 break-all block
+                    transition-all duration-200
+                    hover:text-amber-300 hover:translate-x-1"
+                >
+                  livesocionics@gmail.com
+                </a>
+              </div>
+
+              {/* Messengers */}
+              <div>
+                <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-3">
+                  Мессенджеры:
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={CONTACTS.whatsapp.url}
+                    className="flex items-center gap-2 px-4 py-2.5
+                      rounded-full border border-emerald-400/30 bg-emerald-500/10
+                      shadow-xl shadow-white/10
+                      transition-all duration-200
+                      hover:border-emerald-400/60 hover:bg-emerald-500/20 hover:scale-105"
+                    aria-label={`Связаться через ${CONTACTS.whatsapp.label}`}
+                  >
+                    <Image
+                      src="/whatsapp.svg"
+                      alt="WhatsApp"
+                      width={20}
+                      height={20}
+                    />
+                    <span className="text-sm font-medium text-amber-100">
+                      WhatsApp
+                    </span>
+                  </a>
+
+                  <a
+                    href={CONTACTS.viber.url}
+                    className="flex items-center gap-2 px-4 py-2.5
+                      rounded-full border border-violet-400/30 bg-violet-500/10
+                                          shadow-xl shadow-white/10
+                      transition-all duration-200
+                      hover:border-violet-300/60 hover:bg-violet-400/30 hover:scale-105"
+                    aria-label={`Связаться через ${CONTACTS.viber.label}`}
+                  >
+                    <Image
+                      src="/viber.svg"
+                      alt="Viber"
+                      width={20}
+                      height={20}
+                    />
+                    <span className="text-sm font-medium text-amber-100">
+                      Viber
+                    </span>
+                  </a>
+
+                  <a
+                    href={CONTACTS.telegram.url}
+                    className="flex items-center gap-2 px-4 py-2.5
+                      rounded-full border border-sky-400/30 bg-sky-500/10
+                                          shadow-xl shadow-white/10
+                      transition-all duration-200
+                      hover:border-sky-400/60 hover:bg-sky-500/20 hover:scale-105"
+                    aria-label={`Связаться через ${CONTACTS.telegram.label}`}
+                  >
+                    <Image
+                      src="/telegram.svg"
+                      alt="Telegram"
+                      width={20}
+                      height={20}
+                    />
+                    <span className="text-sm font-medium text-amber-100">
+                      Telegram
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN - Social Channels */}
+          <div className="rounded-2xl border border-white/20 bg-white/5 p-8">
+            <h3
+              className="text-2xl font-bold mb-6
+                bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent"
+            >
+              Подписаться на мои обучающие каналы
+            </h3>
+
+            <div className="space-y-4">
+              {/* Telegram Channel */}
               <a
                 href="https://t.me/livesocionics"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3
-                  rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
+                className="group flex items-center gap-4 p-4
+                  rounded-xl border border-white/20 bg-white/5
                   transition-all duration-200
-                  hover:border-amber-600/50 hover:bg-sky-300/40 hover:scale-[102%]"
-                aria-label="Подписаться на Telegram-канал @livesocionics"
+                  hover:border-sky-400/50 hover:bg-sky-500/10 hover:scale-[102%]"
               >
-                <Image
-                  src="/telegram.svg"
-                  alt="Telegram"
-                  width={24}
-                  height={24}
-                  className="group-hover:scale-110 transition-transform"
-                />
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-amber-100 group-hover:text-amber-50">
-                    Канал "Живая соционика"
-                  </span>
-                  <span className="text-xs text-amber-100/70">
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/telegram.svg"
+                    alt="Telegram"
+                    width={32}
+                    height={32}
+                    className="group-hover:scale-110 transition-transform"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-1">
+                    Телеграм
+                  </p>
+                  <p className="text-base font-semibold text-amber-100 group-hover:text-amber-300">
                     @livesocionics
-                  </span>
+                  </p>
+                </div>
+              </a>
+
+              {/* VK */}
+              <a
+                href="http://vk.com/club43658401"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-4
+                  rounded-xl border border-white/20 bg-white/5
+                  transition-all duration-200
+                  hover:border-blue-400/50 hover:bg-blue-500/10 hover:scale-[102%]"
+              >
+                <div className="flex-shrink-0">
+                  <svg
+                    className="w-8 h-8 text-amber-100 group-hover:text-amber-300 group-hover:scale-110 transition-all"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.406.44-.406h2.744c.373 0 .508.203.508.643v3.473c0 .372.169.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.78 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-1">
+                    ВКонтакте
+                  </p>
+                  <p className="text-base font-semibold text-amber-100 group-hover:text-amber-300">
+                    Живая соционика
+                  </p>
+                </div>
+              </a>
+
+              {/* YouTube */}
+              <a
+                href="https://www.youtube.com/user/LiveSocionicsStudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-4
+                  rounded-xl border border-white/20 bg-white/5
+                  transition-all duration-200
+                  hover:border-red-400/50 hover:bg-red-500/10 hover:scale-[102%]"
+              >
+                <div className="flex-shrink-0">
+                  <svg
+                    className="w-8 h-8 text-amber-100 group-hover:text-amber-300 group-hover:scale-110 transition-all"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-1">
+                    YouTube
+                  </p>
+                  <p className="text-base font-semibold text-amber-100 group-hover:text-amber-300">
+                    LiveSocionicsStudio
+                  </p>
                 </div>
               </a>
             </div>
@@ -271,7 +302,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-amber-700/50 pt-8 w-full">
+        {/* <div className="border-t border-amber-700/50 pt-8 w-full"> */}
+        <FooterSeparator/>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 max-w-[1300px] mx-auto">
             <p className="text-sm text-amber-100/60">
               © {new Date().getFullYear()} Элеонора Бердутина. Школа «Живая
@@ -282,7 +314,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+        {/* </div> */}
     </footer>
   )
 }
