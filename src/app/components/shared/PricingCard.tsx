@@ -35,7 +35,7 @@ export const PricingCard: React.FC<{ option: PricingOption }> = ({
           hover:border-orange-400 hover:bg-white"
         aria-label={`Записаться на ${option.label}`}
       >
-        <span className="flex items-center justify-between group-hover:opacity-0 transition-opacity duration-200">
+        <span className="flex items-start justify-between group-hover:opacity-0 transition-opacity duration-200">
           <div className="flex flex-col gap-1">
             <strong>{option.label}</strong>
 
@@ -47,7 +47,7 @@ export const PricingCard: React.FC<{ option: PricingOption }> = ({
               </div>
             )}
           </div>
-          <strong className="self-start">{option.price}</strong>
+          <strong className="ml-4 flex-shrink-0">{option.price}</strong>
         </span>
 
         <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 font-semibold text-orange-700">

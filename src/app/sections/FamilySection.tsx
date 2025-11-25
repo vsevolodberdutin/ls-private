@@ -6,7 +6,10 @@ import { FAMILY_SERVICES } from '@/constants/services'
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
-import { FAMILY_GALLERY } from '@/constants/gallery'
+import {
+  FAMILY_HARMONY_GALLERY,
+  FAMILY_CONFLICT_GALLERY,
+} from '@/constants/gallery'
 import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import {
@@ -33,14 +36,14 @@ import { Separator } from '../uiElements/Separator'
 const FAMILY_PRICING_OPTIONS: PricingOption[] = [
   {
     label: FAMILY_SERVICES.personalSession.types[0].name,
-    description: [FAMILY_SERVICES.personalSession.types[0].description],
+    description: FAMILY_SERVICES.personalSession.types[0].description,
     price: FAMILY_SERVICES.personalSession.types[0].priceFormatted,
     message:
       'Здравствуйте, Элеонора! Интересует консультация "Гармония отношений в паре, родитель/ребенок". Расскажите подробнее...',
   },
   {
     label: FAMILY_SERVICES.personalSession.types[1].name,
-    description: [FAMILY_SERVICES.personalSession.types[1].description],
+
     price: FAMILY_SERVICES.personalSession.types[1].priceFormatted,
     message:
       'Здравствуйте, Элеонора! Интересует консультация "Разрешение конфликтов в паре". Расскажите подробнее...',
@@ -71,13 +74,11 @@ const FamilySection: React.FC = () => {
           </HeaderCardItem>
         </GridProductWrapper>
 
-        <Separator />
-
         {/* Consultation 1: Гармония отношений */}
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Гармония отношений в паре, родитель/ребенок" />
+              <ProductHeader text="Гармония отношений родитель/ребенок" />
             </CardItem>
 
             {/* Pricing */}
@@ -87,13 +88,13 @@ const FamilySection: React.FC = () => {
 
                 <Footnote
                   text={[
-                    'Дополнение - 10 000 ₽/чел.',
                     'Для зарубежных клиентов — повышающий коэффициент',
                     'Оплата: PayPal / WU',
                   ]}
                 />
               </ContentColumn>
             </CardItem>
+            <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
           </ContentColumn>
 
           <ContentColumn>
@@ -126,10 +127,13 @@ const FamilySection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <GalleryCard
+              images={FAMILY_HARMONY_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </ContentColumn>
         </GridProductWrapper>
 
-        <Separator />
 
         {/* Consultation 2: Разрешение конфликтов */}
         <GridProductWrapper>
@@ -151,6 +155,8 @@ const FamilySection: React.FC = () => {
                 />
               </ContentColumn>
             </CardItem>
+
+            <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультаци по разрешению конфликтов. Расскажите подробнее о..." />
           </ContentColumn>
 
           <ContentColumn>
@@ -183,19 +189,12 @@ const FamilySection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <GalleryCard
+              images={FAMILY_CONFLICT_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </ContentColumn>
         </GridProductWrapper>
-
-        <Separator />
-
-        {/* Gallery & Contact */}
-        <div className="h-fit w-svw px-40 grid grid-cols-1 justify-center items-start gap-5">
-          <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация. Расскажите подробнее о..." />
-          <GalleryCard
-            images={FAMILY_GALLERY}
-            onImageClick={setSelectedImage}
-          />
-        </div>
       </MainColumn>
 
       {/* Image Popup Modal */}

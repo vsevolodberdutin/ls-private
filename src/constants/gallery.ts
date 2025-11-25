@@ -50,13 +50,20 @@ export const TEACHING_GALLERY = [
 ] as const
 
 /**
- * Gallery images for the Family Section
- * Showcasing family consultation materials
+ * Gallery images for the Family Harmony Section
+ * Showcasing parent/child relationship consultation materials
  */
-export const FAMILY_GALLERY = [
-  '/gallery/family_gallery_1.png',
+export const FAMILY_HARMONY_GALLERY = [
   '/gallery/family_gallery_2.png',
   '/gallery/family_gallery_3.png',
   '/gallery/family_gallery_4.jpg',
+] as const
+
+/**
+ * Gallery images for the Family Conflict Resolution Section
+ * Showcasing conflict resolution consultation materials
+*/
+export const FAMILY_CONFLICT_GALLERY = [
+  '/gallery/family_gallery_1.png',
   '/gallery/family_gallery_5.jpg',
 ] as const

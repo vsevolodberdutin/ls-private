@@ -96,7 +96,7 @@ const TeachingSection: React.FC = () => {
           </HeaderCardItem>
         </GridProductWrapper>
 
-        <Separator />
+
 
         {/* PRODUCTS */}
         {/* Course 1: ИНТЕНСИВ */}

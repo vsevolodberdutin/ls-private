@@ -88,7 +88,6 @@ const SchoolSection: React.FC = () => {
           </HeaderCardItem>
         </GridProductWrapper>
 
-        <Separator />
 
         {/* Package 1: Видеокурс 16 уроков */}
         <GridProductWrapper>
@@ -249,13 +248,13 @@ const SchoolSection: React.FC = () => {
         <Separator />
 
         {/* Gallery & Contact */}
-        <div className="h-fit w-svw px-40 grid grid-cols-1 justify-center items-start gap-5">
+        <GridProductWrapper>
           <ContactCard message="Здравствуйте, Элеонора! Интересует обучение в школе осознанных родителей. Расскажите подробнее о..." />
           <GalleryCard
             images={SCHOOL_GALLERY}
             onImageClick={setSelectedImage}
           />
-        </div>
+        </GridProductWrapper>
       </MainColumn>
 
       {/* Image Popup Modal */}
