@@ -15,7 +15,7 @@ export const PRIVATE_SESSION_GALLERY = [
  */
 export const SCHOOL_GALLERY = [
   '/gallery/school_gallery_1.png',
-  '/gallery/school_gallery_2.jpg',
+  '/gallery/school_gallery_2.png',
 ] as const
 
 export const CONFERENCES_GALLERY = [
