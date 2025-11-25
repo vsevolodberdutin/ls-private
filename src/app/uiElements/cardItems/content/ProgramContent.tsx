@@ -20,17 +20,19 @@ export interface ReportItem {
 
 export interface ProgramContentProps {
   headerText?: string
+  headerIcon?: LucideIcon
   items: ReportItem[]
 }
 
 export const ProgramContent: React.FC<ProgramContentProps> = ({
   headerText = 'Особенности программы:',
+  headerIcon: HeaderIcon = CalendarRange,
   items,
 }) => (
   <>
     <ContentRow>
       <CircleIconWrapper>
-        <CalendarRange />
+        <HeaderIcon />
       </CircleIconWrapper>
       <InfoItemHeader text={headerText} />
     </ContentRow>

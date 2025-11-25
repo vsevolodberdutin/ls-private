@@ -17,6 +17,11 @@ import {
   TrendingUp,
   Sparkles,
   Smile,
+  Crosshair,
+  PlayCircle,
+  MessageCircle,
+  BookCheck,
+  GraduationCap,
 } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
 import { ContactCard } from '@/app/components/shared/ContactCard'
@@ -89,12 +94,11 @@ const SchoolSection: React.FC = () => {
           </HeaderCardItem>
         </GridProductWrapper>
 
-
-        {/* Package 1: Видеокурс 16 уроков */}
+        {/* Package 1: Курс «Пойми меня, МАМА! */}
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Видеокурс 16 уроков" />
+              <ProductHeader text="Курс «Пойми меня, МАМА!»" />
             </CardItem>
 
             {/* Pricing */}
@@ -102,9 +106,43 @@ const SchoolSection: React.FC = () => {
               <ContentColumn>
                 <PricingCard option={SCHOOL_PRICING_OPTIONS[0]} />
 
+                <PricingCard option={SCHOOL_PRICING_OPTIONS[1]} />
+                <PricingCard
+                  option={{
+                    label: 'Полный курс (M1+M2)',
+
+                    price: '10 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует "Комплексный видео-курс + консультации". Расскажите подробнее...',
+                  }}
+                />
+                <PricingCard
+                  option={{
+                    label: 'Полный курс (M1+M2) + консультации',
+                    description: [
+                      '4 личных SKYPE-консультации с детальным разбором',
+                    ],
+                    price: '28 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует "Комплексный видео-курс + консультации". Расскажите подробнее...',
+                  }}
+                />
+                <PricingCard
+                  option={{
+                    label: 'Семейный коучинг',
+                    description: [
+                      'Полный курс (M1+M2)',
+                      'SKYPE-консультации с экспертом (любое количество)',
+                      'Приезд эксперта (по РФ)',
+                    ],
+                    price: '120 000 ₽',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует "Комплексный видео-курс + консультации". Расскажите подробнее...',
+                  }}
+                />
+
                 <Footnote
                   text={[
-                    'Марафон 1 - 5500₽ / Марафон 2 - 5500₽',
                     'Для зарубежных клиентов — повышающий коэффициент',
                     'Оплата: PayPal / WU',
                   ]}
@@ -117,6 +155,7 @@ const SchoolSection: React.FC = () => {
             <CardItem>
               <ProgramContent
                 headerText="Цели курса:"
+                headerIcon={Crosshair}
                 items={[
                   {
                     icon: Baby,
@@ -145,98 +184,34 @@ const SchoolSection: React.FC = () => {
                 ]}
               />
             </CardItem>
-          </ContentColumn>
-        </GridProductWrapper>
-
-
-        {/* Package 2: Видеокурс + консультации */}
-        <GridProductWrapper>
-          <ContentColumn>
-            <CardItem>
-              <ProductHeader text="Видеокурс + консультации" />
-            </CardItem>
-
-            {/* Pricing */}
-            <CardItem>
-              <ContentColumn>
-                <PricingCard option={SCHOOL_PRICING_OPTIONS[1]} />
-
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
-              </ContentColumn>
-            </CardItem>
-          </ContentColumn>
-
-          <ContentColumn>
             <CardItem>
               <ProgramContent
-                headerText="Марафон 1: Пойми меня, МАМА!"
+                headerText="Курс состоит:"
+                headerIcon={BookOpen}
                 items={[
                   {
-                    icon: BrainCircuit,
-                    text: 'Получение знаний по психотипу ребенка',
+                    icon: PlayCircle,
+                    text: 'Комплексный видео-курс из 16 уроков: 2 модуля по 8 уроков',
                   },
                   {
-                    icon: Target,
-                    text: 'Определение сильных и слабых от природы сторон',
+                    icon: Video,
+                    text: 'Практические видео-примеры',
                   },
                   {
-                    icon: Heart,
-                    text: 'Строим мосты ПОНИМАНИЯ между вами и ребенком!',
-                  },
-                ]}
-              />
-            </CardItem>
-          </ContentColumn>
-        </GridProductWrapper>
-
-
-        {/* Package 3: Семейный коучинг */}
-        <GridProductWrapper>
-          <ContentColumn>
-            <CardItem>
-              <ProductHeader text="Семейный коучинг" />
-            </CardItem>
-
-            {/* Pricing */}
-            <CardItem>
-              <ContentColumn>
-                <PricingCard option={SCHOOL_PRICING_OPTIONS[2]} />
-
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
-              </ContentColumn>
-            </CardItem>
-          </ContentColumn>
-
-          <ContentColumn>
-            <CardItem>
-              <ProgramContent
-                headerText="Марафон 2: Как раскрыть таланты ребенка"
-                items={[
-                  {
-                    icon: BrainCircuit,
-                    text: 'Понимание модели психики, ее целостной работы',
+                    icon: ClipboardCheck,
+                    text: 'Домашние задания с обратной связью',
                   },
                   {
-                    icon: TrendingUp,
-                    text: 'Определение мотивации ребенка',
+                    icon: FileText,
+                    text: 'Методические материалы',
                   },
                   {
-                    icon: Sparkles,
-                    text: 'Развитие талантов ребенка',
+                    icon: Presentation,
+                    text: 'Видео-конференция по итогам модуля',
                   },
                   {
-                    icon: Target,
-                    text: 'Ранняя профориентация, уверенный выбор профессии',
+                    icon: Award,
+                    text: 'Сертификат участника',
                   },
                 ]}
               />
