@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Book, FileText, BookOpen } from 'lucide-react'
+import { Book, FileText, BookOpen, Send, Video } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
 import { ARTICLES } from '@/constants/articles'
 import { COMPANIES } from '@/constants/companies'
@@ -175,13 +175,17 @@ const Footer: React.FC = () => {
                   hover:border-sky-400/50 hover:bg-sky-500/10 hover:scale-[102%]"
               >
                 <div className="flex-shrink-0">
-                  <Image
-                    src="/telegram.svg"
-                    alt="Telegram"
-                    width={32}
-                    height={32}
-                    className="group-hover:scale-110 transition-transform"
-                  />
+                <svg
+                    className="w-8 h-8 text-amber-100 group-hover:text-amber-300 
+group-hover:scale-110 transition-all"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 
+0zm5.562 8.161l-1.563 7.353c-.117.535-.424.663-.857.413l-2.372-1.748-1.144 
+1.102c-.126.126-.233.233-.479.233l.171-2.421 4.408-3.982c.192-.171-.042-.266-.297-.095l-5.447 
+3.429-2.348-.735c-.511-.161-.521-.511.106-.756l9.188-3.54c.425-.161.798.1.659.756z" />
+                  </svg>
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-1">
