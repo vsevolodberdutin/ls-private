@@ -35,7 +35,8 @@ const Footer: React.FC = () => {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to bottom, var(--footer-start-rgb) 0%, var(--footer-mid-rgb) 18%, var(--footer-end-rgb) 100%)'
+          background:
+            'linear-gradient(to bottom, var(--footer-start-rgb) 0%, var(--footer-mid-rgb) 18%, var(--footer-end-rgb) 100%)',
         }}
       />
 
@@ -186,51 +187,44 @@ const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
-          </div>
 
-          {/* Scientific Publications Section */}
-          <div>
-            <h3 className="text-xl font-bold text-amber-100 mb-6 border-b border-amber-700/50 pb-3">
-              Научные публикации
-            </h3>
-            <div className="space-y-4">
-              {ARTICLES.map((article, index) => {
-                const publicationType = extractPublicationType(article.name)
-                return (
-                  <div
-                    key={index}
-                    className="group
-                      rounded-lg p-3
-                      transition-all duration-200
-                      hover:bg-amber-900/20"
-                  >
-                    <div className="flex items-start gap-3">
-                      {publicationType && iconMap[publicationType] && (
-                        <div className="flex items-center justify-center min-w-[40px] flex-shrink-0 mt-0.5
-                          rounded-lg border border-amber-300/10 bg-amber-200/10 p-2">
-                          {iconMap[publicationType]}
-                        </div>
-                      )}
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-amber-100 mb-1
-                          transition-colors
-                          group-hover:text-amber-50">
-                          {article.name}
-                        </h4>
-                        <p className="text-xs text-amber-200/70 italic">
-                          {article.data}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
+            {/* Telegram Group */}
+            <div className="mt-8">
+              <p className="text-sm text-amber-200/70 mb-3">
+                Присоединяйтесь к нашему Telegram-сообществу:
+              </p>
+              <a
+                href="https://t.me/livesocionics"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3
+                  rounded-lg border border-amber-300/30 bg-orange-700/30 px-4 py-3
+                  transition-all duration-200
+                  hover:border-amber-600/50 hover:bg-sky-300/40 hover:scale-[102%]"
+                aria-label="Подписаться на Telegram-канал @livesocionics"
+              >
+                <Image
+                  src="/telegram.svg"
+                  alt="Telegram"
+                  width={24}
+                  height={24}
+                  className="group-hover:scale-110 transition-transform"
+                />
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-amber-100 group-hover:text-amber-50">
+                    Канал "Живая соционика"
+                  </span>
+                  <span className="text-xs text-amber-100/70">
+                    @livesocionics
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Corporate Clients Section */}
-        <div className="border-t border-amber-700/50 pt-12 mb-12 w-full">
+        <div className="border-t border-white/50 pt-12 mb-12 w-full">
           <div className="h-fit grid grid-cols-1 justify-center items-start max-w-[1300px] mx-auto">
             <div className="flex items-center gap-11 mb-6">
               <h3 className="text-xl font-bold text-amber-100 whitespace-nowrap">
@@ -245,10 +239,12 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-4 items-center justify-center">
               {COMPANIES.map((company, index) => (
                 <div key={index} className="group relative">
-                  <div className="flex items-center justify-center w-[60px] h-[60px] overflow-hidden
+                  <div
+                    className="flex items-center justify-center w-[60px] h-[60px] overflow-hidden
                     rounded-full border-4 border-white bg-white/100 backdrop-blur-sm
                     transition-all duration-200
-                    hover:border-amber-600/50 hover:bg-white hover:scale-110">
+                    hover:border-amber-600/50 hover:bg-white hover:scale-110"
+                  >
                     <Image
                       src={`/companies/${company.data}_logo.png`}
                       alt={company.name}
@@ -258,11 +254,13 @@ const Footer: React.FC = () => {
                     />
                   </div>
                   {/* Tooltip */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 pointer-events-none whitespace-nowrap z-10 text-xs text-amber-50
+                  <div
+                    className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 pointer-events-none whitespace-nowrap z-10 text-xs text-amber-50
                     rounded-lg bg-amber-900/95 backdrop-blur-sm
                     opacity-0
                     transition-opacity duration-200
-                    group-hover:opacity-100">
+                    group-hover:opacity-100"
+                  >
                     {company.name}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-amber-900/95"></div>
                   </div>
