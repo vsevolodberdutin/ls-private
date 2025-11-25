@@ -25,28 +25,49 @@ export const CONFERENCES_GALLERY = [
 ] as const
 
 /**
- * Gallery images for the Teaching Section
- * Showcasing teaching sessions and materials
+ * Gallery images for Course ИНТЕНСИВ
+ * Showcasing BASICS and MEDIUM modules
  */
-export const TEACHING_GALLERY = [
+export const TEACHING_INTENSIV_GALLERY = [
   '/gallery/teaching_gallery_1.png',
   '/gallery/teaching_gallery_2.png',
   '/gallery/teaching_gallery_3.jpg',
   '/gallery/teaching_gallery_4.jpg',
   '/gallery/teaching_gallery_5.jpg',
-  '/gallery/teaching_gallery_6.jpg',
-  '/gallery/teaching_gallery_7.jpg',
-  '/gallery/teaching_gallery_8.jpg',
-  '/gallery/teaching_gallery_9.jpg',
   '/gallery/teaching_gallery_10.jpg',
   '/gallery/teaching_gallery_11.jpeg',
-  '/gallery/teaching_gallery_12.jpeg',
+
   '/gallery/teaching_gallery_13.jpg',
-  '/gallery/teaching_gallery_14.jpg',
-  '/gallery/teaching_gallery_15.png',
+] as const
+
+/**
+ * Gallery images for Course ТОНКОСТИ ТИПИРОВАНИЯ
+ * Showcasing advanced typing techniques
+ */
+export const TEACHING_TYPING_GALLERY = [
   '/gallery/teaching_gallery_16.png',
-  '/gallery/teaching_gallery_17.jpg',
+  '/gallery/teaching_gallery_6.jpg',
+  '/gallery/teaching_gallery_9.jpg',
+] as const
+
+/**
+ * Gallery images for Course ПРАКТИКА 3.0
+ * Showcasing practical typing cases
+ */
+export const TEACHING_PRACTICE_GALLERY = [
+  '/gallery/teaching_gallery_15.png',
+  '/gallery/teaching_gallery_14.jpg',
+  '/gallery/teaching_gallery_17.png',
   '/gallery/teaching_gallery_18.jpg',
+] as const
+
+/**
+ * Gallery images for Strategic Session
+ * Showcasing leadership coaching materials
+ */
+export const TEACHING_STRATEGIC_GALLERY = [
+  '/gallery/teaching_gallery_8.jpg',
+  '/gallery/teaching_gallery_7.jpg',
 ] as const
 
 /**
@@ -62,7 +83,7 @@ export const FAMILY_HARMONY_GALLERY = [
 /**
  * Gallery images for the Family Conflict Resolution Section
  * Showcasing conflict resolution consultation materials
-*/
+ */
 export const FAMILY_CONFLICT_GALLERY = [
   '/gallery/family_gallery_1.png',
   '/gallery/family_gallery_5.jpg',

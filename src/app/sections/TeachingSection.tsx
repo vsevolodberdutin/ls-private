@@ -22,7 +22,12 @@ import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
 
-import { TEACHING_GALLERY } from '@/constants/gallery'
+import {
+  TEACHING_INTENSIV_GALLERY,
+  TEACHING_TYPING_GALLERY,
+  TEACHING_PRACTICE_GALLERY,
+  TEACHING_STRATEGIC_GALLERY,
+} from '@/constants/gallery'
 import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import {
@@ -83,6 +88,7 @@ const TeachingSection: React.FC = () => {
 
   return (
     <section id="learn" className="section-odd">
+      <Separator />
       <MainColumn>
         {/* HEADER */}
         <GridProductWrapper>
@@ -128,6 +134,7 @@ const TeachingSection: React.FC = () => {
                 />
               </ContentColumn>
             </CardItem>
+            <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
           </ContentColumn>
 
           <ContentColumn>
@@ -166,10 +173,12 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <GalleryCard
+              images={TEACHING_INTENSIV_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </ContentColumn>
         </GridProductWrapper>
-
-        <Separator />
 
         {/* Course 3: ТОНКОСТИ ТИПИРОВАНИЯ */}
         <GridProductWrapper>
@@ -203,6 +212,7 @@ const TeachingSection: React.FC = () => {
                 />
               </ContentColumn>
             </CardItem>
+            <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
           </ContentColumn>
 
           <ContentColumn>
@@ -235,10 +245,12 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <GalleryCard
+              images={TEACHING_TYPING_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </ContentColumn>
         </GridProductWrapper>
-
-        <Separator />
 
         {/* Course 4: ПРАКТИКА 3.0. */}
         <GridProductWrapper>
@@ -268,6 +280,7 @@ const TeachingSection: React.FC = () => {
                 />
               </ContentColumn>
             </CardItem>
+            <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />
           </ContentColumn>
 
           <ContentColumn>
@@ -294,10 +307,13 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <GalleryCard
+              images={TEACHING_PRACTICE_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </ContentColumn>
         </GridProductWrapper>
 
-        <Separator />
 
         {/* Strategic Session */}
         <GridProductWrapper>
@@ -317,13 +333,16 @@ const TeachingSection: React.FC = () => {
                       'Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...',
                   }}
                 />
-
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
+                <PricingCard
+                  option={{
+                    label: 'Групповой коучинг',
+                    price: 'oт 20 000 ₽ / чел.',
+                    message:
+                      'Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...',
+                  }}
                 />
+
+
               </ContentColumn>
             </CardItem>
             {/* Contact Card */}
@@ -363,18 +382,12 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <GalleryCard
+              images={TEACHING_STRATEGIC_GALLERY}
+              onImageClick={setSelectedImage}
+            />
           </ContentColumn>
         </GridProductWrapper>
-
-        <Separator />
-
-        {/* Gallery */}
-        <div className="h-fit w-svw px-40 grid grid-cols-1 justify-center items-start gap-5">
-          <GalleryCard
-            images={TEACHING_GALLERY}
-            onImageClick={setSelectedImage}
-          />
-        </div>
       </MainColumn>
 
       {/* Image Popup Modal */}

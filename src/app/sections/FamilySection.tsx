@@ -59,6 +59,7 @@ const FamilySection: React.FC = () => {
 
   return (
     <section id="family" className="section-even">
+      <Separator />
       <MainColumn>
         {/* HEADER */}
         <GridProductWrapper>
@@ -133,7 +134,6 @@ const FamilySection: React.FC = () => {
             />
           </ContentColumn>
         </GridProductWrapper>
-
 
         {/* Consultation 2: Разрешение конфликтов */}
         <GridProductWrapper>

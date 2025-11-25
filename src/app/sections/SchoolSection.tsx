@@ -75,6 +75,7 @@ const SchoolSection: React.FC = () => {
 
   return (
     <section id="school" className="section-odd">
+      <Separator />
       <MainColumn>
         {/* HEADER */}
         <GridProductWrapper>
@@ -147,7 +148,6 @@ const SchoolSection: React.FC = () => {
           </ContentColumn>
         </GridProductWrapper>
 
-        <Separator />
 
         {/* Package 2: Видеокурс + консультации */}
         <GridProductWrapper>
@@ -194,7 +194,6 @@ const SchoolSection: React.FC = () => {
           </ContentColumn>
         </GridProductWrapper>
 
-        <Separator />
 
         {/* Package 3: Семейный коучинг */}
         <GridProductWrapper>
@@ -245,7 +244,6 @@ const SchoolSection: React.FC = () => {
           </ContentColumn>
         </GridProductWrapper>
 
-        <Separator />
 
         {/* Gallery & Contact */}
         <GridProductWrapper>

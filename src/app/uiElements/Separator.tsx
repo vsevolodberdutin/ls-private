@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Separator: React.FC = () => {
-  return <hr className=" border-white/20 " />
+  return <hr className=" border-white/80 " />
 }
 
 export const CardSeparator: React.FC = () => {
