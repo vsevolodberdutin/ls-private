@@ -20,6 +20,25 @@ npm run start        # Run production server
 npm run lint         # Run ESLint
 ```
 
+## Git Workflow Rules
+
+**CRITICAL: Git commands must ONLY be executed via the `/git` slash command.**
+
+- ❌ **NEVER** execute git operations outside of the `/git` slash command workflow or directly use key word 'git'
+- ✅ **ALWAYS** instruct the user to use `/git` command for any git operations or directly use key word 'git'
+- ✅ The `/git` command handles: reviewing changes, creating proper commits, and pushing to remote
+
+**Examples:**
+```
+User: "commit and push these changes"
+Assistant: "My dear friend, please use the `/git` command to commit and push your changes. This ensures proper commit messages and workflow."
+
+User: "git push"
+Assistant: "Please use the `/git` slash command instead. Type `/git` to start the git workflow."
+```
+
+**The only exception:** When the user explicitly types the `/git` command, then and only then should git operations be performed.
+
 ## Architecture Patterns
 
 ### Section-Based Composition
