@@ -1,14 +1,24 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 
 const Logo = () => {
+  const scrollToTop = () => {
+    const mainSection = document.getElementById('main')
+    if (mainSection) {
+      mainSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <div className="">
-      <a
-        className=""
-        href="https://livesocionics.ru/"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        onClick={scrollToTop}
+        className="cursor-pointer bg-transparent border-none p-0
+          transition-opacity duration-200
+          hover:opacity-80"
+        aria-label="Scroll to top"
       >
         <Image
           src="/ls_logo.svg"
@@ -18,7 +28,7 @@ const Logo = () => {
           height={40}
           priority
         />
-      </a>
+      </button>
     </div>
   )
 }

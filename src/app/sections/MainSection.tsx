@@ -8,7 +8,11 @@ import { GridWrapper } from '@/app/uiElements/wrappers/GridWrapper'
 
 const MainSection = () => {
   return (
-    <main className="relative z-0 w-full h-fit lg:pb-10">
+    <main
+      id="main"
+      className="relative z-0 w-full h-fit lg:pb-10"
+      style={{ scrollMarginTop: 'var(--scroll-margin-top)' }}
+    >
       <GridWrapper>
         <MainPicture />
         <div className="flex flex-col items-center pt-14 sm:pt-28">
