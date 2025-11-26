@@ -5,26 +5,11 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: #fff0dc;
-  /* --background-start-rgb: #b9b9b9; */
-  /* --background-start-rgb: #f4acac; */
-  /* --background-start-rgb: #ffd9aa; */
-  /* --background-end-rgb: #4779cd; */
-  /* --background-end-rgb: #99c8b7; */
-  /* --background-end-rgb: #a39bd0; */
-  /* --background-end-rgb: #f78e74; */
+
   --background-end-rgb: #b9b9b9;
 
-  /* --navigation-rgb: #3f354d; */
-  /* --navigation-rgb: #e0a499; */
-  /* --navigation-rgb: #523070; */
-  /* --navigation-rgb: #443725; */
-  /* --navigation-rgb: #5f1b30; */
-  /* --navigation-rgb: #888486; */
   --navigation-rgb: #282934;
 
-  /* --footer-start-rgb: #ffd9aa;
-  --footer-mid-rgb: #42569a;
-  --footer-end-rgb: #d77d72; */
   --footer-start-rgb: #fff0dc;
   --footer-mid-rgb: #918e8e;
   --footer-end-rgb: #282934;
@@ -62,9 +47,16 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   overflow: hidden;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 main {
   background: linear-gradient(to bottom, transparent, var(--background-end-rgb))

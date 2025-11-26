@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
             'linear-gradient(to bottom, var(--footer-start-rgb) 0%, var(--footer-mid-rgb) 25%, var(--footer-end-rgb) 100%)',
         }}
       />
-      <div className="relative w-svw px-10 py-4 pb-10">
+      <div className="relative w-full px-10 py-4 pb-10">
         <Separator />
         {/* Main Footer Content Grid */}
         <div className="h-fit grid grid-cols-1 lg:grid-cols-2 justify-center items-stretch gap-8 pt-10 mb-12 max-w-[1300px] mx-auto">

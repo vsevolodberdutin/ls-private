@@ -9,7 +9,7 @@ import {
 const Navigation = () => {
   return (
     <header
-      className="absolute z-10 w-svw flex items-center justify-between
+      className="absolute z-10 w-full flex items-center justify-between
         py-2 px-3 lg:px-8
         opacity-95"
       style={{ backgroundColor: 'var(--navigation-rgb)' }}
