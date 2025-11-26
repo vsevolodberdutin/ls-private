@@ -9,7 +9,7 @@ interface CircleIconProps {
 
 const sizeConfig = {
   sm: {
-    container: 'w-12 h-12 p-2',
+    container: 'w-10 h-10 p-2',
     icon: 'w-6 h-6',
   },
   md: {
