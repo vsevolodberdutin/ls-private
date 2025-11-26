@@ -112,18 +112,6 @@ export const IntroductionContent: React.FC = () => {
   )
 }
 
-export const EducationContent: React.FC = () => {
-  return (
-    <div className="grid gap-1 rounded-xl">
-      {ABOUT.education.map((item, index) => (
-        <div className="group" key={`education-${index}`}>
-          <RowItem text={item} />
-        </div>
-      ))}
-    </div>
-  )
-}
-
 export const PublicationContent: React.FC = () => {
   const iconMap = {
     монография: <Book />,

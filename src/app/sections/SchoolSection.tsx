@@ -18,6 +18,7 @@ import {
   PlayCircle,
 } from 'lucide-react'
 import { SCHOOL_SERVICES } from '@/constants/services'
+import { INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
@@ -120,12 +121,7 @@ const SchoolSection: React.FC = () => {
                   }}
                 />
 
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
+                <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
           </ContentColumn>

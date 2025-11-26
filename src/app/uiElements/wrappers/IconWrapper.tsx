@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface IconWrapperProps {
   id?: string
-  children: any
+  children: React.ReactNode
 }
 
 export const CircleIconWrapper: React.FC<IconWrapperProps> = ({ children }) => (

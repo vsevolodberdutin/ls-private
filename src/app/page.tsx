@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="scroll-container">
       <Navigation />
-      {/* <DynamicIsland /> */}
+      <DynamicIsland />
       <MainPage />
       <AboutPage />
       <PrivateSession />

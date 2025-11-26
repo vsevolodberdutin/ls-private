@@ -13,7 +13,6 @@ import {
   UserCircle,
   BookOpen,
   Presentation,
-  Lightbulb,
   Shapes,
 } from 'lucide-react'
 

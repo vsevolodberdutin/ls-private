@@ -6,7 +6,9 @@ import { useScrollPosition } from '@/app/hooks/useScrollPosition'
 import { PRODUCTS } from '@/constants/products'
 
 export const DynamicIsland: React.FC = () => {
-  const isScrolled = useScrollPosition(window.innerHeight)
+  const isScrolled = useScrollPosition(
+    typeof window !== 'undefined' ? window.innerHeight : 0
+  )
 
   return (
     <div

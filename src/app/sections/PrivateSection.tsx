@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Heart, Waves, Briefcase } from 'lucide-react'
-import { PRICING } from '@/constants/contacts'
+import { PRICING, INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
 import {
   PricingCard,
   type PricingOption,
@@ -94,12 +94,7 @@ const PrivateSection: React.FC = () => {
                 <PricingCard key={index} option={option} />
               ))}
 
-              <Footnote
-                text={[
-                  'Для зарубежных клиентов — повышающий коэффициент',
-                  'Оплата: PayPal / WU',
-                ]}
-              />
+              <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
             </ContentColumn>
           </CardItem>
 

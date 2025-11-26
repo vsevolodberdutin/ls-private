@@ -1,35 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-import { Book, FileText, BookOpen, Send, Video } from 'lucide-react'
 import { CONTACTS } from '@/constants/contacts'
-import { ARTICLES } from '@/constants/articles'
 import { COMPANIES } from '@/constants/companies'
 import { FooterSeparator, Separator } from '../uiElements/Separator'
 
-/**
- * Type definition for publication types
- */
-type PublicationType = 'монография' | 'статья' | 'учебное пособие' | null
-
-/**
- * Extract publication type from the name field
- * @param name - Publication name with type in parentheses
- * @returns Publication type or null if not found
- */
-const extractPublicationType = (name: string): PublicationType => {
-  const match = name.match(/\((монография|статья|учебное пособие)\)/)
-  return match ? (match[1] as PublicationType) : null
-}
-
 const Footer: React.FC = () => {
-  const iconSize = 'w-5 h-5'
-  const iconColor = 'text-amber-100'
-
-  const iconMap = {
-    монография: <Book className={`${iconSize} ${iconColor}`} />,
-    статья: <FileText className={`${iconSize} ${iconColor}`} />,
-    'учебное пособие': <BookOpen className={`${iconSize} ${iconColor}`} />,
-  }
   return (
     <footer className="relative text-amber-50 pt-16 pb-8">
       {/* Gradient transition from main content to footer */}

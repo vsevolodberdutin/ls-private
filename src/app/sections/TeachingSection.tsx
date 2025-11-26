@@ -17,6 +17,7 @@ import {
   Headset,
 } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
+import { INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
 
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
@@ -130,12 +131,7 @@ const TeachingSection: React.FC = () => {
                   }}
                 />
 
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
+                <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
@@ -208,12 +204,7 @@ const TeachingSection: React.FC = () => {
                     'Только после прохождения 2-x базовых модулей Курса ИНТЕНСИВА',
                   ]}
                 />
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
+                <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
@@ -276,12 +267,7 @@ const TeachingSection: React.FC = () => {
                   }}
                 />
 
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
+                <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />

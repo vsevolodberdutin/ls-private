@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { Heart, Users, Handshake, UserCheck } from 'lucide-react'
 import { FAMILY_SERVICES } from '@/constants/services'
+import { INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
@@ -91,12 +92,7 @@ const FamilySection: React.FC = () => {
               <ContentColumn>
                 <PricingCard option={FAMILY_PRICING_OPTIONS[0]} />
 
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
+                <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
@@ -151,12 +147,7 @@ const FamilySection: React.FC = () => {
               <ContentColumn>
                 <PricingCard option={FAMILY_PRICING_OPTIONS[1]} />
 
-                <Footnote
-                  text={[
-                    'Для зарубежных клиентов — повышающий коэффициент',
-                    'Оплата: PayPal / WU',
-                  ]}
-                />
+                <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
 

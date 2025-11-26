@@ -3,7 +3,7 @@ import * as Typography from '@/app/uiElements/Typography'
 
 export interface TypographyProps {
   id?: string
-  text: string | string[]
+  text: string | string[] | readonly string[]
 }
 
 export const Header: React.FC<TypographyProps> = ({ text }) => {

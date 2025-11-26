@@ -37,3 +37,8 @@ export const PRICING = {
     descriptions: ['другие города'],
   },
 } as const
+
+export const INTERNATIONAL_PRICING_FOOTNOTE = [
+  'Для зарубежных клиентов — повышающий коэффициент',
+  'Оплата: PayPal / WU',
+] as const
