@@ -15,15 +15,16 @@ const Logo = () => {
     <div className="">
       <button
         onClick={scrollToTop}
-        className="cursor-pointer bg-transparent border-none p-0
-          transition-opacity duration-200
-          hover:opacity-80"
+        className="cursor-pointer bg-transparent border-none p-0 group
+          transition-all duration-200"
         aria-label="Scroll to top"
       >
         <Image
           src="/ls_logo.svg"
           alt="logo"
           style={{ filter: 'var(--logo-filter)' }}
+          className="transition-all duration-200
+            group-hover:brightness-75 group-hover:saturate-150"
           width={140}
           height={40}
           priority
