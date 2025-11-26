@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 import {
   TabContainer,
-  TabConfig,
+  type TabConfig,
 } from '@/app/components/TabSystem/TabContainer'
 import {
   IntroductionContent,

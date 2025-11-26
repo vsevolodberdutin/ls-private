@@ -1,5 +1,4 @@
 import React from 'react'
-import * as Typography from '@/app/uiElements/Typography'
 
 export interface TypographyProps {
   id?: string

@@ -1,17 +1,13 @@
 import React from 'react'
 import {
-  FileText,
-  Briefcase,
-  Heart,
-  Waves,
-  LucideIcon,
+  type LucideIcon,
   CalendarRange,
 } from 'lucide-react'
 import { ContentRow } from '../../wrappers/ContentRow'
 import { ContentColumn } from '../../wrappers/ContentColumn'
 import { CircleIconWrapper, EmptyIconWrapper } from '../../wrappers/IconWrapper'
 import { InfoItemHeader, InfoItemSubHeader } from '../../Typography'
-import { CardSeparator, Separator } from '../../Separator'
+import { CardSeparator } from '../../Separator'
 
 export interface ReportItem {
   icon: LucideIcon
