@@ -41,7 +41,7 @@ export const PhilosophyContent: React.FC = () => {
 
             <h3 className="text-lg font-bold text-gray-800/80">{card.title}</h3>
           </div>
-          <div className="grid grid-cols-[1fr_3fr] gap-8">
+          <div className="grid sm:grid-cols-[1fr_3fr] gap-8">
             {/* Image */}
             <div className="flex justify-center items-center bg-gray-900/90 rounded-xl border border-white/10 relative w-48 h-40">
               <Image

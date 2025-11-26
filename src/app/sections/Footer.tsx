@@ -34,14 +34,9 @@ const Footer: React.FC = () => {
                 <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-2">
                   Телефон:
                 </p>
-                <a
-                  href={`tel:${CONTACTS.phone}`}
-                  className="text-lg font-semibold text-amber-100 block
-                    transition-all duration-200
-                    hover:text-amber-300 hover:translate-x-1"
-                >
+                <p className="text-lg font-semibold text-amber-100 block">
                   {CONTACTS.phoneFormatted}
-                </a>
+                </p>
               </div>
 
               {/* Email */}
@@ -49,14 +44,9 @@ const Footer: React.FC = () => {
                 <p className="text-xs font-medium text-amber-200/50 uppercase tracking-wider mb-2">
                   Email:
                 </p>
-                <a
-                  href="mailto:livesocionics@gmail.com"
-                  className="text-lg font-semibold text-amber-100 break-all block
-                    transition-all duration-200
-                    hover:text-amber-300 hover:translate-x-1"
-                >
+                <p className="text-lg font-semibold text-amber-100 break-all block">
                   livesocionics@gmail.com
-                </a>
+                </p>
               </div>
 
               {/* Messengers */}

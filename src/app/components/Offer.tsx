@@ -10,7 +10,7 @@ export const Offer: React.FC = () => (
     </div>
     <div className="flex flex-col px-8 py-1 w-fit">
       <Image
-        className="relative opacity-40 -ml-7 h-auto size-4 lg:size-7"
+        className="relative opacity-40 -ml-7 h-auto size-4 lg:size-6"
         src="/quote.svg"
         alt="quote"
         width={30}
@@ -20,7 +20,7 @@ export const Offer: React.FC = () => (
       <SubHeader text={HOMEPAGE.subtitle2} />
       <SubHeader text={HOMEPAGE.subtitle3} />
       <Image
-        className="relative rotate-180 opacity-40 -mr-10 self-end size-4 lg:size-7"
+        className="relative rotate-180 opacity-40 -mr-7 self-end size-4 lg:size-6"
         src="/quote.svg"
         alt="quote"
         width={30}

@@ -50,7 +50,7 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
       <div className="flex items-center justify-between">
         <div className="flex gap-3 items-center">
           <CircleIcon icon={<MessageCircleQuestion />} size="sm" />
-          <p className="text-sm opacity-50">Есть вопросы? Пишите!</p>
+          <p className="text-xs sm:text-sm opacity-50">Есть вопросы? Пишите!</p>
         </div>
 
         <div className="flex gap-3">

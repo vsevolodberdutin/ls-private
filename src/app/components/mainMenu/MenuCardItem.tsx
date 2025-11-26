@@ -27,7 +27,7 @@ export const MenuCardItem: React.FC<MenuItemProps> = ({
     <a
       href={`#${id}`}
       onClick={handleClick}
-      className="block w-[340px] cursor-pointer no-underline
+      className="block max-w-[340px] cursor-pointer no-underline
         rounded-xl border border-gray-300 bg-white p-6
         opacity-90 shadow-lg shadow-gray-600/50
         transition duration-500
