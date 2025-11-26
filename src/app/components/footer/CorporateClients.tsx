@@ -26,6 +26,7 @@ export const CorporateClients: React.FC = () => {
                   width={60}
                   height={60}
                   className="object-contain"
+                  loading="lazy"
                 />
               </div>
               {/* Tooltip */}

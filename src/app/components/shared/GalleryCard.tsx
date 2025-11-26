@@ -30,7 +30,8 @@ export const GalleryCard: React.FC<{
             alt={`Пример ${index + 1}`}
             fill
             className="object-cover transition-all duration-300"
-            sizes="100px"
+            sizes="(max-width: 640px) 80px, 100px"
+            loading="lazy"
           />
           {/* Smooth background overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">

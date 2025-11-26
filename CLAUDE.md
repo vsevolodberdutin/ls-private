@@ -76,8 +76,12 @@ Three-layer content management system:
 ```
 src/app/
 ├── sections/          # Top-level page sections (main architectural units)
-├── components/        # Reusable components
-│   └── mainMenu/     # Sub-components for specific features
+│   └── Footer.tsx    # Orchestrates footer sub-components
+├── components/        # Reusable components organized by feature
+│   ├── footer/       # Footer-specific components (ContactInfoCard, SocialChannelsCard, etc.)
+│   ├── mainMenu/     # Main menu components
+│   ├── TabSystem/    # Tab system components
+│   └── shared/       # Shared cross-feature components
 ├── uiElements/        # UI primitives library
 │   ├── wrappers/     # Layout wrapper components (GridWrapper, etc.)
 │   ├── buttons/      # Button components (WhatsappBtn, ViberBtn, TelegramBtn)
@@ -85,6 +89,12 @@ src/app/
 │   └── Icon.tsx      # Icon + text label component
 └── hooks/            # Custom React hooks (currently empty)
 ```
+
+**Component Extraction Pattern:**
+When a section becomes large (>200 lines), extract logical units into `components/[feature-name]/`:
+- Feature-specific reusable components
+- Each component handles one responsibility
+- Main section component orchestrates the extracted components
 
 ### Wrapper Pattern
 
@@ -151,6 +161,8 @@ Contact buttons use platform-specific protocols:
 - Desktop: Large shadow-wrapped components
 - Mobile: Smaller rounded versions with separate components
 - Breakpoints: `sm:`, `md:`, `lg:` (Tailwind defaults)
+- **Mobile-first hover states**: Use `md:hover:` prefix to disable hover effects on touch devices
+- **Mobile visibility**: Use `hidden md:block` to hide desktop-only features (tooltips, decorative elements)
 
 ### Multi-Line className Formatting
 
@@ -202,9 +214,7 @@ import * as about from '@/data/about.json'
 
 The codebase is under active development:
 - Three sections (Teaching, Family, School) are placeholder stubs
-- Recent refactoring migrated from hardcoded values to TypeScript constants (src/constants/)
-- Modified files: PrivateSession, AboutBlocks, Icon, globals.css (per git status)
+- Footer has been refactored into modular components (ContactInfoCard, SocialChannelsCard, CorporateClients, FooterCopyright)
+- Data migrated from hardcoded values to TypeScript constants (src/constants/)
 
 When adding new sections, follow the established pattern: create section component, add data files if needed, import into page.tsx, and apply appropriate gradient class.
-- when you ask anything start with "My dear friend,"
-- add to "My dear friend," emoji face with smile and sunglasses

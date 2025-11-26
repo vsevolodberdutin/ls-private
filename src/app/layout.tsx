@@ -16,6 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/main.svg"
+          fetchPriority="high"
+        />
+      </head>
       {/* <!-- Dark mode enabled -->
           <html class="dark"></html> */}
       <body className={inter.className} suppressHydrationWarning>
