@@ -45,6 +45,7 @@ import {
   type PricingOption,
 } from '../components/shared/PricingCard'
 import { Separator } from '../uiElements/Separator'
+import { MobileVisibleWrapper } from '../uiElements/wrappers/MobileVisibleWrapper'
 
 // ============================================================================
 // Courses Configuration
@@ -129,7 +130,9 @@ const TeachingSection: React.FC = () => {
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
-            <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
+            <MobileVisibleWrapper>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
@@ -168,6 +171,11 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+
+            <MobileVisibleWrapper isMobile>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
+
             <GalleryCard
               images={TEACHING_INTENSIV_GALLERY}
               onImageClick={setSelectedImage}
@@ -202,7 +210,9 @@ const TeachingSection: React.FC = () => {
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
-            <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
+            <MobileVisibleWrapper>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
@@ -235,6 +245,10 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+
+            <MobileVisibleWrapper isMobile>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
             <GalleryCard
               images={TEACHING_TYPING_GALLERY}
               onImageClick={setSelectedImage}
@@ -265,7 +279,9 @@ const TeachingSection: React.FC = () => {
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
-            <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />
+            <MobileVisibleWrapper>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
@@ -292,6 +308,9 @@ const TeachingSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <MobileVisibleWrapper isMobile>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
             <GalleryCard
               images={TEACHING_PRACTICE_GALLERY}
               onImageClick={setSelectedImage}

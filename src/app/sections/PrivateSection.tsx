@@ -40,6 +40,7 @@ import { Separator } from '../uiElements/Separator'
 import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
 import { TargetClientContent } from '../uiElements/cardItems/content/TargetClientContent'
 import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
+import { MobileVisibleWrapper } from '../uiElements/wrappers/MobileVisibleWrapper'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -165,17 +166,19 @@ const PrivateSection: React.FC = () => {
               <ContentColumn>
                 <PricingCard
                   option={{
-                    label: 'Индивидуальная сессия',
+                    label: 'Модуль "Стратегия"',
                     price: '50 000 ₽',
 
                     message:
-                      'Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...',
+                      'Здравствуйте, Элеонора! Интересует Модуль "Стратегия" для управленцев. Расскажите подробнее...',
                   }}
                 />
               </ContentColumn>
             </CardItem>
             {/* Contact Card */}
-            <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
+            <MobileVisibleWrapper>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
+            </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
@@ -211,6 +214,9 @@ const PrivateSection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <MobileVisibleWrapper isMobile>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
+            </MobileVisibleWrapper>
             <GalleryCard
               images={TEACHING_STRATEGIC_GALLERY}
               onImageClick={setSelectedImage}

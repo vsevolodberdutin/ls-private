@@ -29,6 +29,7 @@ import {
   type PricingOption,
 } from '../components/shared/PricingCard'
 import { Separator } from '../uiElements/Separator'
+import { MobileVisibleWrapper } from '../uiElements/wrappers/MobileVisibleWrapper'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -103,7 +104,9 @@ const FamilySection: React.FC = () => {
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
-            <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
+            <MobileVisibleWrapper>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
@@ -136,6 +139,9 @@ const FamilySection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <MobileVisibleWrapper isMobile>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
             <GalleryCard
               images={FAMILY_HARMONY_GALLERY}
               onImageClick={setSelectedImage}
@@ -158,8 +164,9 @@ const FamilySection: React.FC = () => {
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
-
-            <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультаци по разрешению конфликтов. Расскажите подробнее о..." />
+            <MobileVisibleWrapper>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультаци по разрешению конфликтов. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
@@ -192,6 +199,9 @@ const FamilySection: React.FC = () => {
                 ]}
               />
             </CardItem>
+            <MobileVisibleWrapper isMobile>
+              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультаци по разрешению конфликтов. Расскажите подробнее о..." />
+            </MobileVisibleWrapper>
             <GalleryCard
               images={FAMILY_CONFLICT_GALLERY}
               onImageClick={setSelectedImage}
