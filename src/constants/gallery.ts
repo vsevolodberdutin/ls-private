@@ -3,8 +3,6 @@
  * These images showcase examples of consultation reports
  */
 export const PRIVATE_SESSION_GALLERY = [
-
-
   '/gallery/private_gallery_3.png',
   '/gallery/private_gallery_4.jpg',
 ] as const
@@ -69,7 +67,6 @@ export const TEACHING_PRACTICE_GALLERY = [
 export const TEACHING_STRATEGIC_GALLERY = [
   '/gallery/private_gallery_1.jpg',
   '/gallery/private_gallery_2.jpg',
-
 ] as const
 
 /**
@@ -81,6 +78,7 @@ export const FAMILY_HARMONY_GALLERY = [
   '/gallery/family_gallery_3.png',
   '/gallery/family_gallery_4.jpg',
   '/gallery/family_gallery_6.jpg',
+  '/gallery/family_gallery_7.jpg',
 ] as const
 
 /**
