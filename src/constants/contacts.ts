@@ -12,7 +12,7 @@ export const CONTACTS = {
     label: 'WhatsApp',
   },
   telegram: {
-    url: 'https://t.me/eleanor_live',
+    url: 'tg://resolve?domain=eleanor_live',
     label: 'Telegram',
     username: 'eleanor_live',
   },
@@ -22,18 +22,18 @@ export const PRICING = {
   online: {
     price: 10000,
     formatted: '10 000 ₽',
-    label: 'Online',
+    label: 'Личная онлайн',
   },
   inPerson: {
     price: 15000,
     formatted: '15 000 ₽',
-    label: 'Личная встреча',
+    label: 'Личная в городе',
     descriptions: ['Москва/Ниж.Новгород'],
   },
   otherCities: {
     priceFrom: 50000,
     formatted: 'от 50 000 ₽',
-    label: 'Личная встреча',
+    label: 'Личная с выездом',
     descriptions: ['другие города'],
   },
 } as const

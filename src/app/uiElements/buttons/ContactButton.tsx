@@ -58,7 +58,7 @@ export const MaxBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
 export const TelegramBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   return (
     <a
-      href={url || 'https://t.me/eleanor_live'}
+      href={url || 'tg://resolve?domain=eleanor_live'}
       target="_top"
       aria-label="Telegram"
       className="rounded-full border-[1px] border-slate p-2

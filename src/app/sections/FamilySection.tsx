@@ -49,6 +49,13 @@ const FAMILY_PRICING_OPTIONS: PricingOption[] = [
     message:
       'Здравствуйте, Элеонора! Интересует консультация "Разрешение конфликтов в паре". Расскажите подробнее...',
   },
+  {
+    label: FAMILY_SERVICES.personalSession.types[2].name,
+
+    price: FAMILY_SERVICES.personalSession.types[2].priceFormatted,
+    message:
+      'Здравствуйте, Элеонора! Интересует консультация "Разрешение конфликтов в паре". Расскажите подробнее...',
+  },
 ]
 
 // ============================================================================
@@ -84,13 +91,14 @@ const FamilySection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Гармония отношений родитель/ребенок" />
+              <ProductHeader text="Гармония отношений" />
             </CardItem>
 
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
                 <PricingCard option={FAMILY_PRICING_OPTIONS[0]} />
+                <PricingCard option={FAMILY_PRICING_OPTIONS[1]} />
 
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
@@ -111,11 +119,11 @@ const FamilySection: React.FC = () => {
                 items={[
                   {
                     icon: Users,
-                    text: 'Первая сессия - индивидуальная встреча',
+                    text: 'Индивидуальные консультации',
                   },
                   {
                     icon: Heart,
-                    text: 'Вторая сессия - разбор отношений',
+                    text: 'Разбор интертипных отношений',
                   },
                   {
                     icon: UserCheck,
@@ -145,7 +153,7 @@ const FamilySection: React.FC = () => {
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard option={FAMILY_PRICING_OPTIONS[1]} />
+                <PricingCard option={FAMILY_PRICING_OPTIONS[2]} />
 
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
@@ -157,7 +165,7 @@ const FamilySection: React.FC = () => {
           <ContentColumn>
             <CardItem>
               <DurationContent
-                text="4 часа"
+                text="6-8 часов"
                 note="2 личных сессии участников конфликта + 1-2 сессии по примирению"
               />
             </CardItem>

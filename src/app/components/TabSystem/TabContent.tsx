@@ -82,7 +82,7 @@ export const IntroductionContent: React.FC = () => {
     <ListColumn>
       {/* Introduction Section */}
 
-      <div className=" bg-white/50 rounded-2xl border border-white/60 p-6">
+      <div className=" bg-white/60 rounded-2xl border border-white/60 p-6">
         {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
           <p
             key={idx}
