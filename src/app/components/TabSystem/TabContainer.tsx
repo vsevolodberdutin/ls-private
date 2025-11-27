@@ -92,7 +92,7 @@ const TabButton: React.FC<TabButtonProps> = ({
     >
       <div className="flex items-center gap-3">
         <CircleIcon icon={icon} isActive={isActive} size="md" />
-        <p className="font-semibold text-gray-700 lg:text-lg">{label}</p>
+        <p className="font-semibold text-gray-700 lg:text-lg text-left">{label}</p>
       </div>
 
       {isActive && <div className="h-2 w-2 rounded-full bg-white" />}

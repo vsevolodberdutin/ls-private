@@ -130,7 +130,7 @@ export const PublicationContent: React.FC = () => {
               publicationType && iconMap[publicationType] ? (
                 <BoxIcon
                   icon={iconMap[publicationType]}
-                  variant="default"
+                  variant="white"
                   className="mt-0.5"
                 />
               ) : undefined
