@@ -80,6 +80,7 @@ export const FAMILY_HARMONY_GALLERY = [
   '/gallery/family_gallery_2.png',
   '/gallery/family_gallery_3.png',
   '/gallery/family_gallery_4.jpg',
+  '/gallery/family_gallery_6.jpg',
 ] as const
 
 /**
