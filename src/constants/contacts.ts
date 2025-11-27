@@ -3,16 +3,16 @@
 export const CONTACTS = {
   phone: '+79103811250',
   phoneFormatted: '+7 910 381 12 50',
-  viber: {
-    url: 'viber://chat?number=%2B79103811250',
-    label: 'Viber',
+  max: {
+    url: 'https://max.ru/u/f9LHodD0cOIJoLU5SKENjsmyWNU3DgWX3SyAtSucFRVBzon9hS4reIglDpk',
+    label: 'Max',
   },
   whatsapp: {
     url: 'whatsapp://send?phone=79103811250&text=',
     label: 'WhatsApp',
   },
   telegram: {
-    url: 'tg://resolve?domain=eleanor_live',
+    url: 'https://t.me/eleanor_live',
     label: 'Telegram',
     username: 'eleanor_live',
   },

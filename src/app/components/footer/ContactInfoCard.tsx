@@ -44,9 +44,9 @@ export const ContactInfoCard: React.FC = () => {
                 hover:border-emerald-400/60 hover:bg-emerald-500/20"
             />
             <MessengerButton
-              href={CONTACTS.viber.url}
-              icon="/viber.svg"
-              label="Viber"
+              href={CONTACTS.max.url}
+              icon="/max.svg"
+              label="Max"
               colorClasses="border-violet-400/30 bg-violet-500/10
                 hover:border-violet-300/60 hover:bg-violet-400/30"
             />

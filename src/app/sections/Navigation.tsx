@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '@/app/uiElements/Logo'
 import {
   TelegramBtn,
-  ViberBtn,
+  MaxBtn,
   WhatsappBtn,
 } from '@/app/uiElements/buttons/ContactButton'
 
@@ -17,7 +17,7 @@ const Navigation = () => {
       <Logo />
       <div className="flex space-x-2 r-10">
         <WhatsappBtn />
-        <ViberBtn />
+        <MaxBtn />
         <TelegramBtn />
       </div>
     </header>

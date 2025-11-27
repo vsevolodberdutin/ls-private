@@ -29,12 +29,15 @@ export const WhatsappBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   )
 }
 
-export const ViberBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
+export const MaxBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   return (
     <a
-      href={url || 'viber://chat?number=%2B79103811250'}
+      href={
+        url ||
+        'https://max.ru/u/f9LHodD0cOIJoLU5SKENjsmyWNU3DgWX3SyAtSucFRVBzon9hS4reIglDpk'
+      }
       target="_top"
-      aria-label="Viber"
+      aria-label="Max"
       className="rounded-full border-[1px] border-slate p-2
         bg-white/90
         transition-all duration-200
@@ -42,8 +45,8 @@ export const ViberBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
     >
       <Image
         className=""
-        src="/viber.svg"
-        alt="viber"
+        src="/max.svg"
+        alt="max"
         width={size}
         height={size}
         priority
@@ -55,7 +58,7 @@ export const ViberBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
 export const TelegramBtn: React.FC<ContactButtonProps> = ({ url = '' }) => {
   return (
     <a
-      href={url || 'tg://resolve?domain=eleanor_live'}
+      href={url || 'https://t.me/eleanor_live'}
       target="_top"
       aria-label="Telegram"
       className="rounded-full border-[1px] border-slate p-2

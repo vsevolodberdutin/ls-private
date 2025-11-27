@@ -6,7 +6,7 @@ import { CONTACTS } from '@/constants/contacts'
 import { CircleIcon } from '@/app/uiElements/CircleIcon'
 import {
   TelegramBtn,
-  ViberBtn,
+  MaxBtn,
   WhatsappBtn,
 } from '@/app/uiElements/buttons/ContactButton'
 
@@ -27,9 +27,9 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
       hoverColor: 'hover:bg-green-300',
     },
     {
-      name: 'Viber',
-      url: `${CONTACTS.viber.url}&text=${encodeURIComponent(baseMessage)}`,
-      icon: '/viber.svg',
+      name: 'Max',
+      url: `${CONTACTS.max.url}`,
+      icon: '/max.svg',
       hoverColor: 'hover:bg-violet-400',
     },
     {
@@ -55,7 +55,7 @@ export const ContactCard: React.FC<{ message?: string }> = ({ message }) => {
 
         <div className="flex gap-3">
           <WhatsappBtn url={messengers[0].url} />
-          <ViberBtn url={messengers[1].url} />
+          <MaxBtn url={messengers[1].url} />
           <TelegramBtn url={messengers[2].url} />
         </div>
       </div>
