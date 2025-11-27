@@ -8,7 +8,7 @@ interface BoxIconProps {
 }
 
 const variantConfig = {
-  default: 'border-white/40 bg-transparent text-white/90  w-5 h-5',
+  default: 'border-black/10 bg-transparent text-black/40  w-5 h-5',
   white:
     'border-white/40 bg-white/10 backdrop-blur-lg text-gray-800/80  w-6 h-6',
 }
