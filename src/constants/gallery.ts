@@ -3,8 +3,8 @@
  * These images showcase examples of consultation reports
  */
 export const PRIVATE_SESSION_GALLERY = [
-  '/gallery/private_gallery_1.jpg',
-  '/gallery/private_gallery_2.jpg',
+
+
   '/gallery/private_gallery_3.png',
   '/gallery/private_gallery_4.jpg',
 ] as const
@@ -36,7 +36,8 @@ export const TEACHING_INTENSIV_GALLERY = [
   '/gallery/teaching_gallery_5.jpg',
   '/gallery/teaching_gallery_10.jpg',
   '/gallery/teaching_gallery_11.jpeg',
-
+  '/gallery/teaching_gallery_8.jpg',
+  '/gallery/teaching_gallery_7.jpg',
   '/gallery/teaching_gallery_13.jpg',
 ] as const
 
@@ -66,8 +67,9 @@ export const TEACHING_PRACTICE_GALLERY = [
  * Showcasing leadership coaching materials
  */
 export const TEACHING_STRATEGIC_GALLERY = [
-  '/gallery/teaching_gallery_8.jpg',
-  '/gallery/teaching_gallery_7.jpg',
+  '/gallery/private_gallery_1.jpg',
+  '/gallery/private_gallery_2.jpg',
+
 ] as const
 
 /**

@@ -1,7 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Heart, Waves, Briefcase } from 'lucide-react'
+import {
+  Heart,
+  Waves,
+  Briefcase,
+  Target,
+  Brain,
+  ShipWheel,
+  Headset,
+} from 'lucide-react'
 import { PRICING, INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
 import {
   PricingCard,
@@ -10,7 +18,10 @@ import {
 
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
-import { PRIVATE_SESSION_GALLERY } from '@/constants/gallery'
+import {
+  PRIVATE_SESSION_GALLERY,
+  TEACHING_STRATEGIC_GALLERY,
+} from '@/constants/gallery'
 import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
 import {
@@ -26,6 +37,9 @@ import { MainColumn } from '../uiElements/wrappers/MainColumn'
 import { DurationContent } from '../uiElements/cardItems/content/DurationContent'
 import { ReportContent } from '../uiElements/cardItems/content/ReportContent'
 import { Separator } from '../uiElements/Separator'
+import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
+import { TargetClientContent } from '../uiElements/cardItems/content/TargetClientContent'
+import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
 
 // ============================================================================
 // Pricing Options Configuration
@@ -127,7 +141,6 @@ const PrivateSection: React.FC = () => {
             </CardItem>
           </ContentColumn>
         </GridProductWrapper>
-
         {/* Contact Card && Gallery Card */}
         <GridProductWrapper>
           {/* Contact Card */}
@@ -138,6 +151,71 @@ const PrivateSection: React.FC = () => {
             images={PRIVATE_SESSION_GALLERY}
             onImageClick={setSelectedImage}
           />
+        </GridProductWrapper>
+
+        {/* Strategic Session */}
+        <GridProductWrapper>
+          <ContentColumn>
+            <CardItem>
+              <ProductHeader text="Стратегическая сессия для управленцев" />
+            </CardItem>
+
+            {/* Pricing */}
+            <CardItem>
+              <ContentColumn>
+                <PricingCard
+                  option={{
+                    label: 'Индивидуальная сессия',
+                    price: '50 000 ₽',
+
+                    message:
+                      'Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...',
+                  }}
+                />
+              </ContentColumn>
+            </CardItem>
+            {/* Contact Card */}
+            <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
+          </ContentColumn>
+
+          <ContentColumn>
+            <CardItem>
+              <TargetClientContent text="Руководители, топ-менеджеры, владельцы бизнеса, HR-директора" />
+            </CardItem>
+            <CardItem>
+              <DurationContent
+                text="4 занятия еженедельно (7-8 академ.часов)"
+                note="онлайн/оффлайн, онлайн-сопровождение в течение всего периода"
+              />
+            </CardItem>
+            <CardItem>
+              <ProgramContent
+                headerText="Цель сессии:"
+                items={[
+                  {
+                    icon: Target,
+                    text: 'Проработка осознанности путей развития лидерских качеств',
+                  },
+                  {
+                    icon: Brain,
+                    text: 'Развитие с опорой на психотип',
+                  },
+                  {
+                    icon: ShipWheel,
+                    text: 'Помощь в решении управленческих кейсов',
+                  },
+                  {
+                    icon: Headset,
+                    text: 'Персональное онлайн-сопровождение',
+                  },
+                ]}
+              />
+            </CardItem>
+            <GalleryCard
+              images={TEACHING_STRATEGIC_GALLERY}
+              onImageClick={setSelectedImage}
+            />
+          </ContentColumn>
         </GridProductWrapper>
       </MainColumn>
 

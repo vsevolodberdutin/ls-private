@@ -13,8 +13,6 @@ import {
   MessageSquare,
   ClipboardList,
   GraduationCap,
-  Target,
-  Headset,
 } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
 import { INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
@@ -27,7 +25,6 @@ import {
   TEACHING_INTENSIV_GALLERY,
   TEACHING_TYPING_GALLERY,
   TEACHING_PRACTICE_GALLERY,
-  TEACHING_STRATEGIC_GALLERY,
 } from '@/constants/gallery'
 import { GridProductWrapper } from '../uiElements/wrappers/GridWrapper'
 import { HeaderCardItem } from '../uiElements/cardItems/HeaderCardItem'
@@ -106,8 +103,6 @@ const TeachingSection: React.FC = () => {
             <CardItemSubHeader text={TEACHING_SERVICES.description} />
           </HeaderCardItem>
         </GridProductWrapper>
-
-
 
         {/* PRODUCTS */}
         {/* Course 1: ИНТЕНСИВ */}
@@ -299,82 +294,6 @@ const TeachingSection: React.FC = () => {
             </CardItem>
             <GalleryCard
               images={TEACHING_PRACTICE_GALLERY}
-              onImageClick={setSelectedImage}
-            />
-          </ContentColumn>
-        </GridProductWrapper>
-
-
-        {/* Strategic Session */}
-        <GridProductWrapper>
-          <ContentColumn>
-            <CardItem>
-              <ProductHeader text="Стратегическая сессия для управленцев" />
-            </CardItem>
-
-            {/* Pricing */}
-            <CardItem>
-              <ContentColumn>
-                <PricingCard
-                  option={{
-                    label: 'Индивидуальная сессия',
-                    price: '50 000 ₽',
-                    message:
-                      'Здравствуйте, Элеонора! Интересует индивидуальная стратегическая сессия для управленцев. Расскажите подробнее...',
-                  }}
-                />
-                <PricingCard
-                  option={{
-                    label: 'Групповой коучинг',
-                    description: ['детали зависят от количества участников'],
-                    price: 'oт 20 000 ₽ / чел.',
-                    message:
-                      'Здравствуйте, Элеонора! Интересует груповой коучинг для управленцев. Расскажите подробнее...',
-                  }}
-                />
-
-
-              </ContentColumn>
-            </CardItem>
-            {/* Contact Card */}
-            <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
-          </ContentColumn>
-
-          <ContentColumn>
-            <CardItem>
-              <TargetClientContent text="Руководители, топ-менеджеры, владельцы бизнеса, HR-директора" />
-            </CardItem>
-            <CardItem>
-              <DurationContent
-                text="4 занятия еженедельно (7-8 академ.часов)"
-                note="онлайн/оффлайн, онлайн-сопровождение в течение всего периода"
-              />
-            </CardItem>
-            <CardItem>
-              <ProgramContent
-                headerText="Цель сессии:"
-                items={[
-                  {
-                    icon: Target,
-                    text: 'Проработка осознанности путей развития лидерских качеств',
-                  },
-                  {
-                    icon: Brain,
-                    text: 'Развитие с опорой на психотип',
-                  },
-                  {
-                    icon: ShipWheel,
-                    text: 'Помощь в решении управленческих кейсов',
-                  },
-                  {
-                    icon: Headset,
-                    text: 'Персональное онлайн-сопровождение',
-                  },
-                ]}
-              />
-            </CardItem>
-            <GalleryCard
-              images={TEACHING_STRATEGIC_GALLERY}
               onImageClick={setSelectedImage}
             />
           </ContentColumn>
