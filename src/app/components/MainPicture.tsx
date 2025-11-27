@@ -9,7 +9,9 @@ export const MainPicture: React.FC = () => (
   <ShadowImgWrapper>
     <WhiteCircleWrapper>
       <Image
-        className="relative w-96 hidden lg:flex"
+        className="relative hidden
+          tablet:flex tablet:w-[307px]
+          desktop:w-96"
         src="/main.svg"
         alt="Eleonora main"
         width={500}

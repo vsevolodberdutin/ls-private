@@ -9,6 +9,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'tablet': '1024px',
+        // Custom breakpoint for 1024x782 and similar tablet resolutions
+        'desktop': '1280px',
+        // Desktop breakpoint for larger screens
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

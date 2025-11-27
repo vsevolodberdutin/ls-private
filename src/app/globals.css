@@ -131,3 +131,29 @@ main {
   scrollbar-width: thin;
   scrollbar-color: white rgba(255, 237, 213, 0.3);
 }
+
+/* Adaptive design for 1024x782 resolution */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  :root {
+    --scroll-margin-top: 80px;
+  }
+
+  /* Adjust font sizes for tablet */
+  h1 {
+    font-size: 1.75rem; /* Slightly smaller than lg */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Adjust section padding */
+  section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
