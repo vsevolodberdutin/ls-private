@@ -19,7 +19,7 @@ export const CorporateClients: React.FC = () => {
         <div className="flex flex-wrap gap-4 items-center justify-center">
           {COMPANIES.map((company, index) => (
             <div key={index} className="group relative">
-              <div className="flex items-center justify-center w-[60px] h-[60px] overflow-hidden rounded-full border-4 border-white bg-white/100 backdrop-blur-sm transition-all duration-200 md:hover:border-amber-100 md:hover:bg-white md:hover:scale-110">
+              <div className="flex items-center justify-center w-[60px] h-[60px] overflow-hidden rounded-full border-4 border-white bg-white/100 backdrop-blur-sm transition-all duration-200 lg:hover:border-amber-100 lg:hover:bg-white lg:hover:scale-110">
                 <Image
                   src={`/companies/${company.data}_logo.png`}
                   alt={company.name}
@@ -30,7 +30,7 @@ export const CorporateClients: React.FC = () => {
                 />
               </div>
               {/* Tooltip */}
-              <div className="hidden md:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 pointer-events-none whitespace-nowrap z-10 text-xs text-amber-50 rounded-lg bg-[#282934] backdrop-blur-sm opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+              <div className="hidden lg:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 pointer-events-none whitespace-nowrap z-10 text-xs text-amber-50 rounded-lg bg-[#282934] backdrop-blur-sm opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                 {company.name}
                 <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#282934]"></div>
               </div>

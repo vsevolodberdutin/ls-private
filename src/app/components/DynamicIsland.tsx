@@ -12,7 +12,7 @@ export const DynamicIsland: React.FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 items-center justify-center mt-3 hidden xl:flex
+      className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 mt-3 hidden lg:flex
         transition-all duration-700 ease-out
         ${
           isScrolled
