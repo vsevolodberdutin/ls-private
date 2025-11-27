@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Live Socionics Ltd | private ',
-  description: 'Private & Family socionic consulting by Eleonor Berdutina',
+  description: 'Private & Family socionic consulting by Eleanor Berdutina',
 }
 
 export default function RootLayout({

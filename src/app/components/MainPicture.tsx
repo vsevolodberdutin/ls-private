@@ -13,7 +13,7 @@ export const MainPicture: React.FC = () => (
           tablet:flex tablet:w-[307px]
           desktop:w-96"
         src="/main.svg"
-        alt="Eleonora main"
+        alt="Eleanor main"
         width={500}
         height={500}
         priority
@@ -28,7 +28,7 @@ export const MobileMainPicture: React.FC = () => (
       <Image
         className="relative inset-y-8 scale-150"
         src="/main.svg"
-        alt="Eleonora main"
+        alt="Eleanor main"
         width={100}
         height={100}
         priority

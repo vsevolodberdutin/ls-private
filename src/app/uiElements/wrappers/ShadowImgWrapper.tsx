@@ -5,14 +5,15 @@ export interface ShadowImgProps {
   children: any
 }
 
+const generalStyle = 'relative place-items-center self-end z-10 hidden lg:grid'
+const whiteShadowStyle = 
+  "before:absolute before:h-[1300px] before:w-[700px] before:-translate-x-1/4 before:rounded-full before:bg-gradient-radial before:from-white/80 before:to-transparent before:blur-2xl before:content-['']"
+const blueShadowStyle = 
+  "after:absolute after:-z-20 after:h-[540px] after:w-[270px] after:translate-x-1/2 after:bg-gradient-conic after:from-sky-200/30 after:via-blue-200/50 after:blur-2xl after:content-[''] before:lg:h-[360px] z-[-1]"
+
 export const ShadowImgWrapper: React.FC<ShadowImgProps> = ({ children }) => (
   <div
-    className="relative place-items-center self-end hidden
-      tablet:grid
-      before:absolute before:rounded-full before:bg-gradient-radial before:from-white/80 before:to-transparent before:blur-2xl before:content-['']
-      after:absolute after:-z-20 after:bg-gradient-conic after:from-sky-200/30 after:via-blue-200/50 after:blur-2xl after:content-[''] z-[-1]
-      tablet:before:h-[1040px] tablet:before:w-[560px] tablet:before:-translate-x-1/4 tablet:after:h-[432px] tablet:after:w-[216px] tablet:after:translate-x-1/2
-      desktop:before:h-[1300px] desktop:before:w-[700px] desktop:before:-translate-x-1/4 desktop:after:h-[540px] desktop:after:w-[270px] desktop:after:translate-x-1/2"
+    className={generalStyle + ' ' + whiteShadowStyle + ' ' + blueShadowStyle}
   >
     {children}
   </div>
