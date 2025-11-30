@@ -9,6 +9,7 @@ import {
   TabPanelColumn,
 } from '@/app/uiElements/wrappers/ContentColumn'
 import { CircleIcon } from '@/app/uiElements/CircleIcon'
+import { CircleMinus, CirclePlus } from 'lucide-react'
 
 export interface TabConfig {
   id: string
@@ -85,8 +86,8 @@ const TabButton: React.FC<TabButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`flex w-full items-center justify-between rounded-lg border px-6 py-4
-        ${isActive ? 'bg-white/60' : 'bg-white/30'}
+      className={`flex w-full items-center justify-between rounded-lg border px-6 py-4 shadow-md shadow-black/10
+        ${isActive ? 'bg-white/70' : 'bg-white/20'}
         transition duration-500
         hover:scale-[103%] hover:bg-white/80`}
     >
@@ -95,7 +96,11 @@ const TabButton: React.FC<TabButtonProps> = ({
         <p className="font-semibold text-gray-700 lg:text-lg text-left">{label}</p>
       </div>
 
-      {isActive && <div className="h-2 w-2 rounded-full bg-white" />}
+      {isActive ? (
+        <CircleMinus className="h-5 w-5 text-gray-800" />
+      ) : (
+        <CirclePlus className="h-5 w-5 text-gray-400" />
+      )}
     </button>
   )
 }
