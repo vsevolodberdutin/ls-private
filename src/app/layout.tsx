@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -14,11 +14,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Live Socionics Ltd | private ',
   description: 'Private & Family socionic consulting by Eleanor Berdutina',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: '#fff0dc',
 }
 

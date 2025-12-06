@@ -35,9 +35,6 @@ const nextConfig = {
   // Compress output
   compress: true,
 
-  // Optimize fonts
-  optimizeFonts: true,
-
   // Power users only - advanced optimizations
   poweredByHeader: false,
   generateEtags: true,
