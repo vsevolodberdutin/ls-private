@@ -17,30 +17,31 @@ import {
   Presentation,
   Shapes,
 } from 'lucide-react'
+import { ABOUT_TABS } from '@/constants/about'
 
 const AboutSection = () => {
   const tabs: TabConfig[] = [
     {
-      id: 'introduction',
-      label: 'Будем знакомы!',
+      id: ABOUT_TABS.introduction.id,
+      label: ABOUT_TABS.introduction.label,
       icon: <UserCircle className="w-full h-full" />,
       content: <IntroductionContent />,
     },
     {
-      id: 'publications',
-      label: 'Научные публикации',
+      id: ABOUT_TABS.publications.id,
+      label: ABOUT_TABS.publications.label,
       icon: <BookOpen className="w-full h-full" />,
       content: <PublicationContent />,
     },
     {
-      id: 'conferences',
-      label: 'Доклады на конференциях',
+      id: ABOUT_TABS.conferences.id,
+      label: ABOUT_TABS.conferences.label,
       icon: <Presentation className="w-full h-full" />,
       content: <ConferenceContent />,
     },
     {
-      id: 'philosophy',
-      label: 'Философия методики',
+      id: ABOUT_TABS.philosophy.id,
+      label: ABOUT_TABS.philosophy.label,
       icon: <Shapes className="w-full h-full" />,
       content: <PhilosophyContent />,
     },

@@ -1,8 +1,10 @@
 import React from 'react'
 import * as Typography from '@/app/uiElements/Typography'
-import { ABOUT } from '@/constants/about'
-import { ARTICLES } from '@/constants/articles'
-import { CONFERENCES } from '@/constants/conferences'
+import {
+  ABOUT,
+  ABOUT_PUBLICATIONS,
+  ABOUT_CONFERENCES,
+} from '@/constants/about'
 import { BoxIcon } from '@/app/uiElements/BoxIcon'
 import { ListItemRow } from '@/app/uiElements/wrappers/ListItemRow'
 import { ListColumn } from '@/app/uiElements/wrappers/ListColumn'
@@ -19,71 +21,42 @@ import {
   UserCircle,
   Brain,
   Moon,
+  School,
 } from 'lucide-react'
 
 /**
- * Type definition for publication types
+ * Icon mapping utility
+ * Maps icon names from constants to actual icon components
  */
-type PublicationType = 'монография' | 'статья' | 'учебное пособие' | null
-
-/**
- * Props for menu item components (RowItem)
- */
-interface MenuItemProps {
-  readonly id?: string
-  readonly text: string
-  readonly publicationType?: PublicationType
+const getIconComponent = (iconName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    Book: <Book />,
+    FileText: <FileText />,
+    BookOpen: <BookOpen />,
+    Presentation: <Presentation />,
+    Users: <Users />,
+    ClipboardCheck: <ClipboardCheck />,
+    Shield: <Shield />,
+    GraduationCap: <GraduationCap />,
+    Briefcase: <Briefcase />,
+    UserCircle: <UserCircle />,
+    Brain: <Brain />,
+    Moon: <Moon />,
+    School: <School />,
+  }
+  return iconMap[iconName] || <BookOpen />
 }
 
-const RowItem: React.FC<MenuItemProps> = ({ id, text }) => {
-  return (
-    <div
-      id={id}
-      className="flex items-center gap-3 w-full min-h-[44px]
-        rounded-xl border border-b border-gray-200  bg-neutral-900/[.1] px-6 py-2
-        transition-colors duration-200
-        group-hover:bg-pink-900/[.3]"
-    >
-      {text && <Typography.InfoTypography text={text} />}
-    </div>
-  )
-}
-
-/**
- * Extract publication type from the name field
- */
-const extractPublicationType = (name: string): PublicationType => {
-  const match = name.match(/\((монография|статья|учебное пособие)\)/)
-  return match ? (match[1] as PublicationType) : null
-}
 
 // Tab Content Components
 
 export const IntroductionContent: React.FC = () => {
-  // Different icons for education items
-  const getEducationIcon = (educationText: string, index: number) => {
-    if (educationText.includes('Диплом')) {
-      // Use different diploma/certificate icons for each diploma
-      if (index === 0) {
-        return <Shield />
-      } else if (index === 1) {
-        return <BookOpen />
-      } else {
-        return <Book />
-      }
-    } else if (educationText.includes('Международная школа')) {
-      return <GraduationCap />
-    } else {
-      return <FileText />
-    }
-  }
-
   return (
     <ListColumn>
       {/* Introduction Section */}
 
       <div className=" bg-white/60 rounded-2xl border border-white/60 p-6">
-        {ABOUT.introduction.split('\n\n').map((paragraph, idx) => (
+        {ABOUT.text.split('\n\n').map((paragraph, idx) => (
           <p
             key={idx}
             className="text-base leading-[1.7] opacity-70 font-normal tracking-normal mb-4 last:mb-0
@@ -99,12 +72,10 @@ export const IntroductionContent: React.FC = () => {
       {ABOUT.education.map((item, index) => (
         <ListItemRow
           key={`education-${index}`}
-          icon={
-            <BoxIcon icon={getEducationIcon(item, index)} variant="default" />
-          }
+          icon={<BoxIcon icon={getIconComponent(item.icon)} variant="default" />}
         >
           <h4 className="text-sm self-center font-medium opacity-70 transition-colors">
-            {item}
+            {item.text}
           </h4>
         </ListItemRow>
       ))}
@@ -113,27 +84,18 @@ export const IntroductionContent: React.FC = () => {
 }
 
 export const PublicationContent: React.FC = () => {
-  const iconMap = {
-    монография: <Book />,
-    статья: <FileText />,
-    'учебное пособие': <BookOpen />,
-  }
-
   return (
     <ListColumn>
-      {ARTICLES.map((article, index) => {
-        const publicationType = extractPublicationType(article.name)
+      {ABOUT_PUBLICATIONS.map((article, index) => {
         return (
           <ListItemRow
             key={index}
             icon={
-              publicationType && iconMap[publicationType] ? (
-                <BoxIcon
-                  icon={iconMap[publicationType]}
-                  variant="white"
-                  className="mt-0.5"
-                />
-              ) : undefined
+              <BoxIcon
+                icon={getIconComponent(article.icon)}
+                variant="white"
+                className="mt-0.5"
+              />
             }
           >
             <div className="flex flex-col gap-1">
@@ -154,49 +116,15 @@ export const PublicationContent: React.FC = () => {
 }
 
 export const ConferenceContent: React.FC = () => {
-  // Different icons based on unique keywords in conference topics
-  const getConferenceIcon = (conferenceName: string) => {
-    if (conferenceName.includes('коммуникации')) {
-      return <Presentation />
-    } else if (conferenceName.includes('оценке')) {
-      return <ClipboardCheck />
-    } else if (conferenceName.includes('ассесмента')) {
-      return <FileText />
-    } else if (conferenceName.includes('подбора персонала')) {
-      return <Users />
-    } else if (conferenceName.includes('конфликту')) {
-      return <Shield />
-    } else if (
-      conferenceName.includes('профориентации') &&
-      conferenceName.includes('детей')
-    ) {
-      return <GraduationCap />
-    } else if (conferenceName.includes('HR')) {
-      return <Briefcase />
-    } else if (conferenceName.includes('ТОП - менеджера')) {
-      return <UserCircle />
-    } else if (conferenceName.includes('детских домов')) {
-      return <GraduationCap />
-    } else if (conferenceName.includes('медицинского')) {
-      return <Book />
-    } else if (conferenceName.includes('дифференциальной диагностике')) {
-      return <Brain />
-    } else if (conferenceName.includes('расстройства сна')) {
-      return <Moon />
-    } else {
-      return <BookOpen />
-    }
-  }
-
   return (
     <ListColumn>
-      {CONFERENCES.map((conference, index) => {
+      {ABOUT_CONFERENCES.map((conference, index) => {
         return (
           <ListItemRow
             key={index}
             icon={
               <BoxIcon
-                icon={getConferenceIcon(conference.name)}
+                icon={getIconComponent(conference.icon)}
                 variant="white"
                 className="mt-0.5"
               />
