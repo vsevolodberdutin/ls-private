@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Header, SubHeader } from '@/app/uiElements/Typography'
-import { HOMEPAGE } from '@/constants/homepage'
+import { HOMEPAGE } from '@/constants/main'
 
 export const Offer: React.FC = () => (
   <div className="mb-8 flex flex-col items-center">

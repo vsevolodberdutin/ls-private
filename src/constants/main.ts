@@ -1,6 +1,20 @@
 /**
- * Typed constants for product offerings
- * This provides type safety and follows the architectural pattern
+ * Typed constants for main page section
+ * This is the single source of truth for all main page texts
+ */
+
+/**
+ * Homepage header and subtitle texts
+ */
+export const HOMEPAGE = {
+  title: 'Пойми себя на личной сессии с Элеонорой Бердутиной',
+  subtitle1: 'Единственное, что сделает вас счастливым',
+  subtitle2: '— это быть в гармонии с самим собой и окружающими вас людьми.',
+  subtitle3: 'Этому можно и нужно учиться!',
+} as const
+
+/**
+ * Main menu service offerings
  */
 export const PRODUCTS = [
   {
@@ -29,5 +43,9 @@ export const PRODUCTS = [
   },
 ] as const
 
+/**
+ * Type exports for type safety
+ */
+export type HomepageData = typeof HOMEPAGE
 export type Product = (typeof PRODUCTS)[number]
 export type ProductsData = typeof PRODUCTS

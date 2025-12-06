@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { MenuWrapper } from '@/app/uiElements/wrappers/MenuWrapper'
-import { PRODUCTS } from '@/constants/products'
+import { PRODUCTS } from '@/constants/main'
 import { MenuCardItem } from './MenuCardItem'
 
 const MainMenu = () => {

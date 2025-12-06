@@ -3,7 +3,7 @@
 import React from 'react'
 import { ScrollButton } from '@/app/uiElements/buttons/ScrollButton'
 import { useScrollPosition } from '@/app/hooks/useScrollPosition'
-import { PRODUCTS } from '@/constants/products'
+import { PRODUCTS } from '@/constants/main'
 
 export const DynamicIsland: React.FC = () => {
   const isScrolled = useScrollPosition(
