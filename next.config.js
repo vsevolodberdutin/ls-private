@@ -29,10 +29,14 @@ const nextConfig = {
   // Optimize CSS
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['@/app/components', '@/app/uiElements'],
   },
 
   // Compress output
   compress: true,
+
+  // Optimize fonts
+  optimizeFonts: true,
 
   // Power users only - advanced optimizations
   poweredByHeader: false,

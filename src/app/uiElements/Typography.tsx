@@ -8,8 +8,8 @@ export interface TypographyProps {
 export const Header: React.FC<TypographyProps> = ({ text }) => {
   return (
     <h1
-      className={`mb-3 lg:text-3xl text-2xl font-semibold text-center`}
-      style={{ color: 'var(--header-text-rgb)' }}
+      className="mb-3 lg:text-3xl text-2xl font-semibold text-center"
+      style={{ color: '#4c0519' }}
     >
       {text}
     </h1>

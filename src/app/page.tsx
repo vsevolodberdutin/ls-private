@@ -1,12 +1,27 @@
+import dynamic from 'next/dynamic'
 import Navigation from './sections/Navigation'
-import AboutPage from './sections/AboutSection'
 import MainPage from './sections/MainSection'
-import FamilySection from './sections/FamilySection'
-import SchoolSection from './sections/SchoolSection'
-import TeachingSection from './sections/TeachingSection'
-import PrivateSession from './sections/PrivateSection'
-import Footer from './sections/Footer'
 import { DynamicIsland } from './components/DynamicIsland'
+
+// Lazy load sections below the fold for better initial load performance
+const AboutPage = dynamic(() => import('./sections/AboutSection'), {
+  loading: () => <div className="min-h-screen" />,
+})
+const PrivateSession = dynamic(() => import('./sections/PrivateSection'), {
+  loading: () => <div className="min-h-screen" />,
+})
+const TeachingSection = dynamic(() => import('./sections/TeachingSection'), {
+  loading: () => <div className="min-h-screen" />,
+})
+const FamilySection = dynamic(() => import('./sections/FamilySection'), {
+  loading: () => <div className="min-h-screen" />,
+})
+const SchoolSection = dynamic(() => import('./sections/SchoolSection'), {
+  loading: () => <div className="min-h-screen" />,
+})
+const Footer = dynamic(() => import('./sections/Footer'), {
+  loading: () => <div className="min-h-screen" />,
+})
 
 export default function Home() {
   return (

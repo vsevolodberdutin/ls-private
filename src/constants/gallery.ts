@@ -3,8 +3,8 @@
  * These images showcase examples of consultation reports
  */
 export const PRIVATE_SESSION_GALLERY = [
-  '/gallery/private_gallery_3.png',
-  '/gallery/private_gallery_4.jpg',
+  '/gallery/private_gallery_3.webp',
+  '/gallery/private_gallery_4.webp',
 ] as const
 
 /**
@@ -12,14 +12,14 @@ export const PRIVATE_SESSION_GALLERY = [
  * Showcasing school activities and materials
  */
 export const SCHOOL_GALLERY = [
-  '/gallery/school_gallery_1.png',
-  '/gallery/school_gallery_2.png',
+  '/gallery/school_gallery_1.webp',
+  '/gallery/school_gallery_2.webp',
 ] as const
 
 export const CONFERENCES_GALLERY = [
-  '/gallery/conference_1.jpg',
-  '/gallery/conference_2.jpg',
-  '/gallery/conference_3.jpg',
+  '/gallery/conference_1.webp',
+  '/gallery/conference_2.webp',
+  '/gallery/conference_3.webp',
 ] as const
 
 /**
@@ -27,16 +27,16 @@ export const CONFERENCES_GALLERY = [
  * Showcasing BASICS and MEDIUM modules
  */
 export const TEACHING_INTENSIV_GALLERY = [
-  '/gallery/teaching_gallery_1.png',
-  '/gallery/teaching_gallery_2.png',
-  '/gallery/teaching_gallery_3.jpg',
-  '/gallery/teaching_gallery_4.jpg',
-  '/gallery/teaching_gallery_5.jpg',
-  '/gallery/teaching_gallery_10.jpg',
-  '/gallery/teaching_gallery_11.jpeg',
-  '/gallery/teaching_gallery_8.jpg',
-  '/gallery/teaching_gallery_7.jpg',
-  '/gallery/teaching_gallery_13.jpg',
+  '/gallery/teaching_gallery_1.webp',
+  '/gallery/teaching_gallery_2.webp',
+  '/gallery/teaching_gallery_3.webp',
+  '/gallery/teaching_gallery_4.webp',
+  '/gallery/teaching_gallery_5.webp',
+  '/gallery/teaching_gallery_10.webp',
+  '/gallery/teaching_gallery_11.webp',
+  '/gallery/teaching_gallery_8.webp',
+  '/gallery/teaching_gallery_7.webp',
+  '/gallery/teaching_gallery_13.webp',
 ] as const
 
 /**
@@ -44,9 +44,9 @@ export const TEACHING_INTENSIV_GALLERY = [
  * Showcasing advanced typing techniques
  */
 export const TEACHING_TYPING_GALLERY = [
-  '/gallery/teaching_gallery_16.png',
-  '/gallery/teaching_gallery_6.jpg',
-  '/gallery/teaching_gallery_9.jpg',
+  '/gallery/teaching_gallery_16.webp',
+  '/gallery/teaching_gallery_6.webp',
+  '/gallery/teaching_gallery_9.webp',
 ] as const
 
 /**
@@ -54,10 +54,10 @@ export const TEACHING_TYPING_GALLERY = [
  * Showcasing practical typing cases
  */
 export const TEACHING_PRACTICE_GALLERY = [
-  '/gallery/teaching_gallery_15.png',
-  '/gallery/teaching_gallery_14.jpg',
-  '/gallery/teaching_gallery_17.png',
-  '/gallery/teaching_gallery_18.jpg',
+  '/gallery/teaching_gallery_15.webp',
+  '/gallery/teaching_gallery_14.webp',
+  '/gallery/teaching_gallery_17.webp',
+  '/gallery/teaching_gallery_18.webp',
 ] as const
 
 /**
@@ -65,8 +65,8 @@ export const TEACHING_PRACTICE_GALLERY = [
  * Showcasing leadership coaching materials
  */
 export const TEACHING_STRATEGIC_GALLERY = [
-  '/gallery/private_gallery_1.jpg',
-  '/gallery/private_gallery_2.jpg',
+  '/gallery/private_gallery_1.webp',
+  '/gallery/private_gallery_2.webp',
 ] as const
 
 /**
@@ -74,11 +74,11 @@ export const TEACHING_STRATEGIC_GALLERY = [
  * Showcasing parent/child relationship consultation materials
  */
 export const FAMILY_HARMONY_GALLERY = [
-  '/gallery/family_gallery_2.png',
-  '/gallery/family_gallery_3.png',
-  '/gallery/family_gallery_4.jpg',
-  '/gallery/family_gallery_6.jpg',
-  '/gallery/family_gallery_7.jpg',
+  '/gallery/family_gallery_2.webp',
+  '/gallery/family_gallery_3.webp',
+  '/gallery/family_gallery_4.webp',
+  '/gallery/family_gallery_6.webp',
+  '/gallery/family_gallery_7.webp',
 ] as const
 
 /**
@@ -86,6 +86,6 @@ export const FAMILY_HARMONY_GALLERY = [
  * Showcasing conflict resolution consultation materials
  */
 export const FAMILY_CONFLICT_GALLERY = [
-  '/gallery/family_gallery_1.png',
-  '/gallery/family_gallery_5.jpg',
+  '/gallery/family_gallery_1.webp',
+  '/gallery/family_gallery_5.webp',
 ] as const
