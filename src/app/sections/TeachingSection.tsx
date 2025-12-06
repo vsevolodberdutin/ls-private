@@ -16,6 +16,11 @@ import {
 } from 'lucide-react'
 import { TEACHING_SERVICES } from '@/constants/services'
 import { INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
+import {
+  TEACHING_INTENSIV,
+  TEACHING_TYPING,
+  TEACHING_PRACTICE,
+} from '@/constants/teaching'
 
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
@@ -40,43 +45,29 @@ import { DurationContent } from '../uiElements/cardItems/content/DurationContent
 import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
 import { TargetClientContent } from '../uiElements/cardItems/content/TargetClientContent'
 import { ProgramContent } from '../uiElements/cardItems/content/ProgramContent'
-import {
-  PricingCard,
-  type PricingOption,
-} from '../components/shared/PricingCard'
+import { PricingCard } from '../components/shared/PricingCard'
 import { Separator } from '../uiElements/Separator'
 import { MobileVisibleWrapper } from '../uiElements/wrappers/MobileVisibleWrapper'
 
-// ============================================================================
-// Courses Configuration
-// ============================================================================
-
-const INTENSIV_MODULES: PricingOption[] = [
-  {
-    label: 'Модуль 1: BASICS',
-    description: [
-      'теоретические основы',
-      'модель А',
-      '16 психотипов',
-      'символьная соционика',
-    ],
-    price: '12 000 ₽',
-    message:
-      'Здравствуйте, Элеонора! Интересует "Модуль 1: BASICS". Расскажите подробнее...',
-  },
-  {
-    label: 'Модуль 2: MEDIUM',
-    description: [
-      'интертипные отношения',
-      'малые группы',
-      'признаки Рейнина',
-      'методики определения психотипа',
-    ],
-    price: '12 000 ₽',
-    message:
-      'Здравствуйте, Элеонора! Интересует "Модуль 2: MEDIUM". Расскажите подробнее...',
-  },
-]
+/**
+ * Icon mapping utility
+ */
+const getIconComponent = (iconName: string): typeof Users => {
+  const iconMap: Record<string, typeof Users> = {
+    Users,
+    Settings,
+    UserPlus,
+    Brain,
+    ShipWheel,
+    Crown,
+    UserRoundSearch,
+    Video,
+    MessageSquare,
+    ClipboardList,
+    GraduationCap,
+  }
+  return iconMap[iconName] || Users
+}
 
 // ============================================================================
 // Main Component
@@ -110,70 +101,47 @@ const TeachingSection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Курс «ИНТЕНСИВ»" />
+              <ProductHeader text={TEACHING_INTENSIV.header.title} />
             </CardItem>
 
             {/* Modules */}
             <CardItem>
               <ContentColumn>
-                <PricingCard option={INTENSIV_MODULES[0]} />
-                <PricingCard option={INTENSIV_MODULES[1]} />
-                <PricingCard
-                  option={{
-                    label: 'Курс «ИНТЕНСИВ» - в записи',
-                    price: '15 000 ₽',
-                    message:
-                      'Здравствуйте, Элеонора! Интересует "Курс ИНТЕНСИВ - в записи". Расскажите подробнее...',
-                  }}
-                />
+                {TEACHING_INTENSIV.modules.map((module, index) => (
+                  <PricingCard key={index} option={module} />
+                ))}
 
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <MobileVisibleWrapper>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
+              <ContactCard message={TEACHING_INTENSIV.contactMessage} />
             </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
             <CardItem>
-              <TargetClientContent text="Руководители, HR-специалисты, психологи, люди, занимающиеся саморазвитием" />
+              <TargetClientContent
+                text={TEACHING_INTENSIV.targetClient.text}
+              />
             </CardItem>
             <CardItem>
               <DurationContent
-                text="36 академических часов (каждый модуль)"
-                note="3 онлайн-тренинга (12ч), 6 тренингов в записи (24ч) + живые встречи, закрытый телеграм-чат группы"
+                text={TEACHING_INTENSIV.duration.text}
+                note={TEACHING_INTENSIV.duration.note}
               />
             </CardItem>
             <CardItem>
               <ProgramContent
-                items={[
-                  {
-                    icon: Users,
-                    text: 'Сочетание соционики и теории управления людьми',
-                  },
-                  {
-                    icon: UserPlus,
-                    text: 'Осознанный подбор членов команды',
-                  },
-                  {
-                    icon: Settings,
-                    text: 'Ярко выраженный прикладной характер',
-                  },
-                  {
-                    icon: ShipWheel,
-                    text: 'Методики применения в управлении',
-                  },
-                  {
-                    icon: Brain,
-                    text: 'Методики определения психотипов с личной практикой',
-                  },
-                ]}
+                items={TEACHING_INTENSIV.program.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
 
             <MobileVisibleWrapper isMobile>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ИНТЕНСИВ. Расскажите подробнее о..." />
+              <ContactCard message={TEACHING_INTENSIV.contactMessage} />
             </MobileVisibleWrapper>
 
             <GalleryCard
@@ -187,67 +155,42 @@ const TeachingSection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Курс «ТОНКОСТИ ТИПИРОВАНИЯ»" />
+              <ProductHeader text={TEACHING_TYPING.header.title} />
             </CardItem>
 
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard
-                  option={{
-                    label: 'Модуль 3: TYPE-SPECIAL',
-                    price: '18 000 ₽',
-                    message:
-                      'Здравствуйте, Элеонора! Интересует "Курс «ТОНКОСТИ ТИПИРОВАНИЯ»". Расскажите подробнее...',
-                  }}
-                />
+                <PricingCard option={TEACHING_TYPING.pricing} />
 
-                <Footnote
-                  text={[
-                    'Только после прохождения 2-x базовых модулей Курса ИНТЕНСИВА',
-                  ]}
-                />
+                <Footnote text={[TEACHING_TYPING.footnote]} />
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <MobileVisibleWrapper>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
+              <ContactCard message={TEACHING_TYPING.contactMessage} />
             </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
             <CardItem>
               <DurationContent
-                text="32 академических часа"
-                note="онлайн, записи + живые встречи, закрытый телеграм-чат группы"
+                text={TEACHING_TYPING.duration.text}
+                note={TEACHING_TYPING.duration.note}
               />
             </CardItem>
             <CardItem>
               <ProgramContent
-                headerText="Программа курса:"
-                items={[
-                  {
-                    icon: Video,
-                    text: '5 тренингов в записи + 3 вебинара',
-                  },
-                  {
-                    icon: Users,
-                    text: 'Развитие навыков типирования',
-                  },
-                  {
-                    icon: Crown,
-                    text: 'Авторский метод "Типирование по сказке"',
-                  },
-                  {
-                    icon: UserRoundSearch,
-                    text: 'Личная практика с наставником',
-                  },
-                ]}
+                headerText={TEACHING_TYPING.program.headerText}
+                items={TEACHING_TYPING.program.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
 
             <MobileVisibleWrapper isMobile>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ТОНКОСТИ ТИПИРОВАНИЯ. Расскажите подробнее о..." />
+              <ContactCard message={TEACHING_TYPING.contactMessage} />
             </MobileVisibleWrapper>
             <GalleryCard
               images={TEACHING_TYPING_GALLERY}
@@ -260,56 +203,34 @@ const TeachingSection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Курс «ПРАКТИКА 3.0.»" />
+              <ProductHeader text={TEACHING_PRACTICE.header.title} />
             </CardItem>
 
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard
-                  option={{
-                    label: 'Модуль 4: TYPE-PRACTICE',
-                    description: ['онлайн-школа типирования'],
-                    price: '10 000 ₽',
-                    message:
-                      'Здравствуйте, Элеонора! Интересует "Курс «ПРАКТИКА 3.0.»". Расскажите подробнее...',
-                  }}
-                />
+                <PricingCard option={TEACHING_PRACTICE.pricing} />
 
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <MobileVisibleWrapper>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />
+              <ContactCard message={TEACHING_PRACTICE.contactMessage} />
             </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
             <CardItem>
               <ProgramContent
-                headerText="Программа курса:"
-                items={[
-                  {
-                    icon: ClipboardList,
-                    text: '3 кейса по определению психотипов волонтеров у каждого участника',
-                  },
-                  {
-                    icon: Video,
-                    text: '3 онлайн-вебинара с разбором преподавателем',
-                  },
-                  {
-                    icon: MessageSquare,
-                    text: 'Чат группы с изучением кейсов одногруппников',
-                  },
-                  {
-                    icon: GraduationCap,
-                    text: 'В среднем 25 кейсов для изучения',
-                  },
-                ]}
+                headerText={TEACHING_PRACTICE.program.headerText}
+                items={TEACHING_PRACTICE.program.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
             <MobileVisibleWrapper isMobile>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует курс ПРАКТИКА 3.0. Расскажите подробнее о..." />
+              <ContactCard message={TEACHING_PRACTICE.contactMessage} />
             </MobileVisibleWrapper>
             <GalleryCard
               images={TEACHING_PRACTICE_GALLERY}
