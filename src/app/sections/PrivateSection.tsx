@@ -12,6 +12,10 @@ import {
 } from 'lucide-react'
 import { PRICING, INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
 import {
+  PRIVATE_PERSONAL_SESSION,
+  PRIVATE_STRATEGIC_SESSION,
+} from '@/constants/private'
+import {
   PricingCard,
   type PricingOption,
 } from '../components/shared/PricingCard'
@@ -42,31 +46,38 @@ import { TargetClientContent } from '../uiElements/cardItems/content/TargetClien
 import { ProductHeader } from '../uiElements/cardItems/content/ProductHeader'
 import { MobileVisibleWrapper } from '../uiElements/wrappers/MobileVisibleWrapper'
 
+/**
+ * Icon mapping utility
+ */
+const getIconComponent = (iconName: string): typeof Heart => {
+  const iconMap: Record<string, typeof Heart> = {
+    Heart,
+    Waves,
+    Briefcase,
+    Target,
+    Brain,
+    ShipWheel,
+    Headset,
+  }
+  return iconMap[iconName] || Briefcase
+}
+
 // ============================================================================
 // Pricing Options Configuration
 // ============================================================================
 
-const PRICING_OPTIONS: PricingOption[] = [
-  {
-    label: PRICING.online.label,
-    price: PRICING.online.formatted,
-    message: 'Здравствуйте, я хочу записаться на личную сессию Online',
-  },
-  {
-    label: PRICING.inPerson.label,
-    price: PRICING.inPerson.formatted,
-    description: PRICING.inPerson.descriptions,
-    message:
-      'Здравствуйте, я хочу записаться на личную сессию-встречу в городе ...',
-  },
-  {
-    label: PRICING.otherCities.label,
-    price: PRICING.otherCities.formatted,
-    description: PRICING.otherCities.descriptions,
-    message:
-      'Здравствуйте, я хочу записаться на личную сессию-встречу в городе ...',
-  },
-]
+const PRICING_OPTIONS: PricingOption[] = PRIVATE_PERSONAL_SESSION.pricingOptions.map(
+  (option) => {
+    const pricingData =
+      PRICING[option.type as keyof typeof PRICING]
+    return {
+      label: pricingData.label,
+      price: pricingData.formatted,
+      description: 'descriptions' in pricingData ? pricingData.descriptions : undefined,
+      message: option.message,
+    }
+  }
+)
 
 // ============================================================================
 // Main Component
@@ -87,14 +98,12 @@ const PrivateSection: React.FC = () => {
         <GridProductWrapper>
           {/* Title Card */}
           <HeaderCardItem>
-            <CardItemHeader text={'Личная сессия'} />
+            <CardItemHeader text={PRIVATE_PERSONAL_SESSION.header.title} />
           </HeaderCardItem>
           {/* Description Card */}
           <HeaderCardItem>
             <CardItemSubHeader
-              text={
-                'На ней пройдет диагностика психотипа с применением комплекса методик, после чего мы разберем сильные и слабые стороны вашего психотипа, профориентирование, понимание мотивации и развитие потенциала личности'
-              }
+              text={PRIVATE_PERSONAL_SESSION.header.description}
             />
           </HeaderCardItem>
         </GridProductWrapper>
@@ -117,27 +126,17 @@ const PrivateSection: React.FC = () => {
           <ContentColumn>
             {/* Duration Card */}
             <CardItem>
-              <DurationContent text=" Продолжительность 2 часа" />
+              <DurationContent text={PRIVATE_PERSONAL_SESSION.duration.text} />
             </CardItem>
 
             {/* Report Card */}
             <CardItem>
               <ReportContent
-                headerText=" После консультации вы получаете отчет / лист профориентации с рекомендациями:"
-                items={[
-                  {
-                    icon: Briefcase,
-                    text: 'Как развить потенциал и построить карьеру',
-                  },
-                  {
-                    icon: Heart,
-                    text: 'Какие отношения подходят для гармоничной жизни',
-                  },
-                  {
-                    icon: Waves,
-                    text: 'Как восстанавливать энергию и ресурс',
-                  },
-                ]}
+                headerText={PRIVATE_PERSONAL_SESSION.report.headerText}
+                items={PRIVATE_PERSONAL_SESSION.report.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
           </ContentColumn>
@@ -158,64 +157,48 @@ const PrivateSection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Стратегическая сессия для управленцев" />
+              <ProductHeader text={PRIVATE_STRATEGIC_SESSION.header.title} />
             </CardItem>
 
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard
-                  option={{
-                    label: 'Модуль "Стратегия"',
-                    price: '50 000 ₽',
-
-                    message:
-                      'Здравствуйте, Элеонора! Интересует Модуль "Стратегия" для управленцев. Расскажите подробнее...',
-                  }}
-                />
+                <PricingCard option={PRIVATE_STRATEGIC_SESSION.pricing} />
               </ContentColumn>
             </CardItem>
             {/* Contact Card */}
             <MobileVisibleWrapper>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
+              <ContactCard
+                message={PRIVATE_STRATEGIC_SESSION.contactMessage}
+              />
             </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
             <CardItem>
-              <TargetClientContent text="Руководители, топ-менеджеры, владельцы бизнеса, HR-директора" />
+              <TargetClientContent
+                text={PRIVATE_STRATEGIC_SESSION.targetClient.text}
+              />
             </CardItem>
             <CardItem>
               <DurationContent
-                text="4 занятия еженедельно (7-8 академ.часов)"
-                note="онлайн/оффлайн, онлайн-сопровождение в течение всего периода"
+                text={PRIVATE_STRATEGIC_SESSION.duration.text}
+                note={PRIVATE_STRATEGIC_SESSION.duration.note}
               />
             </CardItem>
             <CardItem>
               <ProgramContent
-                headerText="Цель сессии:"
-                items={[
-                  {
-                    icon: Target,
-                    text: 'Проработка осознанности путей развития лидерских качеств',
-                  },
-                  {
-                    icon: Brain,
-                    text: 'Развитие с опорой на психотип',
-                  },
-                  {
-                    icon: ShipWheel,
-                    text: 'Помощь в решении управленческих кейсов',
-                  },
-                  {
-                    icon: Headset,
-                    text: 'Персональное онлайн-сопровождение',
-                  },
-                ]}
+                headerText={PRIVATE_STRATEGIC_SESSION.program.headerText}
+                items={PRIVATE_STRATEGIC_SESSION.program.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
             <MobileVisibleWrapper isMobile>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует стратегическая сессия для управленцев. Есть вопрос о..." />
+              <ContactCard
+                message={PRIVATE_STRATEGIC_SESSION.contactMessage}
+              />
             </MobileVisibleWrapper>
             <GalleryCard
               images={TEACHING_STRATEGIC_GALLERY}

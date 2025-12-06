@@ -179,21 +179,6 @@ export const ABOUT_PHILOSOPHY = {
   ],
 } as const
 
-// Legacy exports for backward compatibility
+// Legacy export for backward compatibility
 // @deprecated Use ABOUT_INTRODUCTION instead
 export const ABOUT = ABOUT_INTRODUCTION
-
-// @deprecated Use ABOUT_PUBLICATIONS instead
-export const ARTICLES = ABOUT_PUBLICATIONS
-
-// @deprecated Use ABOUT_CONFERENCES instead
-export const CONFERENCES = ABOUT_CONFERENCES
-
-// Type exports
-export type AboutTabsData = typeof ABOUT_TABS
-export type AboutIntroductionData = typeof ABOUT_INTRODUCTION
-export type AboutPublicationsData = typeof ABOUT_PUBLICATIONS
-export type AboutConferencesData = typeof ABOUT_CONFERENCES
-export type AboutPhilosophyData = typeof ABOUT_PHILOSOPHY
-export type Article = (typeof ABOUT_PUBLICATIONS)[number]
-export type Conference = (typeof ABOUT_CONFERENCES)[number]
