@@ -43,6 +43,7 @@ export const PhilosophyContent: React.FC = () => {
                 alt={card.title}
                 fill
                 className="object-contain"
+                priority
               />
             </div>
 

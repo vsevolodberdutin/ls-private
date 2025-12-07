@@ -109,9 +109,7 @@ Expected improvements after optimization:
 
 ## Already Implemented Code Optimizations
 
-✅ Lazy loading on gallery images
 ✅ Optimized responsive image sizes
 ✅ LCP image preloading (/main.svg)
-✅ Lazy loading on footer company logos
 
 Next step: Compress the actual image files using one of the methods above.
