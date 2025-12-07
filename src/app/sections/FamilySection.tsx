@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Heart, Users, Handshake, UserCheck } from 'lucide-react'
 import { FAMILY_SERVICES } from '@/constants/services'
 import { INTERNATIONAL_PRICING_FOOTNOTE } from '@/constants/contacts'
+import { FAMILY_HARMONY, FAMILY_CONFLICT } from '@/constants/family'
 import { ContactCard } from '@/app/components/shared/ContactCard'
 import { GalleryCard } from '@/app/components/shared/GalleryCard'
 import { ImagePopup } from '@/app/components/shared/ImagePopup'
@@ -31,33 +32,18 @@ import {
 import { Separator } from '../uiElements/Separator'
 import { MobileVisibleWrapper } from '../uiElements/wrappers/MobileVisibleWrapper'
 
-// ============================================================================
-// Pricing Options Configuration
-// ============================================================================
-
-const FAMILY_PRICING_OPTIONS: PricingOption[] = [
-  {
-    label: FAMILY_SERVICES.personalSession.types[0].name,
-    description: FAMILY_SERVICES.personalSession.types[0].description,
-    price: FAMILY_SERVICES.personalSession.types[0].priceFormatted,
-    message:
-      'Здравствуйте, Элеонора! Интересует консультация "Гармония отношений в паре, родитель/ребенок". Расскажите подробнее...',
-  },
-  {
-    label: FAMILY_SERVICES.personalSession.types[1].name,
-
-    price: FAMILY_SERVICES.personalSession.types[1].priceFormatted,
-    message:
-      'Здравствуйте, Элеонора! Интересует консультация "Разрешение конфликтов в паре". Расскажите подробнее...',
-  },
-  {
-    label: FAMILY_SERVICES.personalSession.types[2].name,
-
-    price: FAMILY_SERVICES.personalSession.types[2].priceFormatted,
-    message:
-      'Здравствуйте, Элеонора! Интересует консультация "Разрешение конфликтов в паре". Расскажите подробнее...',
-  },
-]
+/**
+ * Icon mapping utility
+ */
+const getIconComponent = (iconName: string): typeof Users => {
+  const iconMap: Record<string, typeof Users> = {
+    Users,
+    Heart,
+    UserCheck,
+    Handshake,
+  }
+  return iconMap[iconName] || Users
+}
 
 // ============================================================================
 // Main Component
@@ -92,55 +78,53 @@ const FamilySection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Гармония отношений" />
+              <ProductHeader text={FAMILY_HARMONY.header.title} />
             </CardItem>
 
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard option={FAMILY_PRICING_OPTIONS[0]} />
-                <PricingCard option={FAMILY_PRICING_OPTIONS[1]} />
+                {FAMILY_HARMONY.pricingOptions.map((option, index) => {
+                  const serviceType =
+                    FAMILY_SERVICES.personalSession.types[option.type]
+                  const pricingOption: PricingOption = {
+                    label: serviceType.name,
+                    description:
+                      'description' in serviceType
+                        ? serviceType.description
+                        : undefined,
+                    price: serviceType.priceFormatted,
+                    message: option.message,
+                  }
+                  return <PricingCard key={index} option={pricingOption} />
+                })}
 
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <MobileVisibleWrapper>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
+              <ContactCard message={FAMILY_HARMONY.contactMessage} />
             </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
             <CardItem>
               <DurationContent
-                text="4 часа"
-                note="2 личных сессии + разбор отношений на второй встрече"
+                text={FAMILY_HARMONY.duration.text}
+                note={FAMILY_HARMONY.duration.note}
               />
             </CardItem>
             <CardItem>
               <ProgramContent
-                headerText="Что включает:"
-                items={[
-                  {
-                    icon: Users,
-                    text: 'Индивидуальные консультации',
-                  },
-                  {
-                    icon: Heart,
-                    text: 'Разбор интертипных отношений',
-                  },
-                  {
-                    icon: UserCheck,
-                    text: 'Улучшение взаимопонимания',
-                  },
-                  {
-                    icon: Handshake,
-                    text: 'Гармонизация отношений',
-                  },
-                ]}
+                headerText={FAMILY_HARMONY.program.headerText}
+                items={FAMILY_HARMONY.program.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
             <MobileVisibleWrapper isMobile>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультация по гармонии отношений с ребенком. Расскажите подробнее о..." />
+              <ContactCard message={FAMILY_HARMONY.contactMessage} />
             </MobileVisibleWrapper>
             <GalleryCard
               images={FAMILY_HARMONY_GALLERY}
@@ -153,54 +137,51 @@ const FamilySection: React.FC = () => {
         <GridProductWrapper>
           <ContentColumn>
             <CardItem>
-              <ProductHeader text="Разрешение конфликтов в паре" />
+              <ProductHeader text={FAMILY_CONFLICT.header.title} />
             </CardItem>
 
             {/* Pricing */}
             <CardItem>
               <ContentColumn>
-                <PricingCard option={FAMILY_PRICING_OPTIONS[2]} />
+                {(() => {
+                  const serviceType =
+                    FAMILY_SERVICES.personalSession.types[
+                      FAMILY_CONFLICT.pricing.type
+                    ]
+                  const pricingOption: PricingOption = {
+                    label: serviceType.name,
+                    price: serviceType.priceFormatted,
+                    message: FAMILY_CONFLICT.pricing.message,
+                  }
+                  return <PricingCard option={pricingOption} />
+                })()}
 
                 <Footnote text={INTERNATIONAL_PRICING_FOOTNOTE} />
               </ContentColumn>
             </CardItem>
             <MobileVisibleWrapper>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультаци по разрешению конфликтов. Расскажите подробнее о..." />
+              <ContactCard message={FAMILY_CONFLICT.contactMessage} />
             </MobileVisibleWrapper>
           </ContentColumn>
 
           <ContentColumn>
             <CardItem>
               <DurationContent
-                text="6-8 часов"
-                note="2 личных сессии участников конфликта + 1-2 сессии по примирению"
+                text={FAMILY_CONFLICT.duration.text}
+                note={FAMILY_CONFLICT.duration.note}
               />
             </CardItem>
             <CardItem>
               <ProgramContent
-                headerText="Что включает:"
-                items={[
-                  {
-                    icon: Users,
-                    text: 'Личные сессии каждого участника конфликта',
-                  },
-                  {
-                    icon: Handshake,
-                    text: 'Сессии по примирению сторон',
-                  },
-                  {
-                    icon: Heart,
-                    text: 'Выработка осознанной позиции',
-                  },
-                  {
-                    icon: UserCheck,
-                    text: 'Формирование мирной стратегии',
-                  },
-                ]}
+                headerText={FAMILY_CONFLICT.program.headerText}
+                items={FAMILY_CONFLICT.program.items.map((item) => ({
+                  icon: getIconComponent(item.icon),
+                  text: item.text,
+                }))}
               />
             </CardItem>
             <MobileVisibleWrapper isMobile>
-              <ContactCard message="Здравствуйте, Элеонора! Интересует семейная консультаци по разрешению конфликтов. Расскажите подробнее о..." />
+              <ContactCard message={FAMILY_CONFLICT.contactMessage} />
             </MobileVisibleWrapper>
             <GalleryCard
               images={FAMILY_CONFLICT_GALLERY}
