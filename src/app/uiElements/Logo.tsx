@@ -22,7 +22,7 @@ const Logo = () => {
         <Image
           src="/ls_logo.svg"
           alt="logo"
-          style={{ filter: 'var(--logo-filter)' }}
+          style={{ filter: 'var(--logo-filter)', width: '140px', height: '40px' }}
           width={140}
           height={40}
           priority
