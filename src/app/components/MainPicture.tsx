@@ -12,10 +12,10 @@ export const MainPicture: React.FC = () => (
         className="relative hidden
           tablet:flex tablet:w-[307px]
           desktop:w-96"
-        src="/main.svg"
+        src="/main_6.png"
         alt="Eleanor main"
-        width={500}
-        height={500}
+        width={800}
+        height={400}
         priority
       />
     </WhiteCircleWrapper>
@@ -26,8 +26,8 @@ export const MobileMainPicture: React.FC = () => (
   <MobileWrapper>
     <RoundImgWrapper>
       <Image
-        className="relative inset-y-8 scale-150"
-        src="/main.svg"
+        className="relative inset-y-5 inset-x-2 scale-150"
+        src="/main_6.png"
         alt="Eleanor main"
         width={100}
         height={100}
