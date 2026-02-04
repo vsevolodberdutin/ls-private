@@ -9,10 +9,10 @@ export const MainPicture: React.FC = () => (
   <ShadowImgWrapper>
     <WhiteCircleWrapper>
       <Image
-        className="relative hidden
+        className="relative hidden scale-[110%] -inset-y-3
           tablet:flex tablet:w-[307px]
           desktop:w-96"
-        src="/main_6.png"
+        src="/main_7.png"
         alt="Eleanor main"
         width={800}
         height={400}
@@ -26,8 +26,8 @@ export const MobileMainPicture: React.FC = () => (
   <MobileWrapper>
     <RoundImgWrapper>
       <Image
-        className="relative inset-y-5 inset-x-2 scale-150"
-        src="/main_6.png"
+        className="relative inset-y-2 scale-150"
+        src="/main_7.png"
         alt="Eleanor main"
         width={100}
         height={100}
