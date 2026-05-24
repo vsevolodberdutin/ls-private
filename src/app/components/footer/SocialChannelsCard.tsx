@@ -9,6 +9,23 @@ export const SocialChannelsCard: React.FC = () => {
       </h3>
 
       <div className="space-y-4">
+        {/* Boosty */}
+        <SocialChannelLink
+          href="https://boosty.to/eleanor_live"
+          label="Boosty"
+          username="eleanor_live"
+          hoverColorClasses="hover:border-orange-400/50 hover:bg-orange-500/10"
+          icon={
+            <svg
+              className="w-8 h-8 text-amber-100 group-hover:text-amber-300 group-hover:scale-110 transition-all"
+              fill="currentColor"
+              viewBox="0 0 830.9 1000"
+            >
+              <path d="M26.2,597.3L199.1,0h265l-53.6,185.2c-0.6,1-1,2.1-1.3,3.3l-140.7,489h131.3C344.8,814.6,301.9,922.1,271,1000 C28.7,997.2-39.2,823.6,20.2,618.3 M271.9,1000l319.4-460H455.8l117.9-294.7c202.4,21.3,297.2,180.4,241.5,373 c-59.9,207-302.3,381.7-538.3,381.7C275.2,1000,273.6,1000,271.9,1000z" />
+            </svg>
+          }
+        />
+
         {/* Telegram Channel */}
         <SocialChannelLink
           href="https://t.me/livesocionics"
