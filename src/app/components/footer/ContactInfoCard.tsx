@@ -2,6 +2,8 @@ import React from 'react'
 import { CONTACTS } from '@/constants/contacts'
 import { MessengerButton } from './MessengerButton'
 
+const Separator = () => <div className="border-t border-white/10 my-4" />
+
 export const ContactInfoCard: React.FC = () => {
   return (
     <div className="rounded-2xl border border-white/20 bg-white/5 p-8">
@@ -57,6 +59,28 @@ export const ContactInfoCard: React.FC = () => {
               colorClasses="border-sky-400/30 bg-sky-500/10
                 hover:border-sky-400/60 hover:bg-sky-500/20"
             />
+          </div>
+        </div>
+
+        <Separator />
+        <div className="h-full flex flex-col gap-4">
+          <div className="mt-2 flex gap-2">
+            <span className="text-xs text-amber-100/40">*</span>
+            <p className=" text-xs text-amber-100/40 leading-tight">
+              Нажимая на кнопку мессенджера, вы переходите на сторонний сервис.
+              Ваши данные (телефон, текст сообщения) будут обработаны
+              соответствующим оператором
+            </p>
+          </div>
+          <div className="mt-2 flex gap-2">
+            <span className="text-xs text-amber-100/40">*</span>
+            <a
+              href="/privacy-policy/"
+              className="block text-xs text-amber-100/40 hover:text-amber-100/60 transition-colors"
+            >
+              Наша политика обработки{' '}
+              <span className="underline font-bold text-amber-100/60">персональных данных</span>
+            </a>
           </div>
         </div>
       </div>

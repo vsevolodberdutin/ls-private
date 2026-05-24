@@ -34,7 +34,11 @@ export default function RootLayout({
         {/* DNS prefetch and preconnect for faster resource loading */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
 
         {/* Inline critical CSS for faster rendering */}
         <style
@@ -58,14 +62,10 @@ export default function RootLayout({
             `,
           }}
         />
-        <link
-          rel="preload"
-          as="image"
-          href="/main.svg"
-          fetchPriority="high"
-        />
+        <link rel="preload" as="image" href="/main.svg" fetchPriority="high" />
 
-        {/* Yandex.Metrika counter */}
+        {/* Yandex.Metrika counter — DISABLED to comply with 152-FZ */}
+        {/*
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -81,11 +81,13 @@ export default function RootLayout({
             `,
           }}
         />
+        */}
       </head>
       {/* <!-- Dark mode enabled -->
           <html class="dark"></html> */}
       <body className={inter.className} suppressHydrationWarning>
-        {/* Yandex.Metrika noscript */}
+        {/* Yandex.Metrika noscript — DISABLED to comply with 152-FZ */}
+        {/*
         <noscript>
           <div>
             <img
@@ -95,6 +97,7 @@ export default function RootLayout({
             />
           </div>
         </noscript>
+        */}
         {children}
       </body>
     </html>
