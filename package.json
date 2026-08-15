@@ -16,7 +16,7 @@
     "@vercel/analytics": "^1.6.1",
     "lucide-react": "^0.552.0",
     "nanoid": "^5.1.6",
-    "next": "^16.0.7",
+    "next": "16.0.10",
     "prettier": "^3.2.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
